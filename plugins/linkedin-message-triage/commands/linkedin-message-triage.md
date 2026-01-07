@@ -3,4 +3,4 @@ description: Systematic LinkedIn inbox review - filter solicitations, identify m
 disable-model-invocation: true
 ---
 
-Invoke the linkedin-message-triage skill and follow it exactly as presented to you
+Invoke the linkedin-message-triage:linkedin-message-triage skill and follow it exactly as presented to you

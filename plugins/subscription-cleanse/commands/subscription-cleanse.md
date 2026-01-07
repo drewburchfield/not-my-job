@@ -3,4 +3,4 @@ description: Comprehensive subscription audit with bank CSV analysis and email r
 disable-model-invocation: true
 ---
 
-Invoke the subscription-cleanse skill and follow it exactly as presented to you
+Invoke the subscription-cleanse:subscription-cleanse skill and follow it exactly as presented to you
