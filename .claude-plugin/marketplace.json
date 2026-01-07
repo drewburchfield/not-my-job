@@ -1,0 +1,37 @@
+{
+  "name": "not-my-job",
+  "owner": {
+    "name": "Drew Burchfield",
+    "url": "https://github.com/drewburchfield"
+  },
+  "metadata": {
+    "description": "Personal productivity plugins for Claude Code"
+  },
+  "plugins": [
+    {
+      "name": "1password-management",
+      "source": "./plugins/1password-management",
+      "description": "Proper syntax, field types, and best practices for managing credentials with 1Password CLI (op)"
+    },
+    {
+      "name": "cre-property-research",
+      "source": "./plugins/cre-property-research",
+      "description": "Comprehensive commercial real estate property research and market analysis"
+    },
+    {
+      "name": "linkedin-message-triage",
+      "source": "./plugins/linkedin-message-triage",
+      "description": "Systematic LinkedIn inbox review - filter solicitations, identify messages needing responses, draft replies"
+    },
+    {
+      "name": "markdown-to-confluence",
+      "source": "./plugins/markdown-to-confluence",
+      "description": "Convert Markdown documents to Confluence Storage Format (XHTML-based XML)"
+    },
+    {
+      "name": "subscription-cleanse",
+      "source": "./plugins/subscription-cleanse",
+      "description": "Comprehensive subscription audit with bank CSV analysis and email reconnaissance"
+    }
+  ]
+}

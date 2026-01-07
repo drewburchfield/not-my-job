@@ -1,0 +1,5 @@
+{
+  "name": "markdown-to-confluence",
+  "version": "1.0.0",
+  "description": "Convert Markdown documents to Confluence Storage Format (XHTML-based XML)"
+}

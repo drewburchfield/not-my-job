@@ -1,0 +1,5 @@
+{
+  "name": "1password-management",
+  "version": "1.0.0",
+  "description": "Proper syntax, field types, and best practices for managing credentials with 1Password CLI (op)"
+}

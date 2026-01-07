@@ -1,0 +1,37 @@
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+.tmp/
+
+# Secrets (shouldn't be in skills, but just in case)
+*.env
+*.env.*
+!*.env.example
+secrets/
+credentials/
+
+# Build artifacts
+dist/
+build/
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+
+# Test outputs
+*.json.tmp
+extracted_merchants.json

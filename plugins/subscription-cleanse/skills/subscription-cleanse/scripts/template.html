@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Cleanse - {{DATE}}</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h1 { color: #f1f5f9; margin-bottom: 0.5rem; }
+        .subtitle { color: #94a3b8; margin-bottom: 2rem; }
+
+        /* Summary Card */
+        .summary {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #334155;
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .summary-item { text-align: center; }
+        .summary-label { color: #94a3b8; font-size: 0.875rem; }
+        .summary-value { font-size: 1.5rem; font-weight: bold; }
+        .summary-value.cancel { color: #f87171; }
+        .summary-value.investigate { color: #fbbf24; }
+        .summary-value.keep { color: #4ade80; }
+        .summary-value.negotiate { color: #60a5fa; }
+
+        /* Savings Hero */
+        .savings-hero {
+            background: linear-gradient(135deg, #166534 0%, #15803d 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .savings-hero h2 { font-size: 2rem; color: #fff; }
+        .savings-hero .annual { font-size: 3rem; font-weight: bold; color: #4ade80; }
+        .savings-hero .monthly { color: #86efac; }
+
+        /* Section Headers */
+        .section {
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .section-header {
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            user-select: none;
+        }
+        .section-header h2 { font-size: 1.25rem; }
+        .section-count {
+            background: rgba(255,255,255,0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.875rem;
+            margin-left: auto;
+        }
+
+        /* Category Colors */
+        .section.cancel { background: #7f1d1d; }
+        .section.cancel .section-header { background: #991b1b; }
+        .section.investigate { background: #78350f; }
+        .section.investigate .section-header { background: #92400e; }
+        .section.keep { background: #14532d; }
+        .section.keep .section-header { background: #166534; }
+
+        /* Subscription Items */
+        .items { padding: 0.5rem; }
+        .item {
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .item-checkbox {
+            width: 24px;
+            height: 24px;
+            accent-color: #4ade80;
+            cursor: pointer;
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+        .item-content { flex: 1; }
+        .item-name { font-weight: 600; font-size: 1.1rem; }
+        .item-amount { color: #fbbf24; font-weight: bold; }
+        .item-details { color: #94a3b8; font-size: 0.875rem; margin-top: 0.25rem; }
+        .item-reason {
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            background: rgba(0,0,0,0.2);
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+        .item-actions { margin-top: 0.75rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-cancel {
+            background: #dc2626;
+            color: white;
+        }
+        .btn-cancel:hover { background: #b91c1c; }
+        .btn-secondary {
+            background: #475569;
+            color: white;
+        }
+        .btn-secondary:hover { background: #64748b; }
+
+        /* Negotiate Note */
+        .negotiate-note {
+            font-size: 0.8rem;
+            color: #93c5fd;
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 4px;
+            border-left: 3px solid #3b82f6;
+        }
+        .negotiate-note.warning {
+            color: #fcd34d;
+            background: rgba(251, 191, 36, 0.1);
+            border-left-color: #f59e0b;
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #4ade80;
+            color: #0f172a;
+            padding: 1rem 1.5rem;
+            border-radius: 999px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(74, 222, 128, 0.4);
+            display: none;
+            z-index: 100;
+        }
+        .fab:hover { background: #22c55e; }
+        .fab.visible { display: block; }
+
+        /* Privacy Toggle */
+        .privacy-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: #334155;
+            color: #e2e8f0;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+        .privacy-mode .item-name { filter: blur(6px); }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            color: #64748b;
+            font-size: 0.75rem;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #334155;
+        }
+
+        /* Print styles */
+        @media print {
+            body { background: white; color: black; }
+            .section { break-inside: avoid; }
+            .fab, .privacy-toggle { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="privacy-toggle" onclick="togglePrivacy()">Privacy Mode</div>
+
+    <h1>Subscription Cleanse</h1>
+    <p class="subtitle">Generated: {{DATE}} | Sources: {{SOURCES}}</p>
+
+    <div class="summary">
+        <div class="summary-grid">
+            <div class="summary-item">
+                <div class="summary-label">Total Monthly</div>
+                <div class="summary-value">${{TOTAL_MONTHLY}}</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-label">Cancel</div>
+                <div class="summary-value cancel">${{CANCEL_MONTHLY}}/mo</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-label">Investigate</div>
+                <div class="summary-value investigate">${{INVESTIGATE_MONTHLY}}/mo</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-label">Keep</div>
+                <div class="summary-value keep">${{KEEP_MONTHLY}}/mo</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-label">Negotiable</div>
+                <div class="summary-value negotiate">{{NEGOTIATE_COUNT}} services</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="savings-hero">
+        <h2>Potential Savings</h2>
+        <div class="annual">${{SAVINGS_ANNUAL}}/year</div>
+        <div class="monthly">(${{SAVINGS_MONTHLY}}/month)</div>
+    </div>
+
+    <!-- CANCEL SECTION -->
+    <div class="section cancel">
+        <div class="section-header" onclick="toggleSection(this)">
+            <span>Cancel</span>
+            <h2>Recommended to Cancel</h2>
+            <span class="section-count">{{CANCEL_COUNT}} items</span>
+        </div>
+        <div class="items">
+            <!-- CANCEL_ITEMS -->
+            <!--
+            Template for cancel items:
+            <div class="item">
+                <input type="checkbox" class="item-checkbox" onchange="updateFab()">
+                <div class="item-content">
+                    <div class="item-name">SERVICE_NAME</div>
+                    <div class="item-amount">$XX.XX/mo ($XXX/yr)</div>
+                    <div class="item-details">Last charge: DATE | Source: BANK/EMAIL</div>
+                    <div class="item-reason">REASON_FOR_CANCEL</div>
+                    <div class="item-actions">
+                        <a href="CANCEL_URL" target="_blank" class="btn btn-cancel">Cancel Now</a>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+    </div>
+
+    <!-- INVESTIGATE SECTION -->
+    <div class="section investigate">
+        <div class="section-header" onclick="toggleSection(this)">
+            <span>Review</span>
+            <h2>Needs Your Decision</h2>
+            <span class="section-count">{{INVESTIGATE_COUNT}} items</span>
+        </div>
+        <div class="items">
+            <!-- INVESTIGATE_ITEMS -->
+            <!--
+            Template for investigate items:
+            <div class="item">
+                <input type="checkbox" class="item-checkbox" onchange="updateFab()">
+                <div class="item-content">
+                    <div class="item-name">SERVICE_NAME</div>
+                    <div class="item-amount">$XX.XX/mo ($XXX/yr)</div>
+                    <div class="item-details">Last charge: DATE | CONTEXT</div>
+                    <div class="item-reason">WHY_INVESTIGATE: Question to consider</div>
+                    <div class="item-actions">
+                        <a href="CANCEL_URL" target="_blank" class="btn btn-cancel">Cancel</a>
+                        <button class="btn btn-secondary" onclick="moveToKeep(this)">Keep</button>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+    </div>
+
+    <!-- KEEP SECTION -->
+    <div class="section keep">
+        <div class="section-header" onclick="toggleSection(this)">
+            <span>Keeping</span>
+            <h2>Intentional Subscriptions</h2>
+            <span class="section-count">{{KEEP_COUNT}} items</span>
+        </div>
+        <div class="items">
+            <!-- KEEP_ITEMS -->
+            <!--
+            Template for keep items:
+            <div class="item">
+                <div class="item-content">
+                    <div class="item-name">SERVICE_NAME</div>
+                    <div class="item-amount">$XX.XX/mo ($XXX/yr)</div>
+                    <div class="item-details">Last charge: DATE</div>
+                    <div class="item-reason">REASON_KEEPING</div>
+
+                    If negotiable, add:
+                    <div class="negotiate-note">
+                        Negotiable: Call retention or use BillShark. Typical savings: $XXX/year.
+                    </div>
+
+                    If NOT negotiable but has alternatives:
+                    <div class="negotiate-note warning">
+                        Fixed pricing. Alternatives: Annual billing saves 15%, student discount available.
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <div class="fab" onclick="copySelected()">
+        Copy Selected (<span id="selected-count">0</span>)
+    </div>
+
+    <footer>
+        <p>All data processed locally. No information sent to external services.</p>
+        <p>Generated by subscription-cleanse skill</p>
+    </footer>
+
+    <script>
+        // Toggle section collapse
+        function toggleSection(header) {
+            const items = header.nextElementSibling;
+            items.style.display = items.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Update floating action button
+        function updateFab() {
+            const checked = document.querySelectorAll('.item-checkbox:checked').length;
+            const fab = document.querySelector('.fab');
+            document.getElementById('selected-count').textContent = checked;
+            fab.classList.toggle('visible', checked > 0);
+        }
+
+        // Copy selected items
+        function copySelected() {
+            const checked = document.querySelectorAll('.item-checkbox:checked');
+            const items = Array.from(checked).map(cb => {
+                const item = cb.closest('.item');
+                const name = item.querySelector('.item-name').textContent;
+                const amount = item.querySelector('.item-amount').textContent;
+                return `${name} (${amount})`;
+            });
+            const text = `Cancel these:\n${items.join('\n')}`;
+            navigator.clipboard.writeText(text);
+            alert(`Copied ${items.length} items to clipboard!`);
+        }
+
+        // Toggle privacy mode
+        function togglePrivacy() {
+            document.body.classList.toggle('privacy-mode');
+        }
+
+        // Move item to keep
+        function moveToKeep(btn) {
+            const item = btn.closest('.item');
+            item.style.opacity = '0.5';
+            item.querySelector('.item-checkbox').checked = false;
+            updateFab();
+            // In real use, this would update state
+        }
+    </script>
+</body>
+</html>
