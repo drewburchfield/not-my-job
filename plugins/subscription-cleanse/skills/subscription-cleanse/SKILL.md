@@ -83,7 +83,15 @@ SCRIPTS="$SKILL_DIR/scripts"
 ls "$SCRIPTS"/*.sh
 ```
 
-If you cannot find the scripts directory, check:
+If automatic discovery fails, set the path manually:
+
+```bash
+# Option 1: Set SKILL_DIR manually if you know the path
+SKILL_DIR="/path/to/plugins/subscription-cleanse/skills/subscription-cleanse"
+SCRIPTS="$SKILL_DIR/scripts"
+```
+
+Common locations to check:
 - `~/.claude/plugins/*/skills/subscription-cleanse/scripts/`
 - `~/.config/claude-code/plugins/*/skills/subscription-cleanse/scripts/`
 - The user's local clone of the plugin repository

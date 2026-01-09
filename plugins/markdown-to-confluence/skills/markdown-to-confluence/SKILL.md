@@ -23,11 +23,14 @@ Trigger this skill when:
 
 ## Quick Start
 
+> **Script location:** The conversion script is bundled with this skill at `skills/markdown-to-confluence/scripts/md_to_confluence.py` relative to the plugin root.
+
 ### Basic Conversion
 
 Convert a markdown file to Confluence Storage Format:
 
 ```bash
+# From the skill directory (skills/markdown-to-confluence/)
 python scripts/md_to_confluence.py input.md output.xml
 ```
 

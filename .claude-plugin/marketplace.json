@@ -9,14 +9,14 @@
   },
   "plugins": [
     {
-      "name": "1password-management",
-      "source": "./plugins/1password-management",
-      "description": "Proper syntax, field types, and best practices for managing credentials with 1Password CLI (op)"
+      "name": "subscription-cleanse",
+      "source": "./plugins/subscription-cleanse",
+      "description": "Comprehensive subscription audit with bank CSV analysis and email reconnaissance"
     },
     {
-      "name": "cre-property-research",
-      "source": "./plugins/cre-property-research",
-      "description": "Comprehensive commercial real estate property research and market analysis"
+      "name": "braintrust",
+      "source": "./plugins/braintrust",
+      "description": "Orchestrate other AI CLIs (Gemini, Codex, Claude Code) for second opinions, research, and codebase analysis"
     },
     {
       "name": "linkedin-message-triage",
@@ -29,14 +29,14 @@
       "description": "Convert Markdown documents to Confluence Storage Format (XHTML-based XML)"
     },
     {
-      "name": "subscription-cleanse",
-      "source": "./plugins/subscription-cleanse",
-      "description": "Comprehensive subscription audit with bank CSV analysis and email reconnaissance"
+      "name": "cre-property-research",
+      "source": "./plugins/cre-property-research",
+      "description": "Comprehensive commercial real estate property research and market analysis"
     },
     {
-      "name": "braintrust",
-      "source": "./plugins/braintrust",
-      "description": "Orchestrate other AI CLIs (Gemini, Codex, Claude Code) for second opinions and research"
+      "name": "1password-management",
+      "source": "./plugins/1password-management",
+      "description": "Proper syntax, field types, and best practices for managing credentials with 1Password CLI (op)"
     },
     {
       "name": "readme-craft",
