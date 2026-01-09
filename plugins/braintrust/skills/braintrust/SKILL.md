@@ -32,9 +32,7 @@ The braintrust is always **the other two CLIs** based on which harness you're cu
 
 ## Prerequisites
 
-Before using the braintrust, verify the CLIs are installed and authenticated.
-
-**Run these health checks as background tasks in parallel:**
+Before using the braintrust, verify the CLIs are installed and authenticated:
 
 ```bash
 # Quick health check - all three should succeed
