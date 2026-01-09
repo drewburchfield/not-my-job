@@ -1,0 +1,5 @@
+{
+  "name": "braintrust",
+  "version": "1.0.0",
+  "description": "Orchestrate other AI CLIs (Gemini, Codex, Claude Code) for second opinions, research, and codebase analysis"
+}
