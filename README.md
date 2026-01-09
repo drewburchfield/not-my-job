@@ -61,6 +61,18 @@ Comprehensive subscription audit using bank CSV analysis and email reconnaissanc
 - Email reconnaissance via Gmail MCP
 - Interactive HTML audit report generation
 
+### braintrust
+Orchestrate other AI CLIs (Gemini, Codex, Claude Code) for second opinions, codebase analysis, and parallel research.
+
+- **Design & frontend review** - Gemini 3 leads WebDev Arena, 35% higher accuracy on UI tasks
+- **Architecture review** - Gemini's 1M context analyzes 40K+ lines holistically
+- **Cross-model code review** - Different training catches different blind spots
+- **Security audit** - Parallel review across all three catches more vulnerabilities
+- **System-wide debugging** - Full-codebase context for complex bugs
+- **Parallel research** - 3x speed with diverse perspectives
+
+**Requires:** Claude Code CLI, Gemini CLI, Codex CLI installed and authenticated
+
 ---
 
 ## Repository Structure
@@ -72,18 +84,27 @@ claude-skills/
 ├── plugins/
 │   ├── 1password-management/
 │   │   ├── .claude-plugin/plugin.json
+│   │   ├── commands/
+│   │   └── skills/
+│   ├── braintrust/
+│   │   ├── .claude-plugin/plugin.json
+│   │   ├── commands/
 │   │   └── skills/
 │   ├── cre-property-research/
 │   │   ├── .claude-plugin/plugin.json
+│   │   ├── commands/
 │   │   └── skills/
 │   ├── linkedin-message-triage/
 │   │   ├── .claude-plugin/plugin.json
+│   │   ├── commands/
 │   │   └── skills/
 │   ├── markdown-to-confluence/
 │   │   ├── .claude-plugin/plugin.json
+│   │   ├── commands/
 │   │   └── skills/
 │   └── subscription-cleanse/
 │       ├── .claude-plugin/plugin.json
+│       ├── commands/
 │       └── skills/
 └── README.md
 ```
