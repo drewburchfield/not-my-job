@@ -7,6 +7,8 @@ description: Orchestrate other AI CLIs (Gemini, Codex, Claude Code) for second o
 
 Consult your AI braintrust - the other AI CLIs available in your environment - for second opinions, research, and codebase analysis.
 
+> **Important:** Run all braintrust CLI invocations as background tasks in parallel so you can monitor progress instead of blocking.
+
 ## Why Multi-Model Collaboration Works
 
 Each AI model has different training data, reasoning patterns, and blind spots. Research and developer experience consistently shows:
