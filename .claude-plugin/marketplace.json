@@ -32,6 +32,11 @@
       "name": "subscription-cleanse",
       "source": "./plugins/subscription-cleanse",
       "description": "Comprehensive subscription audit with bank CSV analysis and email reconnaissance"
+    },
+    {
+      "name": "braintrust",
+      "source": "./plugins/braintrust",
+      "description": "Orchestrate other AI CLIs (Gemini, Codex, Claude Code) for second opinions and research"
     }
   ]
 }

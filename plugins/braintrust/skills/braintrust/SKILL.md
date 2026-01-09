@@ -33,15 +33,15 @@ The braintrust is always **the other two CLIs** based on which harness you're cu
 Before using the braintrust, verify the CLIs are installed and authenticated:
 
 ```bash
-# Quick health check - all three should respond
-claude -p "test" --model sonnet --output-format json 2>&1 | head -1
-gemini "test" -o json 2>&1 | head -1
-codex exec --json "test" 2>&1 | head -1
+# Quick health check - all three should succeed
+claude -p "test" --model haiku --output-format json &>/dev/null && echo "Claude: OK" || echo "Claude: FAILED"
+gemini "test" -m gemini-3-flash-preview -o json &>/dev/null && echo "Gemini: OK" || echo "Gemini: FAILED"
+codex exec --json "test" &>/dev/null && echo "Codex: OK" || echo "Codex: FAILED"
 ```
 
 **Before proceeding, verify:**
 - [ ] Claude CLI responds (if not: `npm install -g @anthropic-ai/claude-code`)
-- [ ] Gemini CLI responds (if not: `npm install -g @anthropic-ai/gemini-cli`)
+- [ ] Gemini CLI responds (if not: `npm install -g @google/gemini-cli`)
 - [ ] Codex CLI responds (if not: `npm install -g @openai/codex`)
 
 If any CLI fails, guide the user through installation and authentication before continuing.
@@ -99,7 +99,7 @@ Get a second opinion from the braintrust:
 gemini "Review this implementation approach: [CONTEXT]" -m gemini-3-pro-preview -o json | jq -r '.response'
 
 # From Claude Code - consult Codex
-codex exec --json "Review this implementation approach: [CONTEXT]" | grep agent_message | jq -r '.item.text'
+codex exec --json "Review this implementation approach: [CONTEXT]" | jq -rs 'map(select(.item.type? == "agent_message")) | last | .item.text'
 
 # From Gemini - consult Claude
 claude -p "Review this implementation approach: [CONTEXT]" --model sonnet --output-format json | jq -r '.result'
@@ -232,7 +232,7 @@ Parse with: `jq -r '.response'`
 ```json
 {"type":"item.completed","item":{"type":"agent_message","text":"response here"}}
 ```
-Parse with: `grep agent_message | jq -r '.item.text'`
+Parse with: `jq -rs 'map(select(.item.type? == "agent_message")) | last | .item.text'`
 
 ## Common Use Cases
 
