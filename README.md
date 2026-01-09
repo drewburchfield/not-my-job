@@ -18,6 +18,7 @@
 | 📄 | [**markdown-to-confluence**](#markdown-to-confluence) | Convert Markdown to Confluence Storage Format |
 | 🏢 | [**cre-property-research**](#cre-property-research) | Commercial real estate research and market analysis |
 | 🔐 | [**1password-management**](#1password-management) | Proper syntax for 1Password CLI |
+| 📝 | [**readme-craft**](#readme-craft) | Write clean, human-sounding README files |
 
 <br>
 
@@ -112,6 +113,17 @@ Proper syntax and best practices for 1Password CLI (`op`).
 - Complete field type reference
 - Category selection guide
 - Security best practices
+
+<p align="center">―</p>
+
+### readme-craft
+
+Write READMEs that are visually pleasing, appropriately scoped, and sound like a human wrote them.
+
+- Structure templates (minimal, standard, collection)
+- Visual polish techniques without overkill
+- Voice and tone guidance to avoid AI-generated vibes
+- Badge best practices
 
 <br>
 
