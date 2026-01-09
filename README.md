@@ -1,6 +1,6 @@
 # 🚫 not-my-job
 
-**Claude Code plugins for tasks you'd rather not do yourself.**
+**Agentic coding tool plugins for tasks you'd rather not do yourself.**
 
 <br>
 
@@ -43,9 +43,7 @@ Comprehensive subscription audit using bank CSV analysis and email reconnaissanc
 
 ## 🧠 braintrust
 
-> *Get the best of both worlds: your primary model doesn't waste context, and the others don't waste your time.*
-
-Inspired by [this Reddit post](https://www.reddit.com/r/ChatGPTCoding/comments/1lm3fxq/gemini_cli_is_awesome_but_only_when_you_make/) (1.2K upvotes) and expanded with community learnings and real-world usage to work from any harness.
+Inspired by [this Reddit post](https://www.reddit.com/r/ChatGPTCoding/comments/1lm3fxq/gemini_cli_is_awesome_but_only_when_you_make/) and expanded with community learnings and real-world usage to work from any harness.
 
 | Use Case | Why |
 |----------|-----|
