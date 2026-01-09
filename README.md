@@ -1,41 +1,64 @@
-# not-my-job
+# 🚫 not-my-job
 
-A collection of Claude Code plugins for tasks you'd rather not do yourself.
+**Agentic coding tool plugins for tasks you'd rather not do yourself.**
+
+<br>
+
+## ⭐ Featured
+
+| Plugin | What it does |
+|--------|--------------|
+| [**subscription-cleanse**](#-subscription-cleanse) | Find forgotten subscriptions bleeding your bank account |
+| [**braintrust**](#-braintrust) | Delegate work to other AI CLIs and get second opinions |
+
+<br>
 
 ## Installation
 
-Add the marketplace:
 ```bash
 claude plugins marketplace add drewburchfield/not-my-job
 ```
 
-Then install the plugins you want:
 ```bash
-claude plugins install 1password-management@not-my-job
 claude plugins install subscription-cleanse@not-my-job
+claude plugins install braintrust@not-my-job
 ```
 
-## Available Plugins
+<br>
 
-### 1password-management
-Proper syntax and best practices for managing credentials with 1Password CLI (`op`).
+---
 
-- Correct `op item create` syntax (fixes common bracket quoting issues)
-- Complete field type reference (password, text, url, email, date, etc.)
-- Category selection guide (API Credential, Login, Secure Note)
-- Security best practices
+## 💸 subscription-cleanse
 
-### cre-property-research
-Institutional-grade commercial real estate property research and market analysis.
+Comprehensive subscription audit using bank CSV analysis and email reconnaissance.
 
-- Multi-phase research framework (property, market, location, tenants)
-- Market rate comparisons with source citations
-- Tenant prospecting strategies by property type
-- Competitive intelligence gathering
+| Feature | Description |
+|---------|-------------|
+| Bank CSV parsing | Apple Card, Chase, Mint, Capital One, etc. |
+| Transaction decoding | Privacy.com, PayPal, Square, Google, Apple |
+| Email recon | Gmail MCP integration |
+| Output | Interactive HTML audit report |
 
-**Property types:** Industrial, flex, office, retail, multifamily
+---
 
-### linkedin-message-triage
+## 🧠 braintrust
+
+Inspired by [this Reddit post](https://www.reddit.com/r/ChatGPTCoding/comments/1lm3fxq/gemini_cli_is_awesome_but_only_when_you_make/) and expanded with community learnings and real-world usage to work from any harness.
+
+| Use Case | Why |
+|----------|-----|
+| **Offload the grunt work** | Have Gemini chew through your entire codebase (1M context) while you stay focused |
+| **Get a second opinion** | Models are blind to their own bugs; a fresh set of weights spots issues instantly |
+| **Design review** | Gemini 3 dominates WebDev Arena — let it critique your UI before you ship |
+| **Validate your direction** | Sanity check architecture decisions before you're 2000 lines deep |
+| **Parallel research** | Query all three simultaneously, synthesize the best answer |
+
+**Requires:** Claude Code CLI, Gemini CLI, Codex CLI
+
+---
+
+## 💼 linkedin-message-triage
+
 Systematic LinkedIn inbox review and response drafting.
 
 - Filter real connections from solicitations/InMail
@@ -43,9 +66,12 @@ Systematic LinkedIn inbox review and response drafting.
 - Draft personalized replies with career context
 - Handle delayed response acknowledgments
 
-**Requires:** Playwright MCP for browser automation
+**Requires:** Playwright MCP
 
-### markdown-to-confluence
+---
+
+## 📄 markdown-to-confluence
+
 Convert Markdown documents to Confluence Storage Format (XHTML-based XML).
 
 - Standard markdown syntax support
@@ -53,53 +79,50 @@ Convert Markdown documents to Confluence Storage Format (XHTML-based XML).
 - Tables, lists, links, images
 - Bundled Python conversion script
 
-### subscription-cleanse
-Comprehensive subscription audit using bank CSV analysis and email reconnaissance.
+---
 
-- Bank CSV parsing (Apple Card, Chase, Mint, Capital One, etc.)
-- Privacy.com, PayPal, Square, Google, Apple transaction decoding
-- Email reconnaissance via Gmail MCP
-- Interactive HTML audit report generation
+## 🏢 cre-property-research
+
+Institutional-grade commercial real estate property research and market analysis.
+
+- Multi-phase research framework (property, market, location, tenants)
+- Market rate comparisons with source citations
+- Tenant prospecting strategies by property type
+- Competitive intelligence gathering
+
+**Property types:** Industrial · Flex · Office · Retail · Multifamily
 
 ---
 
-## Repository Structure
+## 🔐 1password-management
 
-```
-claude-skills/
-├── .claude-plugin/
-│   └── marketplace.json
-├── plugins/
-│   ├── 1password-management/
-│   │   ├── .claude-plugin/plugin.json
-│   │   └── skills/
-│   ├── cre-property-research/
-│   │   ├── .claude-plugin/plugin.json
-│   │   └── skills/
-│   ├── linkedin-message-triage/
-│   │   ├── .claude-plugin/plugin.json
-│   │   └── skills/
-│   ├── markdown-to-confluence/
-│   │   ├── .claude-plugin/plugin.json
-│   │   └── skills/
-│   └── subscription-cleanse/
-│       ├── .claude-plugin/plugin.json
-│       └── skills/
-└── README.md
-```
+Proper syntax and best practices for managing credentials with 1Password CLI (`op`).
 
-## Per-Project Configuration
+- Correct `op item create` syntax (fixes common bracket quoting issues)
+- Complete field type reference (password, text, url, email, date, etc.)
+- Category selection guide (API Credential, Login, Secure Note)
+- Security best practices
 
-Disable plugins you don't need in a project's `.claude/settings.json`:
+---
+
+<br>
+
+## Configuration
+
 ```json
 {
   "enabledPlugins": {
     "subscription-cleanse@not-my-job": true,
-    "cre-property-research@not-my-job": false
+    "braintrust@not-my-job": true,
+    "linkedin-message-triage@not-my-job": false
   }
 }
 ```
 
+<sup>`.claude/settings.json`</sup>
+
+<br>
+
 ## License
 
-MIT License
+MIT
