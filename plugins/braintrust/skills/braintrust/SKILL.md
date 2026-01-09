@@ -30,21 +30,21 @@ The braintrust is always **the other two CLIs** based on which harness you're cu
 
 ## Prerequisites
 
-Verify the CLIs are installed (instant checks - no API calls):
+Before using the braintrust, verify the CLIs are installed and authenticated:
 
 ```bash
-# Quick install check
-command -v claude &>/dev/null && echo "Claude: installed" || echo "Claude: NOT FOUND"
-command -v gemini &>/dev/null && echo "Gemini: installed" || echo "Gemini: NOT FOUND"
-command -v codex &>/dev/null && echo "Codex: installed" || echo "Codex: NOT FOUND"
+# Quick health check - all three should succeed
+claude -p "test" --model haiku --output-format json &>/dev/null && echo "Claude: OK" || echo "Claude: FAILED"
+gemini "test" -m gemini-3-flash-preview -o json &>/dev/null && echo "Gemini: OK" || echo "Gemini: FAILED"
+codex exec --json "test" &>/dev/null && echo "Codex: OK" || echo "Codex: FAILED"
 ```
 
-**If missing, install:**
-- Claude: `npm install -g @anthropic-ai/claude-code`
-- Gemini: `npm install -g @google/gemini-cli`
-- Codex: `npm install -g @openai/codex`
+**Before proceeding, verify:**
+- [ ] Claude CLI responds (if not: `npm install -g @anthropic-ai/claude-code`)
+- [ ] Gemini CLI responds (if not: `npm install -g @google/gemini-cli`)
+- [ ] Codex CLI responds (if not: `npm install -g @openai/codex`)
 
-> **Note:** These checks verify installation only. Authentication issues will surface on first use - handle gracefully if a CLI fails during consultation.
+If any CLI fails, guide the user through installation and authentication before continuing.
 
 ## Braintrust Defaults
 
