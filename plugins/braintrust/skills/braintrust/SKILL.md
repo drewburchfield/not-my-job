@@ -1,13 +1,6 @@
 ---
 name: braintrust
-description: >
-  Orchestrate other AI CLIs (Gemini, Codex, Claude Code) for second opinions, research, and codebase analysis.
-  Use cases: (1) Design & frontend review - Gemini 3 leads WebDev Arena with 35% higher accuracy on UI tasks,
-  (2) Architecture review - leverage Gemini's 1M context to analyze entire codebases holistically,
-  (3) Cross-model code review - different training catches different blind spots,
-  (4) System-wide bug investigation - when issues span multiple files/modules,
-  (5) Security audit - verify auth patterns, SQL injection protection, rate limiting across codebase,
-  (6) Parallel research - query all three simultaneously for diverse perspectives and speed.
+description: Orchestrate other AI CLIs (Gemini, Codex, Claude Code) for second opinions, research, codebase analysis, design review, security audits, and parallel research
 ---
 
 # Braintrust
@@ -42,11 +35,16 @@ Before using the braintrust, verify the CLIs are installed and authenticated:
 ```bash
 # Quick health check - all three should respond
 claude -p "test" --model sonnet --output-format json 2>&1 | head -1
-gemini "test" -m gemini-3-pro-preview -o json 2>&1 | head -1
+gemini "test" -o json 2>&1 | head -1
 codex exec --json "test" 2>&1 | head -1
 ```
 
-If any fail, ensure the CLI is installed and you're logged in.
+**Before proceeding, verify:**
+- [ ] Claude CLI responds (if not: `npm install -g @anthropic-ai/claude-code`)
+- [ ] Gemini CLI responds (if not: `npm install -g @anthropic-ai/gemini-cli`)
+- [ ] Codex CLI responds (if not: `npm install -g @openai/codex`)
+
+If any CLI fails, guide the user through installation and authentication before continuing.
 
 ## Braintrust Defaults
 
@@ -182,6 +180,8 @@ echo "=== Codex ===" && grep agent_message /tmp/codex.json | jq -r '.item.text'
 ```
 
 ## Model Reference
+
+> **Note:** Model names and flags evolve as CLIs update. Verify current model names with `claude --help`, `gemini --help`, or `codex --help` if commands fail. The examples below reflect typical patterns.
 
 ### Claude Code
 
