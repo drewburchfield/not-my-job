@@ -39,7 +39,7 @@ claude plugins install braintrust@not-my-job
 
 ## Plugins
 
-### subscription-cleanse
+### 💸 subscription-cleanse
 
 Comprehensive subscription audit using bank CSV analysis and email reconnaissance.
 
@@ -52,7 +52,7 @@ Comprehensive subscription audit using bank CSV analysis and email reconnaissanc
 
 <p align="center">―</p>
 
-### braintrust
+### 🧠 braintrust
 
 Inspired by [this Reddit post](https://www.reddit.com/r/ChatGPTCoding/comments/1lm3fxq/gemini_cli_is_awesome_but_only_when_you_make/) and expanded with community learnings and real-world usage to work from any harness.
 
@@ -68,7 +68,7 @@ Inspired by [this Reddit post](https://www.reddit.com/r/ChatGPTCoding/comments/1
 
 <p align="center">―</p>
 
-### linkedin-message-triage
+### 💼 linkedin-message-triage
 
 Systematic LinkedIn inbox review and response drafting.
 
@@ -81,7 +81,7 @@ Systematic LinkedIn inbox review and response drafting.
 
 <p align="center">―</p>
 
-### markdown-to-confluence
+### 📄 markdown-to-confluence
 
 Convert Markdown documents to Confluence Storage Format (XHTML-based XML).
 
@@ -92,7 +92,7 @@ Convert Markdown documents to Confluence Storage Format (XHTML-based XML).
 
 <p align="center">―</p>
 
-### cre-property-research
+### 🏢 cre-property-research
 
 Institutional-grade commercial real estate research and market analysis.
 
@@ -105,7 +105,7 @@ Institutional-grade commercial real estate research and market analysis.
 
 <p align="center">―</p>
 
-### 1password-management
+### 🔐 1password-management
 
 Proper syntax and best practices for 1Password CLI (`op`).
 
@@ -116,7 +116,7 @@ Proper syntax and best practices for 1Password CLI (`op`).
 
 <p align="center">―</p>
 
-### readme-craft
+### 📝 readme-craft
 
 Write READMEs that are visually pleasing, appropriately scoped, and sound like a human wrote them.
 

@@ -118,7 +118,7 @@ install commands
 
 ## Items
 
-### item-one
+### 💸 item-one
 
 Description. Table for features if needed.
 
@@ -126,7 +126,7 @@ Description. Table for features if needed.
 
 <p align="center">―</p>
 
-### item-two
+### 🧠 item-two
 
 Same pattern...
 
@@ -189,6 +189,8 @@ Keeps emojis structured instead of scattered:
 
 The `:--:` centers the icon column.
 
+**Visual continuity:** For collection READMEs, repeat the same icon in the detail section header (e.g., `### 💸 plugin-one`). This creates a clear visual link between the summary table and the detailed sections.
+
 ### Section Dividers
 
 Add rhythm without clutter:
@@ -207,7 +209,7 @@ Add rhythm without clutter:
 - ASCII art banners
 - Animated header GIFs (unless demo is crucial)
 - Multiple emojis per line
-- Emojis on every header
+- Decorative emojis on headers (exception: thoughtful icons on collection items that match their summary table)
 - Contributor avatar grids (unless large project)
 - Table of Contents (unless 500+ lines)
 - "Welcome to..." greetings
