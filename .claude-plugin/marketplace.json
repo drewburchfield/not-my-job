@@ -32,6 +32,11 @@
       "name": "subscription-cleanse",
       "source": "./plugins/subscription-cleanse",
       "description": "Comprehensive subscription audit with bank CSV analysis and email reconnaissance"
+    },
+    {
+      "name": "readme-craft",
+      "source": "./plugins/readme-craft",
+      "description": "Write clean, human-sounding README files for personal and open source projects"
     }
   ]
 }
