@@ -11,37 +11,79 @@
     {
       "name": "subscription-cleanse",
       "source": "./plugins/subscription-cleanse",
-      "description": "Comprehensive subscription audit with bank CSV analysis and email reconnaissance"
+      "description": "Comprehensive subscription audit with bank CSV analysis and email reconnaissance",
+      "author": {
+        "name": "Drew Burchfield",
+        "url": "https://github.com/drewburchfield"
+      },
+      "category": "productivity",
+      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/subscription-cleanse"
     },
     {
       "name": "braintrust",
       "source": "./plugins/braintrust",
-      "description": "Orchestrate other AI CLIs (Gemini, Codex, Claude Code) for second opinions, research, and codebase analysis"
+      "description": "Orchestrate other AI CLIs (Gemini, Codex, Claude Code) for second opinions, research, and codebase analysis",
+      "author": {
+        "name": "Drew Burchfield",
+        "url": "https://github.com/drewburchfield"
+      },
+      "category": "development",
+      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/braintrust"
     },
     {
       "name": "linkedin-message-triage",
       "source": "./plugins/linkedin-message-triage",
-      "description": "Systematic LinkedIn inbox review - filter solicitations, identify messages needing responses, draft replies"
+      "description": "Systematic LinkedIn inbox review - filter solicitations, identify messages needing responses, draft replies",
+      "author": {
+        "name": "Drew Burchfield",
+        "url": "https://github.com/drewburchfield"
+      },
+      "category": "productivity",
+      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/linkedin-message-triage"
     },
     {
       "name": "markdown-to-confluence",
       "source": "./plugins/markdown-to-confluence",
-      "description": "Convert Markdown documents to Confluence Storage Format (XHTML-based XML)"
+      "description": "Convert Markdown documents to Confluence Storage Format (XHTML-based XML)",
+      "author": {
+        "name": "Drew Burchfield",
+        "url": "https://github.com/drewburchfield"
+      },
+      "category": "documentation",
+      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/markdown-to-confluence"
     },
     {
       "name": "cre-property-research",
       "source": "./plugins/cre-property-research",
-      "description": "Comprehensive commercial real estate property research and market analysis"
+      "description": "Comprehensive commercial real estate property research and market analysis",
+      "author": {
+        "name": "Drew Burchfield",
+        "url": "https://github.com/drewburchfield"
+      },
+      "category": "research",
+      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/cre-property-research"
     },
     {
       "name": "1password-management",
       "source": "./plugins/1password-management",
-      "description": "Proper syntax, field types, and best practices for managing credentials with 1Password CLI (op)"
+      "description": "Proper syntax, field types, and best practices for managing credentials with 1Password CLI (op)",
+      "author": {
+        "name": "Drew Burchfield",
+        "url": "https://github.com/drewburchfield"
+      },
+      "category": "security",
+      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/1password-management"
     },
     {
       "name": "readme-craft",
       "source": "./plugins/readme-craft",
-      "description": "Write clean, human-sounding README files for personal and open source projects"
+      "description": "Write clean, human-sounding README files for personal and open source projects",
+      "author": {
+        "name": "Drew Burchfield",
+        "url": "https://github.com/drewburchfield"
+      },
+      "category": "documentation",
+      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/readme-craft"
     }
   ]
 }
