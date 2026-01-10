@@ -32,21 +32,21 @@ The braintrust is always **the other two CLIs** based on which harness you're cu
 
 ## Prerequisites
 
-Before using the braintrust, verify the CLIs are installed and authenticated:
+**Skip health checks by default** - just try to use the braintrust. Only run diagnostics if a consultation fails.
+
+**If a CLI fails**, run these to diagnose:
 
 ```bash
-# Quick health check - all three should succeed
+# Diagnostic health checks (only run if needed)
 claude -p "test" --model haiku --output-format json &>/dev/null && echo "Claude: OK" || echo "Claude: FAILED"
 gemini "test" -m gemini-3-flash-preview -o json &>/dev/null && echo "Gemini: OK" || echo "Gemini: FAILED"
 codex exec --json "test" &>/dev/null && echo "Codex: OK" || echo "Codex: FAILED"
 ```
 
-**Before proceeding, verify:**
-- [ ] Claude CLI responds (if not: `npm install -g @anthropic-ai/claude-code`)
-- [ ] Gemini CLI responds (if not: `npm install -g @google/gemini-cli`)
-- [ ] Codex CLI responds (if not: `npm install -g @openai/codex`)
-
-If any CLI fails, guide the user through installation and authentication before continuing.
+**If missing, install:**
+- Claude: `npm install -g @anthropic-ai/claude-code`
+- Gemini: `npm install -g @google/gemini-cli`
+- Codex: `npm install -g @openai/codex`
 
 ## Braintrust Defaults
 
