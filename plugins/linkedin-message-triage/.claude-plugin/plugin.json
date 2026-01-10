@@ -1,5 +1,13 @@
 {
   "name": "linkedin-message-triage",
-  "version": "1.0.0",
-  "description": "Systematic LinkedIn inbox review - filter solicitations, identify messages needing responses, draft replies"
+  "version": "1.0.1",
+  "description": "Systematic LinkedIn inbox review - filter solicitations, identify messages needing responses, draft replies",
+  "author": {
+    "name": "Drew Burchfield",
+    "url": "https://github.com/drewburchfield"
+  },
+  "homepage": "https://github.com/drewburchfield/not-my-job",
+  "repository": "https://github.com/drewburchfield/not-my-job",
+  "license": "MIT",
+  "keywords": ["linkedin", "inbox", "messages", "triage", "networking"]
 }

@@ -1,5 +1,13 @@
 {
   "name": "subscription-cleanse",
-  "version": "1.0.0",
-  "description": "Comprehensive subscription audit with bank CSV analysis and email reconnaissance"
+  "version": "1.0.1",
+  "description": "Comprehensive subscription audit with bank CSV analysis and email reconnaissance",
+  "author": {
+    "name": "Drew Burchfield",
+    "url": "https://github.com/drewburchfield"
+  },
+  "homepage": "https://github.com/drewburchfield/not-my-job",
+  "repository": "https://github.com/drewburchfield/not-my-job",
+  "license": "MIT",
+  "keywords": ["subscription", "audit", "bank", "csv", "email", "finance"]
 }

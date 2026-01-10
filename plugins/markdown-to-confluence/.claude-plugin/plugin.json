@@ -1,5 +1,13 @@
 {
   "name": "markdown-to-confluence",
-  "version": "1.0.0",
-  "description": "Convert Markdown documents to Confluence Storage Format (XHTML-based XML)"
+  "version": "1.0.1",
+  "description": "Convert Markdown documents to Confluence Storage Format (XHTML-based XML)",
+  "author": {
+    "name": "Drew Burchfield",
+    "url": "https://github.com/drewburchfield"
+  },
+  "homepage": "https://github.com/drewburchfield/not-my-job",
+  "repository": "https://github.com/drewburchfield/not-my-job",
+  "license": "MIT",
+  "keywords": ["markdown", "confluence", "conversion", "documentation", "atlassian"]
 }

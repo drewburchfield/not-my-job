@@ -1,5 +1,13 @@
 {
   "name": "cre-property-research",
-  "version": "1.0.0",
-  "description": "Comprehensive commercial real estate property research and market analysis"
+  "version": "1.0.1",
+  "description": "Comprehensive commercial real estate property research and market analysis",
+  "author": {
+    "name": "Drew Burchfield",
+    "url": "https://github.com/drewburchfield"
+  },
+  "homepage": "https://github.com/drewburchfield/not-my-job",
+  "repository": "https://github.com/drewburchfield/not-my-job",
+  "license": "MIT",
+  "keywords": ["real-estate", "cre", "commercial", "property", "research", "market-analysis"]
 }
