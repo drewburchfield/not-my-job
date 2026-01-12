@@ -208,14 +208,14 @@ getConversationSummary({ conversationId: "12345678" })
 // Returns: { body: "[Content hidden - set REDACT_MESSAGE_CONTENT=false to view]" }
 ```
 
-**Why it fails:** The MCP server has content redaction enabled by default for privacy.
+**Why it fails:** The standalone MCP server has content redaction enabled by default.
 
-**Fix options:**
-1. Set environment variable before starting Claude Code:
-   ```bash
-   export REDACT_MESSAGE_CONTENT=false
-   ```
-2. The plugin's `.mcp.json` already exposes this variable - it will use your environment setting if defined.
+**Note:** This plugin defaults to `REDACT_MESSAGE_CONTENT=false` (content visible). If you see redacted content, you may be using a different MCP configuration.
+
+To enable redaction for privacy, set:
+```bash
+export REDACT_MESSAGE_CONTENT=true
+```
 
 ---
 
