@@ -3,4 +3,4 @@ description: Navigate HelpScout searches correctly - always lookup inbox IDs fir
 disable-model-invocation: true
 ---
 
-Invoke the helpscout-navigator:helpscout-navigation skill and follow it exactly as presented to you
+Invoke the helpscout-navigator:helpscout-navigator skill and follow it exactly as presented to you

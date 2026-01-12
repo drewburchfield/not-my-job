@@ -1,5 +1,5 @@
 ---
-name: helpscout-navigation
+name: helpscout-navigator
 description: Use when searching HelpScout tickets/conversations. Provides correct tool selection, required sequencing (inbox lookup first), and prevents common mistakes like active-only searches. Triggers on "search helpscout", "find tickets", "check support inbox", "helpscout conversations".
 ---
 
