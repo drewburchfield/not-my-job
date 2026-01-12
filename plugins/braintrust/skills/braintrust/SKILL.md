@@ -7,7 +7,30 @@ description: Orchestrate other AI CLIs (Gemini, Codex, Claude Code) for second o
 
 Consult your AI braintrust - the other AI CLIs available in your environment - for second opinions, research, and codebase analysis.
 
-> **Important:** Run ALL braintrust CLI invocations (including health checks and consultations) as background tasks using `run_in_background: true`. This allows monitoring progress instead of blocking. Launch multiple checks/consultations in parallel when possible.
+> **Important:** Run ALL braintrust CLI invocations (including health checks and consultations) as background tasks using `run_in_background: true`. This allows monitoring progress instead of blocking.
+
+## Default Behavior: Consult ALL THREE
+
+**Unless the user explicitly requests a specific model or narrower scope, ALWAYS consult all three models (Claude, Gemini, Codex) in parallel.**
+
+This is not optional. The entire value of the braintrust is multi-model coverage - each model catches different issues. Consulting only one or two models defeats the purpose.
+
+**Launch all three in a single parallel batch:**
+```bash
+claude -p "$QUERY" --model sonnet --output-format json > /tmp/claude.json &
+gemini "$QUERY" -m gemini-2.5-pro -o json > /tmp/gemini.json &
+codex exec --json "$QUERY" > /tmp/codex.json &
+wait
+```
+
+**Only skip a model if:**
+- The user explicitly asks for a specific model (e.g., "ask Gemini about...")
+- A model fails and diagnostics show it's unavailable
+- The task is a trivial single-fact lookup (rare)
+
+**Do NOT rationalize using fewer models.** Thoughts like "Gemini is better for this" or "two models should be enough" are wrong - always use all three unless directed otherwise.
+
+---
 
 ## Why Multi-Model Collaboration Works
 
