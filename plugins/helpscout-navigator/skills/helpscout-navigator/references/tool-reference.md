@@ -53,7 +53,7 @@ listAllInboxes({ limit: 50 })
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | `query` | string | no | - | HelpScout query syntax (body, subject, email) |
-| `status` | string | no | * | active, pending, closed, spam |
+| `status` | string | no | * | active, pending, closed, spam (**NOT** "all" - use `structuredConversationFilter` for all statuses) |
 | `inboxId` | string | no | - | Scope to specific inbox (numeric ID as string) |
 | `tag` | string | no | - | Filter by tag name |
 | `createdAfter` | string | no | - | ISO8601 date |
@@ -75,7 +75,8 @@ listAllInboxes({ limit: 50 })
 
 **When NOT to use:**
 - Keyword searches (use `comprehensiveConversationSearch`)
-- Finding tickets across all statuses
+- Finding tickets across all statuses (use `structuredConversationFilter` with `sortBy: "waitingSince"` and `status: "all"`)
+- **NEVER** use `status: "all"` with this tool - it only accepts active/pending/closed/spam
 
 **Example:**
 ```javascript
@@ -206,6 +207,15 @@ structuredConversationFilter({
   customerIds: [12345],
   sortBy: "createdAt",
   sortOrder: "desc"
+})
+
+// List ALL recent tickets (all statuses)
+// This is how you get status: "all" - requires unique sortBy
+structuredConversationFilter({
+  sortBy: "waitingSince",  // Required: unique sortBy enables status: "all"
+  status: "all",
+  sortOrder: "desc",
+  limit: 50
 })
 ```
 

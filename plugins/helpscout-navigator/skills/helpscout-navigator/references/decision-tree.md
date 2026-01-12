@@ -32,17 +32,52 @@ for (const inbox of inboxes) {
 
 ---
 
-## Scenario 2: Date-Range Filtering
+## Scenario 2: List All Recent Tickets (All Statuses)
+
+**User:** "Show me recent tickets" (no specific status mentioned)
+
+**Key insight:** `searchConversations` does NOT support `status: "all"`. You must use `structuredConversationFilter`.
+
+**Approach:**
+```javascript
+// CORRECT: Use structuredConversationFilter with unique sortBy
+structuredConversationFilter({
+  sortBy: "waitingSince",  // Required: unique sortBy enables status: "all"
+  status: "all",
+  sortOrder: "desc",
+  limit: 50,
+  createdAfter: "2024-01-01T00:00:00Z"  // Optional: date filter
+})
+
+// WRONG: This will error!
+// searchConversations({ status: "all" })
+// Error: Invalid enum value. Expected 'active' | 'pending' | 'closed' | 'spam', received 'all'
+```
+
+**Why unique sortBy is required:**
+The `structuredConversationFilter` tool requires at least one "unique field" to work. Using `sortBy: "waitingSince"` (or `customerName` or `customerEmail`) satisfies this requirement and allows `status: "all"`.
+
+---
+
+## Scenario 3: Date-Range Filtering
 
 **User:** "Find tickets from Q4 2023"
 
 **Approach:**
 ```javascript
-// For listing tickets by date range (no keywords)
+// For listing tickets by date range (single status)
 searchConversations({
   createdAfter: "2023-10-01T00:00:00Z",
   createdBefore: "2024-01-01T00:00:00Z",
-  status: "closed"  // Or loop through statuses
+  status: "closed"  // Must specify: active, pending, closed, or spam (NOT "all")
+})
+
+// For listing tickets by date range (ALL statuses)
+structuredConversationFilter({
+  sortBy: "waitingSince",  // Required for status: "all"
+  status: "all",
+  createdAfter: "2023-10-01T00:00:00Z",
+  createdBefore: "2024-01-01T00:00:00Z"
 })
 
 // For finding tickets by keyword within date range
@@ -241,8 +276,12 @@ START
   ├─ Are you filtering by assignee, customer ID, or folder?
   │   └─ YES → structuredConversationFilter() (need IDs first)
   │
-  ├─ Just listing recent tickets by status/time?
-  │   └─ YES → searchConversations() (with explicit status!)
+  ├─ Listing tickets across ALL statuses?
+  │   └─ YES → structuredConversationFilter({ sortBy: "waitingSince", status: "all" })
+  │            (searchConversations does NOT support status: "all"!)
+  │
+  ├─ Just listing recent tickets by SINGLE status/time?
+  │   └─ YES → searchConversations() (status: active, pending, closed, OR spam)
   │
   └─ Need full conversation details?
       ├─ Quick overview → getConversationSummary()

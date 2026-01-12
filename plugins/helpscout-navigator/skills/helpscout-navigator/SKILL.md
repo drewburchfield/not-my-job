@@ -187,7 +187,8 @@ digraph decision {
 | I want to... | Use this tool | Required first? |
 |--------------|---------------|-----------------|
 | Search by keywords | `comprehensiveConversationSearch` | `searchInboxes` if inbox mentioned |
-| List recent tickets | `searchConversations` | `searchInboxes` if inbox mentioned |
+| List recent tickets (single status) | `searchConversations` | `searchInboxes` if inbox mentioned |
+| List recent tickets (ALL statuses) | `structuredConversationFilter(sortBy: "waitingSince", status: "all")` | `searchInboxes` if inbox mentioned |
 | Find tickets by email domain | `advancedConversationSearch` | `searchInboxes` if inbox mentioned |
 | Look up ticket #12345 | `structuredConversationFilter` | None |
 | Get all tickets from customer X | `structuredConversationFilter` | Need customer ID from prior search |
@@ -282,7 +283,32 @@ See [references/tool-reference.md](references/tool-reference.md) for complete pa
    advancedConversationSearch(emailDomain: "acme.com")
    ```
 
-### Workflow 5: Get Full Conversation Thread
+### Workflow 5: List All Recent Tickets Across ALL Statuses
+
+**User:** "Show me recent tickets from the last 30 days" (no specific status mentioned)
+
+**Steps:**
+1. Use `structuredConversationFilter` with a unique `sortBy` value:
+   ```
+   structuredConversationFilter(
+     sortBy: "waitingSince",   // Required: unique sortBy enables all-status queries
+     status: "all",            // Includes active, pending, closed, spam
+     sortOrder: "desc",
+     limit: 50,
+     createdAfter: "2024-01-01T00:00:00Z"  // Optional: date filter
+   )
+   ```
+
+**Why this works:**
+- `structuredConversationFilter` supports `status: "all"` (unlike `searchConversations`)
+- BUT it requires at least one "unique field" - using `sortBy: "waitingSince"` satisfies this
+- Other unique sortBy values: `customerName`, `customerEmail`
+
+**Common mistake:** Using `searchConversations(status: "all")` - this FAILS because `searchConversations` only accepts specific statuses (active/pending/closed/spam), not "all".
+
+---
+
+### Workflow 6: Get Full Conversation Thread
 
 **User:** "Show me the full thread for conversation 12345678"
 
@@ -300,7 +326,9 @@ See [references/tool-reference.md](references/tool-reference.md) for complete pa
 |---------|--------------|------------------|
 | `searchConversations(query: "billing")` without status | Returns active only, misses 80%+ of tickets | `comprehensiveConversationSearch(searchTerms: ["billing"])` |
 | `searchConversations(inboxId: "Support")` | Inbox ID must be numeric, not name | First: `searchInboxes(query: "Support")` |
+| `searchConversations(status: "all")` | "all" is NOT a valid status for this tool | Use `structuredConversationFilter(sortBy: "waitingSince", status: "all")` |
 | `structuredConversationFilter` as first search | Requires IDs you don't have yet | Start with `comprehensiveConversationSearch` |
+| `structuredConversationFilter` without unique field | Tool requires a unique field to work | Add `sortBy: "waitingSince"` or provide assignedTo/customerIds/conversationNumber |
 | Skipping `searchInboxes` when user mentions inbox | API requires numeric inbox ID | ALWAYS lookup first |
 | Using `searchConversations` for keyword search | Misses closed/pending tickets | Use `comprehensiveConversationSearch` |
 
@@ -321,11 +349,20 @@ comprehensiveConversationSearch(
   timeframeDays: 60
 )
 
-# STEP 2b: List recent (no keywords)
+# STEP 2b: List recent (single status)
 searchConversations(
   inboxId: "359402",
+  status: "active",  # Required: active, pending, closed, or spam (NOT "all")
   sort: "createdAt",
   order: "desc"
+)
+
+# STEP 2c: List recent (ALL statuses)
+structuredConversationFilter(
+  sortBy: "waitingSince",  # Required: unique sortBy enables status: "all"
+  status: "all",
+  sortOrder: "desc",
+  limit: 50
 )
 
 # Direct ticket lookup
@@ -350,5 +387,6 @@ Before executing a HelpScout search, verify:
 - [ ] Did user mention an inbox name? → Called `searchInboxes` first?
 - [ ] Searching by keywords? → Using `comprehensiveConversationSearch` (not `searchConversations`)?
 - [ ] Need closed/pending tickets? → NOT using bare `searchConversations`?
+- [ ] Need ALL statuses? → Using `structuredConversationFilter(sortBy: "waitingSince", status: "all")` (NOT `searchConversations`)?
 - [ ] Using inbox ID, not inbox name, in API calls?
-- [ ] Using `structuredConversationFilter` only with IDs from prior searches?
+- [ ] Using `structuredConversationFilter`? → Have unique field (conversationNumber, assignedTo, customerIds, folderId, or sortBy with waitingSince/customerName/customerEmail)?

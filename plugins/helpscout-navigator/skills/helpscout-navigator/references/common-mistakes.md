@@ -98,7 +98,64 @@ searchConversations({ inboxId: "359402" })
 
 ---
 
-## Mistake 5: Using structuredConversationFilter as First Search
+## Mistake 5: Using `status: "all"` with searchConversations
+
+**What happens:**
+```javascript
+// User says: "Show me all recent tickets"
+// WRONG:
+searchConversations({ status: "all" })
+// Error: Invalid enum value. Expected 'active' | 'pending' | 'closed' | 'spam', received 'all'
+```
+
+**Why it fails:** `searchConversations` only accepts specific status values: active, pending, closed, spam. It does NOT support "all".
+
+**Correct approach:**
+```javascript
+// Use structuredConversationFilter with a unique sortBy value
+structuredConversationFilter({
+  sortBy: "waitingSince",  // Required: unique sortBy enables status: "all"
+  status: "all",
+  sortOrder: "desc",
+  limit: 50
+})
+```
+
+---
+
+## Mistake 6: Using structuredConversationFilter Without Unique Field
+
+**What happens:**
+```javascript
+// User says: "Show me recent tickets across all statuses"
+// WRONG:
+structuredConversationFilter({ status: "all" })
+// Error: Must use at least one unique field: assignedTo, folderId, customerIds, conversationNumber, or unique sorting
+```
+
+**Why it fails:** `structuredConversationFilter` requires at least one "unique field" to work.
+
+**Unique fields are:**
+- `conversationNumber` (direct ticket lookup)
+- `assignedTo` (user ID or -1 for unassigned)
+- `folderId`
+- `customerIds`
+- `sortBy` with value: `waitingSince`, `customerName`, or `customerEmail`
+
+**Correct approach:**
+```javascript
+// Add a unique sortBy value
+structuredConversationFilter({
+  sortBy: "waitingSince",  // This is the trick!
+  status: "all",
+  sortOrder: "desc",
+  limit: 50
+})
+```
+
+---
+
+## Mistake 7: Using structuredConversationFilter as First Search
 
 **What happens:**
 ```javascript
@@ -228,7 +285,9 @@ Before any HelpScout operation, verify:
 | User mentioned inbox name? | Call `searchInboxes` first |
 | Searching by keywords? | Use `comprehensiveConversationSearch` |
 | Need closed/pending tickets? | Don't use bare `searchConversations` |
+| Need ALL statuses (active+pending+closed+spam)? | Use `structuredConversationFilter(sortBy: "waitingSince", status: "all")` |
+| Trying to use `status: "all"` with `searchConversations`? | **WON'T WORK** - use `structuredConversationFilter` instead |
+| Using `structuredConversationFilter`? | Must have a unique field: conversationNumber, assignedTo, customerIds, folderId, OR sortBy with waitingSince/customerName/customerEmail |
 | Using inbox ID in API call? | Ensure it's numeric (like 359402), not a name |
-| Using `structuredConversationFilter`? | Have IDs from prior search (except ticket #) |
 | Large result set expected? | Handle pagination with cursor |
 | Need specific timeframe? | Set `timeframeDays` or date params |
