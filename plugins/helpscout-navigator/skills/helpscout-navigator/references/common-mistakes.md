@@ -204,13 +204,13 @@ comprehensiveConversationSearch({
 
 **What happens:**
 ```javascript
-getConversationSummary({ conversationId: "abc123" })
+getConversationSummary({ conversationId: "12345678" })
 // Returns: { body: "[Content hidden - set REDACT_MESSAGE_CONTENT=false to view]" }
 ```
 
-**Why it fails:** The MCP server has content redaction enabled.
+**Why it fails:** The MCP server has content redaction enabled by default.
 
-**Fix:** User needs to set environment variable `REDACT_MESSAGE_CONTENT=false` when starting the MCP.
+**Fix:** Set environment variable `REDACT_MESSAGE_CONTENT=false` before starting the MCP server.
 
 ---
 
@@ -223,7 +223,7 @@ Before any HelpScout operation, verify:
 | User mentioned inbox name? | Call `searchInboxes` first |
 | Searching by keywords? | Use `comprehensiveConversationSearch` |
 | Need closed/pending tickets? | Don't use bare `searchConversations` |
-| Using inbox ID in API call? | Ensure it's a UUID, not name |
+| Using inbox ID in API call? | Ensure it's numeric (like 359402), not a name |
 | Using `structuredConversationFilter`? | Have IDs from prior search (except ticket #) |
 | Large result set expected? | Handle pagination with cursor |
 | Need specific timeframe? | Set `timeframeDays` or date params |

@@ -57,7 +57,7 @@ listAllInboxes({ limit: 50 })
 | `inboxId` | string | no | - | Scope to specific inbox (numeric ID as string) |
 | `tag` | string | no | - | Filter by tag name |
 | `createdAfter` | string | no | - | ISO8601 date |
-| `createdBefore` | string | no | - | ISO8601 date |
+| `createdBefore` | string | no | - | ISO8601 date** |
 | `sort` | string | no | "createdAt" | createdAt, updatedAt, number |
 | `order` | string | no | "desc" | asc, desc |
 | `limit` | number | no | 50 | Max results (1-100) |
@@ -65,6 +65,8 @@ listAllInboxes({ limit: 50 })
 | `fields` | array | no | - | Specific fields to return (partial response) |
 
 *Status default: "active" when query/tag provided; all statuses otherwise
+
+**createdBefore is filtered client-side (HelpScout API limitation) - pagination totals may not reflect filtered results
 
 **When to use:**
 - Listing recent tickets (no keyword search)
@@ -110,6 +112,8 @@ searchConversations({
 - Returns organized results grouped by status
 - Executes parallel searches for performance
 
+**Note:** `createdBefore` is filtered client-side (API limitation) - pagination totals may not reflect filtered results.
+
 **Example:**
 ```javascript
 comprehensiveConversationSearch({
@@ -143,6 +147,8 @@ comprehensiveConversationSearch({
 - "Find all tickets from @acme.com"
 - "Tickets with urgent AND billing tags"
 - "Separate content and subject searches"
+
+**Note:** `createdBefore` is filtered client-side (API limitation).
 
 **Example:**
 ```javascript
@@ -179,10 +185,16 @@ advancedConversationSearch({
 
 **Sort options:** createdAt, modifiedAt, number, waitingSince, customerName, customerEmail, mailboxId, status, subject
 
-**Unique features:**
-- Direct ticket number lookup
-- waitingSince/customerName/customerEmail sorting (unavailable elsewhere)
-- Requires at least one filter
+**REQUIREMENT:** Must provide at least ONE of these unique fields:
+- `conversationNumber` (direct ticket lookup)
+- `assignedTo` (user ID or -1 for unassigned)
+- `folderId`
+- `customerIds`
+- `sortBy` with unique value: `waitingSince`, `customerName`, or `customerEmail`
+
+**Without a unique field, this tool will fail.** Use `comprehensiveConversationSearch` for content-based searches.
+
+**Note:** `createdBefore` is filtered client-side (API limitation) - pagination totals may not reflect filtered results.
 
 **Example:**
 ```javascript
@@ -206,16 +218,18 @@ structuredConversationFilter({
 **Parameters:**
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `conversationId` | string | yes | - | Conversation UUID |
+| `conversationId` | string | yes | - | Numeric conversation ID from search results |
 
 **Returns:**
 - Conversation metadata
 - First customer message
 - Latest staff reply
 
+**Note:** Content may be redacted if `REDACT_MESSAGE_CONTENT=true` (default). Set to `false` to view message bodies.
+
 **Example:**
 ```javascript
-getConversationSummary({ conversationId: "abc-123-def" })
+getConversationSummary({ conversationId: "12345678" })
 ```
 
 ---
@@ -227,15 +241,17 @@ getConversationSummary({ conversationId: "abc-123-def" })
 **Parameters:**
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `conversationId` | string | yes | - | Conversation UUID |
+| `conversationId` | string | yes | - | Numeric conversation ID from search results |
 | `limit` | number | no | 200 | Max threads (1-200) |
 | `cursor` | string | no | - | Pagination |
 
 **Returns:** All threads with metadata, source info, creator/customer details
 
+**Note:** Content may be redacted if `REDACT_MESSAGE_CONTENT=true` (default).
+
 **Example:**
 ```javascript
-getThreads({ conversationId: "abc-123-def", limit: 200 })
+getThreads({ conversationId: "12345678", limit: 200 })
 ```
 
 ---

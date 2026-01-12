@@ -64,7 +64,7 @@ The HelpScout MCP server provides 9 tools for searching and retrieving support c
 | "Find tickets in sales mailbox" | `searchInboxes(query: "sales")` |
 | "Check the billing inbox" | `searchInboxes(query: "billing")` |
 
-**Why:** All inbox-scoped searches require an inbox ID (UUID), not a name.
+**Why:** All inbox-scoped searches require an inbox ID (numeric), not a name.
 
 ### Rule 2: searchConversations Defaults to "Active" Only
 
@@ -183,13 +183,13 @@ See [references/tool-reference.md](references/tool-reference.md) for complete pa
    ```
    searchInboxes(query: "support")
    ```
-   Result: `{ id: "abc123", name: "Support" }`
+   Result: `{ id: 359402, name: "Support" }`
 
 2. Search with inbox scope:
    ```
    comprehensiveConversationSearch(
      searchTerms: ["billing"],
-     inboxId: "abc123"
+     inboxId: "359402"
    )
    ```
 
@@ -206,7 +206,7 @@ See [references/tool-reference.md](references/tool-reference.md) for complete pa
 2. List recent (no keyword = use searchConversations):
    ```
    searchConversations(
-     inboxId: "xyz789",
+     inboxId: "359402",
      sort: "createdAt",
      order: "desc",
      limit: 20
@@ -240,12 +240,12 @@ See [references/tool-reference.md](references/tool-reference.md) for complete pa
 
 ### Workflow 5: Get Full Conversation Thread
 
-**User:** "Show me the full thread for conversation abc-123"
+**User:** "Show me the full thread for conversation 12345678"
 
 **Steps:**
 1. Get all messages:
    ```
-   getThreads(conversationId: "abc-123", limit: 200)
+   getThreads(conversationId: "12345678", limit: 200)
    ```
 
 ---
@@ -255,9 +255,9 @@ See [references/tool-reference.md](references/tool-reference.md) for complete pa
 | Mistake | Why It Fails | Correct Approach |
 |---------|--------------|------------------|
 | `searchConversations(query: "billing")` without status | Returns active only, misses 80%+ of tickets | `comprehensiveConversationSearch(searchTerms: ["billing"])` |
-| `searchConversations(inboxId: "Support")` | Inbox ID must be UUID, not name | First: `searchInboxes(query: "Support")` |
+| `searchConversations(inboxId: "Support")` | Inbox ID must be numeric, not name | First: `searchInboxes(query: "Support")` |
 | `structuredConversationFilter` as first search | Requires IDs you don't have yet | Start with `comprehensiveConversationSearch` |
-| Skipping `searchInboxes` when user mentions inbox | API requires inbox UUID | ALWAYS lookup first |
+| Skipping `searchInboxes` when user mentions inbox | API requires numeric inbox ID | ALWAYS lookup first |
 | Using `searchConversations` for keyword search | Misses closed/pending tickets | Use `comprehensiveConversationSearch` |
 
 See [references/common-mistakes.md](references/common-mistakes.md) for more anti-patterns.
@@ -273,13 +273,13 @@ searchInboxes(query: "support")  # Returns inbox ID
 # STEP 2a: Keyword search (multi-status)
 comprehensiveConversationSearch(
   searchTerms: ["billing", "refund"],
-  inboxId: "abc123",
+  inboxId: "359402",
   timeframeDays: 60
 )
 
 # STEP 2b: List recent (no keywords)
 searchConversations(
-  inboxId: "abc123",
+  inboxId: "359402",
   sort: "createdAt",
   order: "desc"
 )
@@ -291,10 +291,10 @@ structuredConversationFilter(conversationNumber: 12345)
 advancedConversationSearch(emailDomain: "acme.com")
 
 # Full thread
-getThreads(conversationId: "conv-123")
+getThreads(conversationId: "12345678")
 
 # Quick summary
-getConversationSummary(conversationId: "conv-123")
+getConversationSummary(conversationId: "12345678")
 ```
 
 ---
