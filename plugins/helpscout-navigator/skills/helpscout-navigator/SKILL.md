@@ -9,50 +9,77 @@ Guide for correctly using HelpScout MCP tools. Prevents common mistakes and ensu
 
 ## First Step: Diagnose Setup
 
-Follow this diagnostic flow in order:
+Follow these steps IN ORDER. Do not skip ahead.
 
-### Step 1: Check Credentials
+---
 
-**Run this command first:**
+### Step 1: Check if MCP Tools are Available
+
+Look for these tools in your available tools:
+- `mcp__helpscout__searchInboxes`
+- `mcp__helpscout__searchConversations`
+- `mcp__helpscout__comprehensiveConversationSearch`
+
+**If tools ARE available:** ✅ Skip to "Critical Rules" section. You're ready to go.
+
+**If tools are NOT available:** Continue to Step 2.
+
+---
+
+### Step 2: Check if Credentials are Set
+
+Run this command:
 ```bash
 echo "HELPSCOUT_APP_ID: ${HELPSCOUT_APP_ID:+[SET]}" && echo "HELPSCOUT_APP_SECRET: ${HELPSCOUT_APP_SECRET:+[SET]}"
 ```
 
-**If both show `[SET]`:** Credentials are configured. Go to Step 2.
+**If both show `[SET]`:** Credentials exist but MCP didn't start. Go to Step 4.
 
-**If either is blank:** Credentials are missing. Tell the user:
+**If either is blank:** Credentials are missing. Go to Step 3.
 
-> "HelpScout credentials are not configured.
+---
+
+### Step 3: Set Up Credentials
+
+Tell the user:
+
+> **HelpScout credentials are not configured.**
 >
-> **To get your credentials:**
+> **Get your credentials:**
 > 1. Go to HelpScout → Your Profile → My Apps
 > 2. Create a new app (or use existing)
 > 3. Copy the **App ID** and **App Secret**
 >
-> **To set them permanently**, add to `~/.zshrc` or `~/.bashrc`:
+> **Add to your shell profile** (`~/.zshrc` or `~/.bashrc`):
 > ```bash
 > export HELPSCOUT_APP_ID="your-app-id-here"
 > export HELPSCOUT_APP_SECRET="your-app-secret-here"
 > ```
 >
-> Then restart your terminal and Claude Code."
+> **Then go to Step 4.**
 
-**Do not proceed until credentials are configured.**
+---
 
-### Step 2: Check MCP Tools Available
+### Step 4: Restart Correctly (IMPORTANT)
 
-**Look for these tools in your available tools:**
-- `mcp__helpscout__searchInboxes`
-- `mcp__helpscout__searchConversations`
-- `mcp__helpscout__comprehensiveConversationSearch`
+⚠️ **This is where most people get stuck.**
 
-**If tools are available:** Skip to "Critical Rules" section.
+The MCP server inherits environment variables from Claude Code's process. If Claude Code was started before the credentials were set, it won't have them.
 
-**If credentials are set but tools are NOT available:** The MCP server hasn't started yet. Tell the user:
+Tell the user:
 
-> "Your HelpScout credentials are configured, but the MCP server hasn't started yet.
+> **You must restart BOTH your terminal AND Claude Code:**
 >
-> **Restart Claude Code** to start the HelpScout MCP server. The plugin will auto-start it on launch."
+> 1. **Quit Claude Code completely** (not just close the window)
+> 2. **Close your terminal completely** (not just the tab)
+> 3. **Open a new terminal** (this loads your updated `.zshrc`)
+> 4. **Start Claude Code from this new terminal**
+>
+> ```bash
+> claude
+> ```
+>
+> The HelpScout MCP server will now start with the correct credentials.
 
 **Do not proceed with HelpScout operations until the MCP tools are available.**
 
