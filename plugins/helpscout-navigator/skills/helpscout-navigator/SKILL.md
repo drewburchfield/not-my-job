@@ -7,35 +7,52 @@ description: Use when searching HelpScout tickets/conversations. Provides correc
 
 Guide for correctly using HelpScout MCP tools. Prevents common mistakes and ensures complete search results.
 
-## First Step: Verify MCP Connection
+## First Step: Diagnose Setup
 
-**Check if HelpScout MCP tools are available.** Look for these tools:
+Follow this diagnostic flow in order:
+
+### Step 1: Check Credentials
+
+**Run this command first:**
+```bash
+echo "HELPSCOUT_APP_ID: ${HELPSCOUT_APP_ID:+[SET]}" && echo "HELPSCOUT_APP_SECRET: ${HELPSCOUT_APP_SECRET:+[SET]}"
+```
+
+**If both show `[SET]`:** Credentials are configured. Go to Step 2.
+
+**If either is blank:** Credentials are missing. Tell the user:
+
+> "HelpScout credentials are not configured.
+>
+> **To get your credentials:**
+> 1. Go to HelpScout → Your Profile → My Apps
+> 2. Create a new app (or use existing)
+> 3. Copy the **App ID** and **App Secret**
+>
+> **To set them permanently**, add to `~/.zshrc` or `~/.bashrc`:
+> ```bash
+> export HELPSCOUT_APP_ID="your-app-id-here"
+> export HELPSCOUT_APP_SECRET="your-app-secret-here"
+> ```
+>
+> Then restart your terminal and Claude Code."
+
+**Do not proceed until credentials are configured.**
+
+### Step 2: Check MCP Tools Available
+
+**Look for these tools in your available tools:**
 - `mcp__helpscout__searchInboxes`
 - `mcp__helpscout__searchConversations`
 - `mcp__helpscout__comprehensiveConversationSearch`
 
-**If HelpScout tools are available:** Skip to "Critical Rules" section.
+**If tools are available:** Skip to "Critical Rules" section.
 
-**If HelpScout tools are NOT available:** The MCP server needs credentials. Tell the user:
+**If credentials are set but tools are NOT available:** The MCP server hasn't started yet. Tell the user:
 
-> "HelpScout MCP tools are not available. This usually means credentials aren't configured.
+> "Your HelpScout credentials are configured, but the MCP server hasn't started yet.
 >
-> **To set up HelpScout credentials:**
->
-> 1. Get your credentials from HelpScout:
->    - Go to HelpScout → Your Profile → My Apps
->    - Create a new app (or use existing)
->    - Copy the **App ID** and **App Secret**
->
-> 2. Add to your shell profile (`~/.zshrc` or `~/.bashrc`):
->    ```bash
->    export HELPSCOUT_APP_ID="your-app-id-here"
->    export HELPSCOUT_APP_SECRET="your-app-secret-here"
->    ```
->
-> 3. Restart your terminal and Claude Code
->
-> After restart, the HelpScout MCP will start automatically."
+> **Restart Claude Code** to start the HelpScout MCP server. The plugin will auto-start it on launch."
 
 **Do not proceed with HelpScout operations until the MCP tools are available.**
 
