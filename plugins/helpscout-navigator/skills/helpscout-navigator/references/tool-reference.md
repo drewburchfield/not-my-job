@@ -225,7 +225,7 @@ structuredConversationFilter({
 - First customer message
 - Latest staff reply
 
-**Note:** Content may be redacted if `REDACT_MESSAGE_CONTENT=true` (default). Set to `false` to view message bodies.
+**Note:** Content is visible by default. Set `REDACT_MESSAGE_CONTENT=true` to redact message bodies for privacy.
 
 **Example:**
 ```javascript
@@ -247,7 +247,7 @@ getConversationSummary({ conversationId: "12345678" })
 
 **Returns:** All threads with metadata, source info, creator/customer details
 
-**Note:** Content may be redacted if `REDACT_MESSAGE_CONTENT=true` (default).
+**Note:** Content is visible by default. Set `REDACT_MESSAGE_CONTENT=true` for privacy.
 
 **Example:**
 ```javascript
