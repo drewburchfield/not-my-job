@@ -14,16 +14,16 @@ searchConversations({ query: "billing", inboxId: "support" })
 // Error: "support" is not a valid inbox ID
 ```
 
-**Why it fails:** The API requires inbox UUIDs, not names. "support" is a name, not an ID.
+**Why it fails:** The API requires inbox IDs (numeric), not names. "support" is a name, not an ID.
 
 **Correct approach:**
 ```javascript
 // Step 1: Look up inbox ID
 searchInboxes({ query: "support" })
-// Returns: { id: "abc123", name: "Support" }
+// Returns: { id: 359402, name: "Support" }
 
 // Step 2: Use the ID
-searchConversations({ query: "billing", inboxId: "abc123" })
+searchConversations({ query: "billing", inboxId: "359402" })
 ```
 
 ---
@@ -52,48 +52,48 @@ comprehensiveConversationSearch({ searchTerms: ["refund"] })
 
 **What happens:**
 ```javascript
-// User says: "How many tickets do we have?"
+// User says: "Find tickets about refunds"
 // WRONG assumption:
-searchConversations({})
-// Only counts active tickets!
+searchConversations({ query: "refund" })
+// Only counts active tickets when query is provided!
 ```
 
-**Why it fails:** Without explicit `status`, only "active" tickets are returned.
+**Why it fails:** When `query` or `tag` is provided without explicit `status`, it defaults to "active" only. Without any search criteria, it returns all statuses.
 
 **Correct approach:**
 ```javascript
-// Option 1: Explicit statuses
+// Option 1: Explicit statuses with searchConversations
 searchConversations({ status: "closed" })
 searchConversations({ status: "pending" })
 searchConversations({ status: "active" })
 
-// Option 2: Use comprehensive search
+// Option 2: Use comprehensive search (searches all statuses automatically)
 comprehensiveConversationSearch({
-  searchTerms: ["*"],
+  searchTerms: ["refund"],
   statuses: ["active", "pending", "closed"]
 })
 ```
 
 ---
 
-## Mistake 4: Using Inbox Names Instead of UUIDs
+## Mistake 4: Using Inbox Names Instead of IDs
 
 **What happens:**
 ```javascript
 // WRONG:
 searchConversations({ inboxId: "Support" })
 searchConversations({ inboxId: "sales@company.com" })
-// Both fail - not valid UUIDs
+// Both fail - not valid inbox IDs
 ```
 
-**Why it fails:** Inbox IDs are UUIDs like `"abc123-def456"`, not names or emails.
+**Why it fails:** Inbox IDs are numeric (like `359402`), not names or emails.
 
 **Correct approach:**
 ```javascript
 // Always look up first
 const inboxes = searchInboxes({ query: "support" });
-const inboxId = inboxes[0].id; // "abc123-def456"
-searchConversations({ inboxId: inboxId })
+const inboxId = inboxes[0].id; // 359402
+searchConversations({ inboxId: "359402" })
 ```
 
 ---

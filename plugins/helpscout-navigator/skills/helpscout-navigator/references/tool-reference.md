@@ -15,12 +15,12 @@ Complete parameter documentation for all 9 HelpScout MCP tools.
 | `limit` | number | no | 50 | Max results (1-100) |
 | `cursor` | string | no | - | Pagination cursor |
 
-**Returns:** Array of inbox objects with `id`, `name`, `email`, timestamps
+**Returns:** Array of inbox objects with `id` (numeric), `name`, `email`, timestamps
 
 **Example:**
 ```javascript
 searchInboxes({ query: "support" })
-// Returns: [{ id: "abc123", name: "Support", email: "support@company.com" }]
+// Returns: [{ id: 359402, name: "Support", email: "support@company.com" }]
 ```
 
 ---
@@ -47,14 +47,14 @@ listAllInboxes({ limit: 50 })
 
 **Purpose:** List tickets by time/status. Simple listing without keywords.
 
-**WARNING:** Defaults to "active" status only! Use `comprehensiveConversationSearch` for keyword searches.
+**WARNING:** When `query` or `tag` is provided without explicit `status`, defaults to "active" only! Use `comprehensiveConversationSearch` for keyword searches across all statuses.
 
 **Parameters:**
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | `query` | string | no | - | HelpScout query syntax (body, subject, email) |
-| `status` | string | no | "active" | active, pending, closed, spam |
-| `inboxId` | string | no | - | Scope to specific inbox (UUID) |
+| `status` | string | no | * | active, pending, closed, spam |
+| `inboxId` | string | no | - | Scope to specific inbox (numeric ID as string) |
 | `tag` | string | no | - | Filter by tag name |
 | `createdAfter` | string | no | - | ISO8601 date |
 | `createdBefore` | string | no | - | ISO8601 date |
@@ -62,6 +62,9 @@ listAllInboxes({ limit: 50 })
 | `order` | string | no | "desc" | asc, desc |
 | `limit` | number | no | 50 | Max results (1-100) |
 | `cursor` | string | no | - | Pagination cursor |
+| `fields` | array | no | - | Specific fields to return (partial response) |
+
+*Status default: "active" when query/tag provided; all statuses otherwise
 
 **When to use:**
 - Listing recent tickets (no keyword search)
@@ -75,7 +78,7 @@ listAllInboxes({ limit: 50 })
 **Example:**
 ```javascript
 searchConversations({
-  inboxId: "abc123",
+  inboxId: "359402",
   status: "active",
   sort: "createdAt",
   order: "desc",
@@ -111,7 +114,7 @@ searchConversations({
 ```javascript
 comprehensiveConversationSearch({
   searchTerms: ["billing", "refund"],
-  inboxId: "abc123",
+  inboxId: "359402",
   timeframeDays: 30
 })
 ```

@@ -38,8 +38,16 @@ for (const inbox of inboxes) {
 
 **Approach:**
 ```javascript
+// For listing tickets by date range (no keywords)
+searchConversations({
+  createdAfter: "2023-10-01T00:00:00Z",
+  createdBefore: "2024-01-01T00:00:00Z",
+  status: "closed"  // Or loop through statuses
+})
+
+// For finding tickets by keyword within date range
 comprehensiveConversationSearch({
-  searchTerms: ["*"],  // Or specific terms
+  searchTerms: ["billing", "refund"],
   createdAfter: "2023-10-01T00:00:00Z",
   createdBefore: "2024-01-01T00:00:00Z"
 })
@@ -47,19 +55,20 @@ comprehensiveConversationSearch({
 
 **For time-relative queries:**
 ```javascript
-// "Last 7 days"
-const now = getServerTime();
-comprehensiveConversationSearch({
-  searchTerms: ["*"],
-  timeframeDays: 7
+// "Last 7 days" - listing without keywords
+searchConversations({
+  createdAfter: getServerTime() - 7 days,  // Calculate ISO date
+  status: "active"
 })
 
-// "Last month"
+// "Last 7 days" - searching for keywords
 comprehensiveConversationSearch({
-  searchTerms: ["*"],
-  timeframeDays: 30
+  searchTerms: ["urgent"],
+  timeframeDays: 7
 })
 ```
+
+**Note:** HelpScout API does not support wildcards. Use `searchConversations` for listing and `comprehensiveConversationSearch` for keyword search.
 
 ---
 
