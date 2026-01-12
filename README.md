@@ -19,6 +19,7 @@
 | 🏢 | [**cre-property-research**](#cre-property-research) | Commercial real estate research and market analysis |
 | 🔐 | [**1password-management**](#1password-management) | Proper syntax for 1Password CLI |
 | 📝 | [**readme-craft**](#readme-craft) | Write clean, human-sounding README files |
+| 🎫 | [**helpscout-navigator**](#helpscout-navigator) | HelpScout search guidance with bundled MCP server |
 
 <br>
 
@@ -124,6 +125,19 @@ Write READMEs that are visually pleasing, appropriately scoped, and sound like a
 - Visual polish techniques without overkill
 - Voice and tone guidance to avoid AI-generated vibes
 - Badge best practices
+
+<p align="center">―</p>
+
+### 🎫 helpscout-navigator
+
+Guidance for correctly using HelpScout MCP tools. Bundles the MCP server — auto-starts when plugin is enabled.
+
+- Decision tree for choosing the right search tool
+- Correct sequencing (always lookup inbox IDs first)
+- Prevents the "active-only" search trap
+- Complete parameter reference for all 9 tools
+
+**Requires:** `HELPSCOUT_APP_ID` and `HELPSCOUT_APP_SECRET` environment variables
 
 <br>
 

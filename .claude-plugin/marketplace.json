@@ -84,6 +84,17 @@
       },
       "category": "documentation",
       "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/readme-craft"
+    },
+    {
+      "name": "helpscout-navigator",
+      "source": "./plugins/helpscout-navigator",
+      "description": "HelpScout support ticket search with guidance for correct tool usage. Bundles HelpScout MCP server - auto-starts when plugin is enabled.",
+      "author": {
+        "name": "Drew Burchfield",
+        "url": "https://github.com/drewburchfield"
+      },
+      "category": "productivity",
+      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/helpscout-navigator"
     }
   ]
 }

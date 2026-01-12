@@ -1,0 +1,10 @@
+{
+  "helpscout": {
+    "command": "npx",
+    "args": ["-y", "help-scout-mcp-server"],
+    "env": {
+      "HELPSCOUT_APP_ID": "${HELPSCOUT_APP_ID}",
+      "HELPSCOUT_APP_SECRET": "${HELPSCOUT_APP_SECRET}"
+    }
+  }
+}
