@@ -1,6 +1,6 @@
 {
   "name": "readme-craft",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "Write clean, human-sounding README files for personal and open source projects",
   "author": {
     "name": "Drew Burchfield",
@@ -9,5 +9,10 @@
   "homepage": "https://github.com/drewburchfield/not-my-job",
   "repository": "https://github.com/drewburchfield/not-my-job",
   "license": "MIT",
-  "keywords": ["readme", "documentation", "writing", "open-source"]
+  "keywords": [
+    "readme",
+    "documentation",
+    "writing",
+    "open-source"
+  ]
 }

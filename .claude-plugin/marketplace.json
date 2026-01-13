@@ -5,7 +5,8 @@
     "url": "https://github.com/drewburchfield"
   },
   "metadata": {
-    "description": "Personal productivity plugins for Claude Code"
+    "description": "Personal productivity plugins for Claude Code",
+    "version": "1.0.0"
   },
   "plugins": [
     {
@@ -17,7 +18,9 @@
         "url": "https://github.com/drewburchfield"
       },
       "category": "productivity",
-      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/subscription-cleanse"
+      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/subscription-cleanse",
+      "version": "1.0.4",
+      "strict": true
     },
     {
       "name": "braintrust",
@@ -28,7 +31,9 @@
         "url": "https://github.com/drewburchfield"
       },
       "category": "development",
-      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/braintrust"
+      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/braintrust",
+      "version": "1.1.5",
+      "strict": true
     },
     {
       "name": "linkedin-message-triage",
@@ -39,7 +44,9 @@
         "url": "https://github.com/drewburchfield"
       },
       "category": "productivity",
-      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/linkedin-message-triage"
+      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/linkedin-message-triage",
+      "version": "1.0.4",
+      "strict": true
     },
     {
       "name": "markdown-to-confluence",
@@ -50,7 +57,9 @@
         "url": "https://github.com/drewburchfield"
       },
       "category": "documentation",
-      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/markdown-to-confluence"
+      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/markdown-to-confluence",
+      "version": "1.0.4",
+      "strict": true
     },
     {
       "name": "cre-property-research",
@@ -61,7 +70,9 @@
         "url": "https://github.com/drewburchfield"
       },
       "category": "research",
-      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/cre-property-research"
+      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/cre-property-research",
+      "version": "1.0.4",
+      "strict": true
     },
     {
       "name": "1password-management",
@@ -72,7 +83,9 @@
         "url": "https://github.com/drewburchfield"
       },
       "category": "security",
-      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/1password-management"
+      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/1password-management",
+      "version": "1.0.4",
+      "strict": true
     },
     {
       "name": "readme-craft",
@@ -83,7 +96,9 @@
         "url": "https://github.com/drewburchfield"
       },
       "category": "documentation",
-      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/readme-craft"
+      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/readme-craft",
+      "version": "1.0.4",
+      "strict": true
     },
     {
       "name": "helpscout-navigator",
@@ -94,7 +109,9 @@
         "url": "https://github.com/drewburchfield"
       },
       "category": "productivity",
-      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/helpscout-navigator"
+      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/helpscout-navigator",
+      "version": "1.0.5",
+      "strict": true
     }
   ]
 }

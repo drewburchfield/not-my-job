@@ -4,6 +4,8 @@
 
 **Agentic coding tool plugins for tasks you'd rather not do yourself.**
 
+*Someone has to audit your subscriptions, tell you when you're wrong, and deal with LinkedIn. It's not going to be you!*
+
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
 </div>

@@ -1,6 +1,6 @@
 {
   "name": "1password-management",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "Proper syntax, field types, and best practices for managing credentials with 1Password CLI (op)",
   "author": {
     "name": "Drew Burchfield",
@@ -9,5 +9,11 @@
   "homepage": "https://github.com/drewburchfield/not-my-job",
   "repository": "https://github.com/drewburchfield/not-my-job",
   "license": "MIT",
-  "keywords": ["1password", "credentials", "secrets", "cli", "op"]
+  "keywords": [
+    "1password",
+    "credentials",
+    "secrets",
+    "cli",
+    "op"
+  ]
 }

@@ -1,6 +1,6 @@
 {
   "name": "helpscout-navigator",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "HelpScout support ticket search with guidance for correct tool usage. Bundles HelpScout MCP server - auto-starts when plugin is enabled.",
   "author": {
     "name": "Drew Burchfield",
@@ -9,5 +9,12 @@
   "homepage": "https://github.com/drewburchfield/not-my-job",
   "repository": "https://github.com/drewburchfield/not-my-job",
   "license": "MIT",
-  "keywords": ["helpscout", "support", "tickets", "mcp", "customer-service", "inbox"]
+  "keywords": [
+    "helpscout",
+    "support",
+    "tickets",
+    "mcp",
+    "customer-service",
+    "inbox"
+  ]
 }
