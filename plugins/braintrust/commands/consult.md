@@ -3,4 +3,6 @@ description: Consult your AI braintrust (Gemini, Codex, Claude) for second opini
 disable-model-invocation: true
 ---
 
-Invoke the braintrust:braintrust skill and follow it exactly as presented to you
+Use the Skill tool to invoke `braintrust:braintrust` (the skill, NOT this command).
+
+Do NOT invoke `braintrust:consult` - that's the command you're reading now. Invoke the skill named `braintrust:braintrust`.
