@@ -1,0 +1,15 @@
+{
+  "description": "Quality gate stop hook - runs type check, lint, and format checks before allowing session to complete",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/stop-quality-gate.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

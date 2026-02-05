@@ -1,0 +1,22 @@
+{
+  "name": "project-bootstrap",
+  "version": "1.0.0",
+  "description": "Auto-detect project language, set up quality tooling and stop hooks, run quality reviews without PRs",
+  "author": {
+    "name": "Drew Burchfield",
+    "url": "https://github.com/drewburchfield"
+  },
+  "homepage": "https://github.com/drewburchfield/not-my-job",
+  "repository": "https://github.com/drewburchfield/not-my-job",
+  "license": "MIT",
+  "keywords": [
+    "bootstrap",
+    "quality",
+    "lint",
+    "typecheck",
+    "eslint",
+    "prettier",
+    "ruff",
+    "code-review"
+  ]
+}
