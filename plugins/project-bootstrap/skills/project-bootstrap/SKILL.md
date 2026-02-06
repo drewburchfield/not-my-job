@@ -71,25 +71,7 @@ Steps:
 
 If the project uses MCP servers (check for `.mcp.json` or `mcp` key in settings), also suggest setting `ENABLE_TOOL_SEARCH` in the project environment.
 
-### Phase 5: Project CLAUDE.md
-
-Generate or append to the project's `CLAUDE.md` file with a quality gates section:
-
-```markdown
-## Quality Gates
-
-This project uses automated quality gates. The following checks run on every Claude stop:
-
-- **Type check**: `<command from meta>`
-- **Lint**: `<command from meta>`
-- **Format check**: `<command from meta>`
-
-Fix all quality gate errors before considering work complete.
-```
-
-If `CLAUDE.md` already exists, append the quality gates section. Do not overwrite existing content.
-
-### Phase 6: Write Project Meta
+### Phase 5: Write Project Meta
 
 Write `.claude/project-meta.json` with the detected configuration:
 
@@ -121,9 +103,27 @@ Python:
 Go:
 - typeCheck: `go vet ./...`
 - lint: `go vet ./...`
-- format: `gofmt -l .`
+- format: `test -z "$(gofmt -l .)"`
 
 Run `date +%Y-%m-%d` to get the current date for `bootstrappedAt`.
+
+### Phase 6: Project CLAUDE.md
+
+Generate or append to the project's `CLAUDE.md` file with a quality gates section. Use the commands from the `project-meta.json` written in Phase 5:
+
+```markdown
+## Quality Gates
+
+This project uses automated quality gates. The following checks run on every Claude stop:
+
+- **Type check**: `<typeCheck command from meta>`
+- **Lint**: `<lint command from meta>`
+- **Format check**: `<format command from meta>`
+
+Fix all quality gate errors before considering work complete.
+```
+
+If `CLAUDE.md` already exists, append the quality gates section. Do not overwrite existing content.
 
 ## Completion
 

@@ -55,6 +55,9 @@ fi
 ERRORS=""
 
 # Run each quality gate, collecting failures
+# TRUST BOUNDARY: Commands come from .claude/project-meta.json, written by the
+# bootstrap skill. Treat that file as trusted. Do not run this hook against
+# untrusted project-meta.json content.
 run_gate() {
   local name="$1"
   local cmd="$2"
