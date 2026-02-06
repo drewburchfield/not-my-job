@@ -115,7 +115,7 @@ digraph triage {
 date "+%Y-%m-%d"
 ```
 
-Record it: `Triage date: 2025-01-07`
+Record it: `Triage date: [today's date]`
 
 **Do NOT assume the date.** Claude's training data defaults to outdated years.
 

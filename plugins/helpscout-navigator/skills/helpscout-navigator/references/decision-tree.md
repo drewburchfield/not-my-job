@@ -107,7 +107,7 @@ comprehensiveConversationSearch({
 
 ---
 
-## Scenario 3: Customer History
+## Scenario 4: Customer History
 
 **User:** "Show all tickets from customer@example.com"
 
@@ -139,7 +139,7 @@ advancedConversationSearch({
 
 ---
 
-## Scenario 4: Assignee-Based Filtering
+## Scenario 5: Assignee-Based Filtering
 
 **User:** "Show John's open tickets"
 
@@ -167,7 +167,7 @@ structuredConversationFilter({
 
 ---
 
-## Scenario 5: Tag-Based Search
+## Scenario 6: Tag-Based Search
 
 **User:** "Find all tickets tagged 'urgent' or 'escalated'"
 
@@ -198,7 +198,7 @@ advancedConversationSearch({
 
 ---
 
-## Scenario 6: Folder-Based Queries
+## Scenario 7: Folder-Based Queries
 
 **User:** "Show tickets in the 'Needs Follow-up' folder"
 
@@ -215,7 +215,7 @@ structuredConversationFilter({
 
 ---
 
-## Scenario 7: Conversation Deep Dive
+## Scenario 8: Conversation Deep Dive
 
 **User:** "Tell me everything about ticket #42839"
 
@@ -236,7 +236,7 @@ getThreads({ conversationId, limit: 200 });
 
 ---
 
-## Scenario 8: Status Transitions
+## Scenario 9: Status Transitions
 
 **User:** "Find recently closed tickets that were open for more than a week"
 

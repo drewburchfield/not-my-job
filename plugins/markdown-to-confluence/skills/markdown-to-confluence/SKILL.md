@@ -23,15 +23,18 @@ Trigger this skill when:
 
 ## Quick Start
 
-> **Script location:** The conversion script is bundled with this skill at `skills/markdown-to-confluence/scripts/md_to_confluence.py` relative to the plugin root.
+> **Script location:** The conversion script is bundled with this skill. Find it with: `Glob for **/md_to_confluence.py`
 
 ### Basic Conversion
 
 Convert a markdown file to Confluence Storage Format:
 
 ```bash
-# From the skill directory (skills/markdown-to-confluence/)
-python scripts/md_to_confluence.py input.md output.xml
+# First, locate the script
+SCRIPT=$(find ~/.claude ~/dev -path "*/markdown-to-confluence/scripts/md_to_confluence.py" 2>/dev/null | head -1)
+
+# Run the conversion
+python "$SCRIPT" input.md output.xml
 ```
 
 The output file contains valid Confluence Storage Format XML.

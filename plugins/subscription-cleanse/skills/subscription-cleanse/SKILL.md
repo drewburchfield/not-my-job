@@ -61,7 +61,7 @@ date "+%Y-%m-%d %H:%M %Z"
 
 Record it explicitly at the start of analysis and in working file:
 ```
-Analysis date: 2025-01-07
+Analysis date: [today's date]
 ```
 
 **Do NOT assume or hallucinate the date.** Claude's training data often defaults to outdated years. Always verify with an actual system call.
