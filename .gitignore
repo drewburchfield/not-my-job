@@ -32,6 +32,9 @@ node_modules/
 __pycache__/
 *.pyc
 
+# Claude Code local overrides
+.claude/settings.local.json
+
 # Test outputs
 *.json.tmp
 extracted_merchants.json

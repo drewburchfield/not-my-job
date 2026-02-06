@@ -1,0 +1,13 @@
+{
+  "enabledPlugins": {
+    "1password-management@not-my-job": true,
+    "braintrust@not-my-job": true,
+    "cre-property-research@not-my-job": true,
+    "helpscout-navigator@not-my-job": true,
+    "linkedin-message-triage@not-my-job": true,
+    "markdown-to-confluence@not-my-job": true,
+    "project-bootstrap@not-my-job": true,
+    "readme-craft@not-my-job": true,
+    "subscription-cleanse@not-my-job": true
+  }
+}
