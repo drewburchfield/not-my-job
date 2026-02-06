@@ -92,6 +92,7 @@
         /* Subscription Items */
         .items {
             padding: 0.5rem;
+            max-height: 5000px;
             transition: max-height 0.3s ease, opacity 0.2s ease;
             overflow: hidden;
         }
@@ -280,7 +281,7 @@
     </style>
 </head>
 <body>
-    <div class="privacy-toggle" role="button" tabindex="0" aria-pressed="false" onclick="togglePrivacy()" onkeydown="if(event.key==='Enter')togglePrivacy()">Privacy Mode</div>
+    <div class="privacy-toggle" role="button" tabindex="0" aria-pressed="false" onclick="togglePrivacy()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();togglePrivacy()}">Privacy Mode</div>
 
     <h1>Subscription Cleanse</h1>
     <p class="subtitle">Generated: {{DATE}} | Sources: {{SOURCES}}</p>
@@ -318,7 +319,7 @@
 
     <!-- CANCEL SECTION -->
     <div class="section cancel" role="region" aria-label="Recommended to cancel">
-        <div class="section-header" role="button" tabindex="0" aria-expanded="true" onclick="toggleSection(this)" onkeydown="if(event.key==='Enter')toggleSection(this)">
+        <div class="section-header" role="button" tabindex="0" aria-expanded="true" onclick="toggleSection(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleSection(this)}">
             <span class="section-chevron" aria-hidden="true">&#9660;</span>
             <span>Cancel</span>
             <h2>Recommended to Cancel</h2>
@@ -346,7 +347,7 @@
 
     <!-- INVESTIGATE SECTION -->
     <div class="section investigate" role="region" aria-label="Needs your decision">
-        <div class="section-header" role="button" tabindex="0" aria-expanded="true" onclick="toggleSection(this)" onkeydown="if(event.key==='Enter')toggleSection(this)">
+        <div class="section-header" role="button" tabindex="0" aria-expanded="true" onclick="toggleSection(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleSection(this)}">
             <span class="section-chevron" aria-hidden="true">&#9660;</span>
             <span>Review</span>
             <h2>Needs Your Decision</h2>
@@ -375,7 +376,7 @@
 
     <!-- KEEP SECTION -->
     <div class="section keep" role="region" aria-label="Intentional subscriptions">
-        <div class="section-header" role="button" tabindex="0" aria-expanded="true" onclick="toggleSection(this)" onkeydown="if(event.key==='Enter')toggleSection(this)">
+        <div class="section-header" role="button" tabindex="0" aria-expanded="true" onclick="toggleSection(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleSection(this)}">
             <span class="section-chevron" aria-hidden="true">&#9660;</span>
             <span>Keeping</span>
             <h2>Intentional Subscriptions</h2>
@@ -408,7 +409,7 @@
     </div>
 
     <!-- Floating Action Button -->
-    <div class="fab" role="button" tabindex="0" onclick="copySelected()" onkeydown="if(event.key==='Enter')copySelected()">
+    <div class="fab" role="button" tabindex="0" onclick="copySelected()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();copySelected()}">
         Copy Selected (<span id="selected-count">0</span>)
     </div>
 
@@ -422,12 +423,14 @@
 
     <script>
         // Show toast notification
+        var toastTimer;
         function showToast(message, duration) {
             duration = duration || 2500;
             var toast = document.getElementById('toast');
+            clearTimeout(toastTimer);
             toast.textContent = message;
             toast.classList.add('visible');
-            setTimeout(function() { toast.classList.remove('visible'); }, duration);
+            toastTimer = setTimeout(function() { toast.classList.remove('visible'); }, duration);
         }
 
         // Toggle section collapse
@@ -510,6 +513,14 @@
             // Animate out
             item.classList.add('moving');
             setTimeout(function() {
+                // Auto-expand Keep section if collapsed
+                var keepHeader = keepItems.previousElementSibling;
+                if (keepHeader && keepHeader.classList.contains('collapsed')) {
+                    keepHeader.classList.remove('collapsed');
+                    keepItems.classList.remove('collapsed');
+                    keepHeader.setAttribute('aria-expanded', 'true');
+                }
+
                 // Move to keep section
                 keepItems.appendChild(item);
                 item.classList.remove('moving');
@@ -517,6 +528,7 @@
                 // Update section counts
                 updateSectionCounts();
                 updateFab();
+                showToast('Moved to Keep');
             }, 300);
         }
 
