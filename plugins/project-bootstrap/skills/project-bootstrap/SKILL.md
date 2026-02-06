@@ -43,7 +43,7 @@ For each missing tool:
 - [ ] `tsconfig.json` (if missing)
 - [ ] `eslint.config.mjs` (ESLint flat config with TypeScript plugin)
 - [ ] `.prettierrc` (Prettier config)
-- [ ] Dev dependencies: `eslint`, `@typescript-eslint/eslint-plugin`, `@typescript-eslint/parser`, `prettier`
+- [ ] Dev dependencies: `eslint`, `@eslint/js`, `typescript-eslint`, `prettier`
 
 **Python checklist:**
 - [ ] `ruff.toml` (linter + formatter config)
@@ -60,14 +60,16 @@ The plugin bundles a Stop hook that enforces quality gates. Explain to the user:
 
 The hook is pre-configured in this plugin's `hooks/` directory. It reads `.claude/project-meta.json` to know which quality commands to run. No user action needed here beyond acknowledgment.
 
+**Trust boundary note:** The stop hook runs commands from `.claude/project-meta.json` via `eval`. This file is written by the bootstrap skill and should be treated as trusted project configuration. Users should review `project-meta.json` if they clone an unfamiliar repository that already contains one.
+
 ### Phase 4: Plugin Picker
 
 Present the user with a list of currently installed/available plugins. Use AskUserQuestion with multiSelect to let them choose which plugins to enable for this project.
 
 Steps:
-1. Read the user's global Claude settings to find installed plugins
+1. Read `~/.claude/settings.json` and look for the `enabledPlugins` array to find installed plugins
 2. Present them as options via AskUserQuestion (multiSelect: true)
-3. Write selected plugins to `.claude/settings.json` under `enabledPlugins`
+3. Write selected plugins to `.claude/settings.json` (project-level, in the working directory) under `enabledPlugins`
 
 If the project uses MCP servers (check for `.mcp.json` or `mcp` key in settings), also suggest setting `ENABLE_TOOL_SEARCH` in the project environment.
 
@@ -83,7 +85,7 @@ Write `.claude/project-meta.json` with the detected configuration:
     "lint": "<lint command>",
     "format": "<format check command>"
   },
-  "bootstrapVersion": "1.0.0",
+  "bootstrapVersion": "<version from plugin.json>",
   "bootstrappedAt": "<current date YYYY-MM-DD>"
 }
 ```
@@ -105,7 +107,7 @@ Go:
 - lint: `go vet ./...`
 - format: `test -z "$(gofmt -l .)"`
 
-Run `date +%Y-%m-%d` to get the current date for `bootstrappedAt`.
+Run `date +%Y-%m-%d` to get the current date for `bootstrappedAt`. Read the plugin's `.claude-plugin/plugin.json` to get the current version for `bootstrapVersion`.
 
 ### Phase 6: Project CLAUDE.md
 

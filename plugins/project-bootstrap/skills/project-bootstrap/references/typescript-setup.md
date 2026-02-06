@@ -54,7 +54,7 @@ export default tseslint.config(
 ### Install command
 
 ```bash
-npm install --save-dev eslint @eslint/js typescript-eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser
+npm install --save-dev eslint @eslint/js typescript-eslint
 ```
 
 If the project uses `yarn`, substitute `yarn add --dev`. Check for `yarn.lock` to determine package manager.

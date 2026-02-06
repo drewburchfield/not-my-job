@@ -36,25 +36,25 @@ Check for `uv.lock` to determine if the project uses `uv`.
 
 ## pyright Config
 
-Add to `pyproject.toml` under `[tool.pyright]`:
+Add to `pyproject.toml` under `[tool.pyright]`. Detect the Python version from the project's `requires-python` field in `pyproject.toml` (use the minimum version). If not available, check `python3 --version`. Fall back to `3.11` only if neither source is available.
 
 ```toml
 [tool.pyright]
 typeCheckingMode = "basic"
-pythonVersion = "3.11"
+pythonVersion = "<detected version, e.g. 3.11>"
 ```
 
-If `pyproject.toml` does not exist, create a minimal one:
+If `pyproject.toml` does not exist, create a minimal one (adjust the Python version to match what is detected):
 
 ```toml
 [project]
 name = "<project-name>"
 version = "0.1.0"
-requires-python = ">=3.11"
+requires-python = ">=<detected version>"
 
 [tool.pyright]
 typeCheckingMode = "basic"
-pythonVersion = "3.11"
+pythonVersion = "<detected version>"
 ```
 
 ### Install command

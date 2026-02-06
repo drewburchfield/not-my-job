@@ -55,7 +55,7 @@ Search for a spec or PRD file to anchor the review against:
 
 ### Step 4: Spawn Review Sub-Agent
 
-Use the Task tool to spawn the review. The sub-agent gets a fresh context window and does not consume the main session.
+Use the Task tool with `subagent_type: "general-purpose"` to spawn the review. The sub-agent gets a fresh context window and does not consume the main session.
 
 Construct the prompt as follows (fill in the bracketed values):
 
