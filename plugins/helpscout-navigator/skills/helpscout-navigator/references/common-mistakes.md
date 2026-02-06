@@ -181,7 +181,7 @@ structuredConversationFilter({ conversationNumber: 42839 })
 
 ---
 
-## Mistake 6: Not Including Search Term Variations
+## Mistake 8: Not Including Search Term Variations
 
 **What happens:**
 ```javascript
@@ -201,7 +201,7 @@ comprehensiveConversationSearch({
 
 ---
 
-## Mistake 7: Ignoring Pagination for Large Result Sets
+## Mistake 9: Ignoring Pagination for Large Result Sets
 
 **What happens:**
 ```javascript
@@ -230,7 +230,7 @@ do {
 
 ---
 
-## Mistake 8: Not Specifying Timeframe
+## Mistake 10: Not Specifying Timeframe
 
 **What happens:**
 ```javascript
@@ -257,7 +257,7 @@ comprehensiveConversationSearch({
 
 ---
 
-## Mistake 9: Missing Content in Thread Retrieval
+## Mistake 11: Missing Content in Thread Retrieval
 
 **What happens:**
 ```javascript

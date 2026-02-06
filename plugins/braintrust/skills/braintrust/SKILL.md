@@ -58,7 +58,7 @@ The result feels like "working with a small, experienced development team" rathe
 When running in Claude Code, you can consult a separate Claude instance via the Task tool:
 
 ```
-Use the Task tool with subagent_type="Explore" or "general-purpose" to get a fresh Claude perspective on your problem. This spawns an independent Claude session with its own context.
+Use the Task tool with `subagent_type: "general-purpose"` for research and code review, or `subagent_type: "Explore"` for quick codebase searches. This spawns an independent Claude session with its own context.
 ```
 
 This means **all three models are always available** regardless of which harness you're in.

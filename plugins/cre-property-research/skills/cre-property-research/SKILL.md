@@ -25,9 +25,9 @@ This skill performs institutional-grade property research and market analysis fo
 date "+%Y-%m-%d"
 ```
 
-Record it: `Research date: 2025-01-07`
+Record it: `Research date: [today's date]`
 
-**Do NOT assume the year.** Claude defaults to outdated years in searches. Always include current year in queries (e.g., "Nashville industrial market 2025").
+**Do NOT assume the year.** Claude defaults to outdated years in searches. Always include current year in queries (e.g., "Nashville industrial market [current year]").
 
 ## Research Framework
 
@@ -87,7 +87,7 @@ Record it: `Research date: 2025-01-07`
 **Research Areas:**
 
 1. **Major economic drivers:**
-   - Search: "[City] economic development 2025"
+   - Search: "[City] economic development [current year]"
    - Find: Major employers, recent expansions, economic impact data
    - Document: Largest employers, growth sectors, economic trends
 
@@ -98,7 +98,7 @@ Record it: `Research date: 2025-01-07`
 
 3. **Recent development activity:**
    - Search: "[City] [County] economic development corporation news"
-   - Search: "[City] commercial real estate news 2025"
+   - Search: "[City] commercial real estate news [current year]"
    - Find: Recent announcements, pipeline projects, major investments
    - Document: Projects, timelines, job creation, investment amounts
 
@@ -240,7 +240,7 @@ Record it: `Research date: 2025-01-07`
 **For Sale Properties:**
 
 1. **Research cap rates:**
-   - Search: "[City] commercial cap rates 2025 [property type]"
+   - Search: "[City] commercial cap rates [current year] [property type]"
    - Compare to subject property's implied cap rate
    - Understand market expectations
 
@@ -385,7 +385,7 @@ Provide immediate 3-5 bullet point summary:
 - Explain justification for pricing variance
 
 **Economic Context:**
-- Current year data only (2025)
+- Current year data only (use the date established in Phase 0)
 - Cite authoritative sources (government, news, industry reports)
 - Quantify impact where possible ($X billion, X jobs, etc.)
 
@@ -404,7 +404,7 @@ Provide immediate 3-5 bullet point summary:
 
 1. **Generic tenant categories** - Don't say "businesses needing space." Say "Defense contractors with Fort Bragg contracts needing 5,000-15,000 SF for equipment staging and light assembly."
 
-2. **Stale data** - Always check publication dates. Prefer 2025 sources. Note when using older data.
+2. **Stale data** - Always check publication dates. Prefer current year sources. Note when using older data.
 
 3. **Missing the "so what"** - Don't just list facts. Explain why Fort Bragg's $8.8B impact matters for Gateway's tenant prospects.
 
