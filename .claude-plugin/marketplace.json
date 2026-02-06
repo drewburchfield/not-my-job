@@ -19,7 +19,7 @@
       },
       "category": "productivity",
       "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/subscription-cleanse",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "strict": true
     },
     {
@@ -32,7 +32,7 @@
       },
       "category": "development",
       "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/braintrust",
-      "version": "1.1.7",
+      "version": "1.1.8",
       "strict": true
     },
     {
@@ -45,7 +45,7 @@
       },
       "category": "productivity",
       "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/linkedin-message-triage",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "strict": true
     },
     {
@@ -58,7 +58,7 @@
       },
       "category": "documentation",
       "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/markdown-to-confluence",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "strict": true
     },
     {
@@ -71,7 +71,7 @@
       },
       "category": "research",
       "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/cre-property-research",
-      "version": "1.0.4",
+      "version": "1.0.5",
       "strict": true
     },
     {
@@ -110,7 +110,7 @@
       },
       "category": "productivity",
       "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/helpscout-navigator",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "strict": true
     },
     {
