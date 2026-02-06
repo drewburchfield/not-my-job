@@ -18,7 +18,7 @@ This is not optional. The entire value of the braintrust is multi-model coverage
 **Launch all three in a single parallel batch:**
 ```bash
 claude -p "$QUERY" --model sonnet --output-format json > /tmp/claude.json &
-gemini "$QUERY" -m gemini-2.5-pro -o json > /tmp/gemini.json &
+gemini "$QUERY" -m gemini-3-pro -o json > /tmp/gemini.json &
 codex exec --json "$QUERY" > /tmp/codex.json &
 wait
 ```
@@ -72,7 +72,7 @@ This means **all three models are always available** regardless of which harness
 ```bash
 # Diagnostic health checks (only run if needed)
 claude -p "test" --model haiku --output-format json &>/dev/null && echo "Claude: OK" || echo "Claude: FAILED"
-gemini "test" -m gemini-3-flash-preview -o json &>/dev/null && echo "Gemini: OK" || echo "Gemini: FAILED"
+gemini "test" -m gemini-3-flash -o json &>/dev/null && echo "Gemini: OK" || echo "Gemini: FAILED"
 codex exec --json "test" &>/dev/null && echo "Codex: OK" || echo "Codex: FAILED"
 ```
 
@@ -88,7 +88,7 @@ codex exec --json "test" &>/dev/null && echo "Codex: OK" || echo "Codex: FAILED"
 | CLI | Default Command | Fast Option |
 |-----|-----------------|-------------|
 | **Claude** | `claude -p "query" --model sonnet --output-format json` | `--model haiku` |
-| **Gemini** | `gemini "query" -m gemini-3-pro-preview -o json` | `-m gemini-3-flash-preview` |
+| **Gemini** | `gemini "query" -m gemini-3-pro -o json` | `-m gemini-3-flash` |
 | **Codex** | `codex exec --json "query"` | N/A |
 
 ## When to Consult the Braintrust
@@ -131,7 +131,7 @@ Get a second opinion from the braintrust:
 
 ```bash
 # From Claude Code - consult Gemini
-gemini "Review this implementation approach: [CONTEXT]" -m gemini-3-pro-preview -o json | jq -r '.response'
+gemini "Review this implementation approach: [CONTEXT]" -m gemini-3-pro -o json | jq -r '.response'
 
 # From Claude Code - consult Codex
 codex exec --json "Review this implementation approach: [CONTEXT]" | jq -rs 'map(select(.item.type? == "agent_message")) | last | .item.text'
@@ -146,16 +146,16 @@ Gemini 3 Pro leads the WebDev Arena with 1487 Elo and shows 35% higher accuracy 
 
 ```bash
 # Review UI component design
-gemini "@src/components/ Review the design consistency. Are we following a coherent design system? Check spacing, typography scale, color usage." -m gemini-3-pro-preview -o json | jq -r '.response'
+gemini "@src/components/ Review the design consistency. Are we following a coherent design system? Check spacing, typography scale, color usage." -m gemini-3-pro -o json | jq -r '.response'
 
 # Generate component from sketch (drag image into terminal)
-gemini "@sketch.png Generate a React component with Tailwind CSS that matches this design exactly" -m gemini-3-pro-preview -o json
+gemini "@sketch.png Generate a React component with Tailwind CSS that matches this design exactly" -m gemini-3-pro -o json
 
 # Extract design system from existing code
-gemini "@src/styles/ @src/components/ Extract the implicit design system: color palette, spacing scale, typography, component patterns" -m gemini-3-pro-preview -o json | jq -r '.response'
+gemini "@src/styles/ @src/components/ Extract the implicit design system: color palette, spacing scale, typography, component patterns" -m gemini-3-pro -o json | jq -r '.response'
 
 # Review accessibility
-gemini "@src/components/ Audit for accessibility: semantic HTML, ARIA attributes, keyboard navigation, color contrast" -m gemini-3-pro-preview -o json | jq -r '.response'
+gemini "@src/components/ Audit for accessibility: semantic HTML, ARIA attributes, keyboard navigation, color contrast" -m gemini-3-pro -o json | jq -r '.response'
 ```
 
 ### Codebase Analysis (Gemini's 1M Context)
@@ -164,16 +164,16 @@ Gemini has 1M token native context - ideal for whole-codebase work. Testing show
 
 ```bash
 # Analyze entire codebase
-gemini "@src/ @lib/ What architectural patterns are used?" -m gemini-3-pro-preview -o json
+gemini "@src/ @lib/ What architectural patterns are used?" -m gemini-3-pro -o json
 
 # Find patterns across files
-gemini "@./ How is error handling implemented across the codebase?" -m gemini-3-pro-preview -o json
+gemini "@./ How is error handling implemented across the codebase?" -m gemini-3-pro -o json
 
 # Compare implementations
-gemini "@src/auth/ @src/api/ Are these using consistent patterns?" -m gemini-3-pro-preview -o json
+gemini "@src/auth/ @src/api/ Are these using consistent patterns?" -m gemini-3-pro -o json
 
 # Holistic refactoring suggestions
-gemini "@src/ Suggest refactoring improvements that require understanding of the full system, not just individual files" -m gemini-3-pro-preview -o json
+gemini "@src/ Suggest refactoring improvements that require understanding of the full system, not just individual files" -m gemini-3-pro -o json
 ```
 
 ### Maximum Reasoning (Hard Problems)
@@ -185,7 +185,7 @@ For the hardest problems, use flagship models:
 claude -p "[HARD PROBLEM]" --model opus --output-format json
 
 # Gemini 3 Pro (already the default, 1M context)
-gemini "[HARD PROBLEM]" -m gemini-3-pro-preview -o json
+gemini "[HARD PROBLEM]" -m gemini-3-pro -o json
 ```
 
 ### Fast Consultations
@@ -194,7 +194,7 @@ When speed matters more than depth:
 
 ```bash
 claude -p "[QUERY]" --model haiku --output-format json
-gemini "[QUERY]" -m gemini-3-flash-preview -o json
+gemini "[QUERY]" -m gemini-3-flash -o json
 ```
 
 ### Parallel Research
@@ -204,7 +204,7 @@ Run all braintrust members simultaneously:
 ```bash
 # Launch all three in parallel
 claude -p "$QUERY" --model sonnet --output-format json > /tmp/claude.json &
-gemini "$QUERY" -m gemini-3-pro-preview -o json > /tmp/gemini.json &
+gemini "$QUERY" -m gemini-3-pro -o json > /tmp/gemini.json &
 codex exec --json "$QUERY" > /tmp/codex.json &
 wait
 
@@ -249,7 +249,7 @@ gemini "Review this function for bugs: async function fetchUser(id) {
   const response = await fetch('/api/users/' + id);
   const data = response.json();
   return data;
-}" -m gemini-2.0-flash -o json
+}" -m gemini-3-flash -o json
 
 # With self-critique (finds 4 bugs)
 gemini "Review this function for bugs: async function fetchUser(id) {
@@ -258,7 +258,7 @@ gemini "Review this function for bugs: async function fetchUser(id) {
   return data;
 }
 
-IMPORTANT: After your analysis, include a 'Self-Critique' section with 2-3 bullets identifying limitations or uncertainties in your review." -m gemini-2.0-flash -o json
+IMPORTANT: After your analysis, include a 'Self-Critique' section with 2-3 bullets identifying limitations or uncertainties in your review." -m gemini-3-flash -o json
 ```
 
 ## Model Reference
@@ -270,7 +270,7 @@ IMPORTANT: After your analysis, include a 'Self-Critique' section with 2-3 bulle
 | Model | Context | Use Case |
 |-------|---------|----------|
 | **Sonnet 4.5** | 200K (1M beta) | Default - balanced performance, large context available |
-| **Opus 4.5** | 200K | Hardest reasoning problems |
+| **Opus 4.6** | 200K | Hardest reasoning problems |
 | **Haiku 4.5** | 200K | Speed, cost efficiency |
 
 ### Gemini (Gemini 3 Only)
@@ -284,8 +284,9 @@ IMPORTANT: After your analysis, include a 'Self-Critique' section with 2-3 bulle
 
 | Model | Context | Availability |
 |-------|---------|--------------|
-| **GPT-5-Codex** | 400K | Default (ChatGPT auth) |
-| **GPT-5.2-Codex** | 400K | API key auth only |
+| **GPT-Codex** | 400K | Default (ChatGPT auth) |
+| **GPT-5.2** | 400K | API key auth |
+| **GPT-5.3** | 400K | Latest, API key auth |
 
 ## Output Parsing
 
@@ -327,17 +328,17 @@ gemini "@src/components/ Review these components for:
 2. Accessibility compliance
 3. Responsive design patterns
 4. Component API design (props, composition)
-What's working well? What needs improvement?" -m gemini-3-pro-preview -o json | jq -r '.response'
+What's working well? What needs improvement?" -m gemini-3-pro -o json | jq -r '.response'
 
 # Generate pixel-perfect code from a design mockup
-gemini "@mockup.png Implement this design as a React component with Tailwind CSS. Match the exact spacing, colors, and typography." -m gemini-3-pro-preview -o json | jq -r '.response'
+gemini "@mockup.png Implement this design as a React component with Tailwind CSS. Match the exact spacing, colors, and typography." -m gemini-3-pro -o json | jq -r '.response'
 ```
 
 ### 2. Architecture Review
 
 ```bash
 # Get Gemini's take on overall architecture (uses 1M context)
-gemini "@src/ Analyze the architecture. What are the main components and how do they interact? Identify any architectural debt or inconsistencies." -m gemini-3-pro-preview -o json | jq -r '.response'
+gemini "@src/ Analyze the architecture. What are the main components and how do they interact? Identify any architectural debt or inconsistencies." -m gemini-3-pro -o json | jq -r '.response'
 ```
 
 ### 3. Cross-Model Code Review
@@ -349,7 +350,7 @@ gemini "@src/features/auth/ Review these changes as if you're a senior developer
 - Security issues
 - Performance concerns
 - Patterns inconsistent with the rest of the codebase
-- Missed edge cases" -m gemini-3-pro-preview -o json | jq -r '.response'
+- Missed edge cases" -m gemini-3-pro -o json | jq -r '.response'
 ```
 
 ### 4. Security Audit
@@ -365,7 +366,7 @@ AUDIT_PROMPT="Review this codebase for security vulnerabilities:
 6. Rate limiting gaps"
 
 claude -p "$AUDIT_PROMPT $(find src -name '*.ts' -exec cat {} \;)" --model sonnet --output-format json > /tmp/claude-security.json &
-gemini "@src/ $AUDIT_PROMPT" -m gemini-3-pro-preview -o json > /tmp/gemini-security.json &
+gemini "@src/ $AUDIT_PROMPT" -m gemini-3-pro -o json > /tmp/gemini-security.json &
 codex exec --json "$AUDIT_PROMPT" > /tmp/codex-security.json &
 wait
 
@@ -387,7 +388,7 @@ Trace the request flow from entry point to database. Identify:
 2. Connection pooling configuration
 3. Timeout settings
 4. Retry logic (or lack thereof)
-5. Error handling gaps" -m gemini-3-pro-preview -o json | jq -r '.response'
+5. Error handling gaps" -m gemini-3-pro -o json | jq -r '.response'
 ```
 
 ### 6. Framework Migration Planning
@@ -399,7 +400,7 @@ gemini "@src/ We're considering migrating from React class components to hooks. 
 2. Migration complexity per component
 3. Suggested migration order
 4. Potential breaking changes
-5. Testing strategy" -m gemini-3-pro-preview -o json | jq -r '.response'
+5. Testing strategy" -m gemini-3-pro -o json | jq -r '.response'
 ```
 
 ### 7. Parallel Research
@@ -408,7 +409,7 @@ gemini "@src/ We're considering migrating from React class components to hooks. 
 # Query all three for diverse perspectives
 TOPIC="best practices for implementing rate limiting in Node.js APIs"
 claude -p "Research: $TOPIC" --model sonnet --output-format json > /tmp/claude.json &
-gemini "Research: $TOPIC" -m gemini-3-pro-preview -o json > /tmp/gemini.json &
+gemini "Research: $TOPIC" -m gemini-3-pro -o json > /tmp/gemini.json &
 codex exec --json "Research: $TOPIC" > /tmp/codex.json &
 wait
 
@@ -450,7 +451,7 @@ echo "=== Codex ===" && grep agent_message /tmp/codex.json | jq -r '.item.text'
 1. **Use Gemini for design & frontend** - Leads WebDev Arena, 35% higher accuracy on UI challenges
 2. **Use Gemini for large context** - 1M tokens native vs 200K for Claude/Codex; can analyze 40K+ lines holistically
 3. **Cross-model review catches bugs** - When a model writes code, it's blind to its own mistakes; different models spot issues instantly
-4. **Use explicit models** - Headless defaults auto-route to weaker models; always specify `--model sonnet` or `-m gemini-3-pro-preview`
+4. **Use explicit models** - Headless defaults auto-route to weaker models; always specify `--model sonnet` or `-m gemini-3-pro`
 5. **Parse JSON output** - Structured output enables scripting, automation, and synthesis
 6. **Parallel is fast** - Run all three simultaneously for 3x speed and diverse perspectives
 7. **Different models, different blind spots** - Each AI has different training; combined approaches outperform individuals
