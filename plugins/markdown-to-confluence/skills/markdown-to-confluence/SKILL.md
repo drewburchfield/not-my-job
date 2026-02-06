@@ -23,7 +23,7 @@ Trigger this skill when:
 
 ## Quick Start
 
-> **Script location:** The conversion script is bundled with this skill. Find it with: `Glob for **/md_to_confluence.py`
+> **Script location:** The conversion script is bundled with this skill. Locate it with the `find` command shown below.
 
 ### Basic Conversion
 
@@ -31,7 +31,7 @@ Convert a markdown file to Confluence Storage Format:
 
 ```bash
 # First, locate the script
-SCRIPT=$(find ~/.claude ~/dev -path "*/markdown-to-confluence/scripts/md_to_confluence.py" 2>/dev/null | head -1)
+SCRIPT=$(find ~/.claude ~/.config/claude-code ~/dev -path "*/markdown-to-confluence/scripts/md_to_confluence.py" 2>/dev/null | head -1)
 
 # Run the conversion
 python "$SCRIPT" input.md output.xml
@@ -66,7 +66,9 @@ Ensure the markdown file uses standard syntax:
 Execute the conversion script:
 
 ```bash
-python scripts/md_to_confluence.py document.md confluence_output.xml
+# Locate the script (if not already done above)
+SCRIPT=$(find ~/.claude ~/.config/claude-code ~/dev -path "*/markdown-to-confluence/scripts/md_to_confluence.py" 2>/dev/null | head -1)
+python "$SCRIPT" document.md confluence_output.xml
 ```
 
 Or convert inline if working with text directly:
