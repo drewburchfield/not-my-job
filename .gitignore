@@ -35,3 +35,6 @@ __pycache__/
 # Test outputs
 *.json.tmp
 extracted_merchants.json
+
+# Claude Code local overrides (project settings are tracked)
+.claude/settings.local.json
