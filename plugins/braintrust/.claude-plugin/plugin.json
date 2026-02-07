@@ -1,6 +1,6 @@
 {
   "name": "braintrust",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "Orchestrate other AI CLIs (Gemini, Codex, Claude Code) for second opinions, research, and codebase analysis",
   "author": {
     "name": "Drew Burchfield",

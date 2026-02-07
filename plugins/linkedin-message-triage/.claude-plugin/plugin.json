@@ -1,6 +1,6 @@
 {
   "name": "linkedin-message-triage",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Systematic LinkedIn inbox review - filter solicitations, identify messages needing responses, draft replies",
   "author": {
     "name": "Drew Burchfield",

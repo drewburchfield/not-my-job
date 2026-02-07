@@ -1,6 +1,6 @@
 {
   "name": "1password-management",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Proper syntax, field types, and best practices for managing credentials with 1Password CLI (op)",
   "author": {
     "name": "Drew Burchfield",
