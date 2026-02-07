@@ -1,0 +1,16 @@
+{
+  "description": "SessionStart hook - checks Playwright MCP availability for browser automation",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/session-start.sh",
+            "statusMessage": "Checking Playwright availability..."
+          }
+        ]
+      }
+    ]
+  }
+}

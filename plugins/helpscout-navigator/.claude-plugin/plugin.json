@@ -1,6 +1,6 @@
 {
   "name": "helpscout-navigator",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "HelpScout support ticket search with guidance for correct tool usage. Bundles HelpScout MCP server - auto-starts when plugin is enabled.",
   "author": {
     "name": "Drew Burchfield",
