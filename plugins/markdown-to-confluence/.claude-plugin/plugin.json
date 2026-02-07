@@ -1,6 +1,6 @@
 {
   "name": "markdown-to-confluence",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Convert Markdown documents to Confluence Storage Format (XHTML-based XML)",
   "author": {
     "name": "Drew Burchfield",

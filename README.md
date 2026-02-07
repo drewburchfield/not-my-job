@@ -22,6 +22,7 @@
 | 🔐 | [**1password-management**](#1password-management) | Proper syntax for 1Password CLI |
 | 📝 | [**readme-craft**](#readme-craft) | Write clean, human-sounding README files |
 | 🎫 | [**helpscout-navigator**](#helpscout-navigator) | HelpScout search guidance with bundled MCP server |
+| 🏗 | [**project-bootstrap**](#project-bootstrap) | Auto-detect language, set up quality tooling, run code reviews |
 
 <br>
 
@@ -140,6 +141,19 @@ Guidance for correctly using HelpScout MCP tools. Bundles the MCP server — aut
 - Complete parameter reference for all 9 tools
 
 **Requires:** `HELPSCOUT_APP_ID` and `HELPSCOUT_APP_SECRET` environment variables
+
+<p align="center">―</p>
+
+### 🏗 project-bootstrap
+
+One-time setup for consistent quality gates across your projects.
+
+- Auto-detects language (TypeScript, Python, Go)
+- Installs and configures linting, formatting, and type checking
+- Stop hook enforces quality gates on every Claude session
+- `/quality-review` runs a PR-style code review without needing a PR
+
+**Languages:** TypeScript (ESLint + Prettier) · Python (ruff + pyright) · Go (built-in tooling)
 
 <br>
 

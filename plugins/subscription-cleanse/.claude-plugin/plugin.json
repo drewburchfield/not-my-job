@@ -1,6 +1,6 @@
 {
   "name": "subscription-cleanse",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Comprehensive subscription audit with bank CSV analysis and email reconnaissance",
   "author": {
     "name": "Drew Burchfield",

@@ -1,6 +1,6 @@
 {
   "name": "project-bootstrap",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Auto-detect project language, set up quality tooling and stop hooks, run quality reviews without PRs",
   "author": {
     "name": "Drew Burchfield",
