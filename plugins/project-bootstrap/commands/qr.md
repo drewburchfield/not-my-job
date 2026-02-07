@@ -5,4 +5,4 @@ disable-model-invocation: true
 
 Invoke the project-bootstrap:quality-review skill and follow it exactly as presented to you.
 
-Do NOT invoke project-bootstrap:quality-review again. That is the command you are reading right now. Invoke the skill named project-bootstrap:quality-review.
+Do NOT invoke project-bootstrap:qr again. That is the command you are reading right now. Invoke the skill named project-bootstrap:quality-review.
