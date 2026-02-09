@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Personal productivity plugins for Claude Code",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "plugins": [
     {
@@ -116,14 +116,14 @@
     {
       "name": "project-bootstrap",
       "source": "./plugins/project-bootstrap",
-      "description": "Auto-detect project language, set up quality tooling and stop hooks, run quality reviews without PRs",
+      "description": "Auto-detect project language, set up quality tooling and stop hooks, run compound PR review cycles with agent reviews and Devin.ai integration",
       "author": {
         "name": "Drew Burchfield",
         "url": "https://github.com/drewburchfield"
       },
       "category": "development",
       "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/project-bootstrap",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "strict": true
     }
   ]
