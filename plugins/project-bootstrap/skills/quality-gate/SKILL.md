@@ -31,7 +31,7 @@ Invoke quality gate after completing:
 
 ## Usage
 
-**Three usage modes**:
+**Four usage modes**:
 
 **1. Auto-detect** (recommended):
 ```bash
@@ -45,7 +45,13 @@ Detects issue from branch/commits. If no issue found, prompts for standalone mod
 ```
 Manually specify Linear issue number.
 
-**3. Local-only**:
+**3. Standalone** (no Linear):
+```bash
+/quality-gate --no-issue
+```
+Full PR workflow WITHOUT Linear integration. Use for hotfixes, docs, experiments.
+
+**4. Local-only**:
 ```bash
 /quality-gate --local
 ```
@@ -64,6 +70,12 @@ Review locally WITHOUT creating PR or pushing.
 - Runs with Linear integration
 - Skips detection logic
 
+**Standalone** (`/quality-gate --no-issue`):
+- Full PR review cycle
+- NO Linear integration
+- NO issue detection or validation
+- Use for: hotfixes, docs, experiments
+
 **Local** (`/quality-gate --local`):
 - ✅ Agent reviews on local diff
 - ✅ Remediate locally
@@ -80,6 +92,7 @@ Review locally WITHOUT creating PR or pushing.
 - **During development**: `/quality-gate --local` (iterate privately)
 - **Ready to ship**: `/quality-gate` (full PR cycle)
 - **Explicit tracking**: `/quality-gate NAS-577` (when branch name unclear)
+- **No tracking needed**: `/quality-gate --no-issue` (hotfixes, docs, quick fixes)
 
 ## Mode Comparison
 
