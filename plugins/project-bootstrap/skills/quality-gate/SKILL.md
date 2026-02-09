@@ -304,7 +304,7 @@ $(git log --oneline origin/master..HEAD --pretty=format:'- %s')
 
 Capture the PR URL and number for subsequent operations.
 
-### Step 3: First Agent Review Pass
+### Step 4: First Agent Review Pass
 
 Run comprehensive PR review using pr-review-toolkit agents. These are the critical agents that catch issues:
 
@@ -346,7 +346,7 @@ Invoke the review:
 
 The pr-review-toolkit will run all applicable agents and provide consolidated findings.
 
-### Step 4: First Remediation Pass
+### Step 5: First Remediation Pass
 
 For each finding from agent reviews:
 
@@ -370,7 +370,7 @@ For each finding from agent reviews:
 
 Track which findings were addressed and which were deferred (with justification).
 
-### Step 5: Wait for Devin.ai
+### Step 6: Wait for Devin.ai
 
 After pushing remediation commits, pause for 60 seconds to allow Devin.ai to analyze the PR:
 
@@ -387,7 +387,7 @@ Devin.ai is configured to automatically comment on PRs with findings. The 60-sec
 
 After the pause, fetch all PR comments.
 
-### Step 6: Collect All Feedback
+### Step 7: Collect All Feedback
 
 Fetch comments from both agent reviews and Devin.ai:
 
@@ -403,7 +403,7 @@ Parse comments to identify:
 
 Consolidate all findings into a single list for second remediation pass.
 
-### Step 7: Second Review Pass
+### Step 8: Second Review Pass
 
 With all feedback collected (agents + Devin + manual), perform a second review:
 
@@ -425,7 +425,7 @@ With all feedback collected (agents + Devin + manual), perform a second review:
    git push
    ```
 
-### Step 8: Final Review
+### Step 9: Final Review
 
 Before merge, perform final validation:
 
@@ -451,7 +451,7 @@ Before merge, perform final validation:
 
 If any validation fails, loop back to remediation. If all pass, proceed to merge.
 
-### Step 9: Merge Decision
+### Step 10: Merge Decision
 
 Present merge options to user:
 
@@ -475,7 +475,7 @@ Choice?
 
 Wait for user input. Do not merge automatically without confirmation.
 
-### Step 10: Merge and Update Linear
+### Step 11: Merge and Update Linear
 
 If user approves merge:
 
