@@ -151,7 +151,8 @@ One-time setup for consistent quality gates across your projects.
 - Auto-detects language (TypeScript, Python, Go)
 - Installs and configures linting, formatting, and type checking
 - Stop hook enforces quality gates on every Claude session
-- `/quality-reviewer` runs a PR-style code review without needing a PR
+- `/quality-gate` runs comprehensive PR review cycle with agent reviews, Devin.ai integration, and merge workflow
+  - Use `--local` flag for local-only pre-flight checks without creating PR
 
 **Languages:** TypeScript (ESLint + Prettier) · Python (ruff + pyright) · Go (built-in tooling)
 

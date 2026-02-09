@@ -1,7 +1,7 @@
 {
   "name": "project-bootstrap",
   "version": "1.0.1",
-  "description": "Auto-detect project language, set up quality tooling and stop hooks, run quality reviews without PRs",
+  "description": "Auto-detect project language, set up quality tooling and stop hooks, run compound PR review cycles with agent reviews and Devin.ai integration",
   "author": {
     "name": "Drew Burchfield",
     "url": "https://github.com/drewburchfield"
