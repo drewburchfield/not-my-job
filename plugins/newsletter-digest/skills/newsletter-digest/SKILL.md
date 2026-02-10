@@ -131,43 +131,56 @@ cd skills/newsletter-digest/scripts/
 
 ### PHASE 5: User Review in Browser
 
-**Your role:** Open the HTML file in browser, explain controls, wait for user to finish.
+**Use dev-browser skill to open and monitor the page:**
 
-```bash
-open newsletter-digest.html
+Use the `/dev-browser` skill to open the HTML file and let user review interactively.
+
+```
+Open file:///absolute/path/to/newsletter-digest.html in browser
 ```
 
-**User controls:**
+**Explain controls to user:**
 - **S** = Save to Obsidian (for newsletters worth keeping)
 - **A** = Archive from inbox (dismiss newsletter)
 - **Space/→** = Skip (no action)
 - **←** = Go back one newsletter
-- Decisions persist in localStorage (survives refresh)
+- Progress bar shows completion (e.g., "3 / 7")
+- Decisions auto-save to localStorage
 
-**After review completes:**
-User clicks "Save Decisions to File" button → Downloads `newsletter-decisions.md` to `~/Downloads/`
+**Wait for user to say "done", "finished", or "ready"**
 
-### PHASE 6: Read Decisions File
+You can take screenshots periodically to show progress if helpful.
 
-**Wait for user confirmation** that they've downloaded the decisions file.
+### PHASE 6: Read Decisions from Browser
 
-```bash
-DECISIONS_FILE="$HOME/Downloads/newsletter-decisions.md"
+**Read localStorage directly from browser (no file download needed!):**
 
-if [[ ! -f "$DECISIONS_FILE" ]]; then
-  echo "Decisions file not found. Please download from browser first."
-  exit 1
-fi
+Use dev-browser to extract decisions from page's localStorage:
 
-cat "$DECISIONS_FILE"
+```
+Execute JavaScript in browser:
+  const data = localStorage.getItem('newsletter-decisions');
+  const decisions = data ? JSON.parse(data) : {saved: [], archived: [], skipped: []};
+  return decisions;
 ```
 
-**Parse decisions:**
-- "Save to Obsidian" section → Extract threadIds
-- "Archive from Inbox" section → Extract gog commands
-- Verify format is correct (threadIds are 16-char hex strings)
+This returns an object with:
+- `saved`: Array of threadIds to create Obsidian notes for
+- `archived`: Array of threadIds to archive from Gmail inbox
+- `skipped`: Array of threadIds user chose to skip (no action needed)
+
+**Example output:**
+```json
+{
+  "saved": ["19c4814ca0febdd1", "19c47f966b26c28b"],
+  "archived": ["19c476cc26de3c3c", "19c46bdae8fbc882"],
+  "skipped": ["19c4328e0b2ff1cb"]
+}
+```
 
 ### PHASE 7: Create Notes for Saved Newsletters
+
+**Work with the saved threadIds array from Phase 6.**
 
 **FIRST: Read configuration from newsletter-digest.local.md**
 
