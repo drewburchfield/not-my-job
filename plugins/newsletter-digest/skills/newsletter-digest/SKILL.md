@@ -131,12 +131,10 @@ cd skills/newsletter-digest/scripts/
 
 ### PHASE 5: User Review in Browser
 
-**Use dev-browser skill to open and monitor the page:**
+**Open the HTML file in browser:**
 
-Use the `/dev-browser` skill to open the HTML file and let user review interactively.
-
-```
-Open file:///absolute/path/to/newsletter-digest.html in browser
+```bash
+open newsletter-digest.html
 ```
 
 **Explain controls to user:**
@@ -145,38 +143,40 @@ Open file:///absolute/path/to/newsletter-digest.html in browser
 - **Space/→** = Skip (no action)
 - **←** = Go back one newsletter
 - Progress bar shows completion (e.g., "3 / 7")
-- Decisions auto-save to localStorage
 
-**Wait for user to say "done", "finished", or "ready"**
+**When user finishes:**
+- Page auto-downloads `newsletter-decisions.json` to `~/Downloads/`
+- User tells you "done" or "finished"
 
-You can take screenshots periodically to show progress if helpful.
+### PHASE 6: Read Decisions File
 
-### PHASE 6: Read Decisions from Browser
+**Read the auto-downloaded JSON file:**
 
-**Read localStorage directly from browser (no file download needed!):**
+```bash
+DECISIONS_FILE="$HOME/Downloads/newsletter-decisions.json"
 
-Use dev-browser to extract decisions from page's localStorage:
+if [[ ! -f "$DECISIONS_FILE" ]]; then
+  echo "No decisions file found. User may not have made any decisions."
+  exit 0
+fi
 
+cat "$DECISIONS_FILE"
 ```
-Execute JavaScript in browser:
-  const data = localStorage.getItem('newsletter-decisions');
-  const decisions = data ? JSON.parse(data) : {saved: [], archived: [], skipped: []};
-  return decisions;
-```
 
-This returns an object with:
-- `saved`: Array of threadIds to create Obsidian notes for
-- `archived`: Array of threadIds to archive from Gmail inbox
-- `skipped`: Array of threadIds user chose to skip (no action needed)
-
-**Example output:**
+**File format:**
 ```json
 {
   "saved": ["19c4814ca0febdd1", "19c47f966b26c28b"],
   "archived": ["19c476cc26de3c3c", "19c46bdae8fbc882"],
-  "skipped": ["19c4328e0b2ff1cb"]
+  "skipped": ["19c4328e0b2ff1cb"],
+  "timestamp": "2026-02-10T15:30:00.000Z"
 }
 ```
+
+Parse this JSON to get:
+- `saved`: Array of threadIds to create Obsidian notes for
+- `archived`: Array of threadIds to archive from Gmail inbox
+- `skipped`: Array of threadIds user skipped (no action needed)
 
 ### PHASE 7: Create Notes for Saved Newsletters
 

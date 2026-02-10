@@ -227,9 +227,32 @@ function renderDone(){
   document.getElementById('progressText').textContent='Done';
   updateCounts();
 
+  // Auto-save decisions to JSON file
+  if(saved.size>0||archived.size>0){
+    const decisionsData={
+      saved:[...saved],
+      archived:[...archived],
+      skipped:[...skipped],
+      timestamp:new Date().toISOString()
+    };
+    const blob=new Blob([JSON.stringify(decisionsData,null,2)],{type:'application/json'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url;
+    a.download='newsletter-decisions.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
   const d=document.createElement('div');d.className='done';
   const h=document.createElement('h2');h.textContent='Review Complete';d.appendChild(h);
-  const p=document.createElement('p');p.textContent='You reviewed all '+NL.length+' newsletters.';d.appendChild(p);
+  const p=document.createElement('p');
+  if(saved.size+archived.size>0){
+    p.textContent='Decisions saved to Downloads folder. Tell Claude "done" to execute actions.';
+  }else{
+    p.textContent='You reviewed all '+NL.length+' newsletters (no actions selected).';
+  }
+  d.appendChild(p);
 
   const stats=document.createElement('div');stats.className='done-stats';
   [{n:saved.size,l:'Saved',c:'blue'},{n:archived.size,l:'Archived',c:'orange'},{n:NL.length-saved.size-archived.size,l:'Skipped',c:'gray'}].forEach(function(s){
@@ -241,12 +264,6 @@ function renderDone(){
   d.appendChild(stats);
 
   const btns=document.createElement('div');
-  if(saved.size+archived.size>0){
-    const save=document.createElement('button');save.className='abtn-gen';save.textContent='Save Decisions to File';
-    save.onclick=downloadDecisions;btns.appendChild(save);
-    const gen=document.createElement('button');gen.className='abtn-restart';gen.textContent='Show Commands';gen.style.marginLeft='10px';
-    gen.onclick=showCommands;btns.appendChild(gen);
-  }
   const restart=document.createElement('button');restart.className='abtn-restart';restart.textContent='Review Again';
   restart.onclick=function(){idx=0;renderCard();};
   btns.appendChild(restart);
