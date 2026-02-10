@@ -1,0 +1,22 @@
+{
+  "name": "newsletter-digest",
+  "version": "1.0.0",
+  "description": "One-at-a-time newsletter review workflow with auto-fetch from Gmail, auto-categorization, Obsidian integration, and inbox archiving",
+  "keywords": [
+    "newsletter",
+    "gmail",
+    "obsidian",
+    "triage",
+    "inbox",
+    "gog",
+    "email",
+    "productivity",
+    "workflow"
+  ],
+  "license": "MIT",
+  "author": "Drew Burchfield",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/not-my-job"
+  }
+}

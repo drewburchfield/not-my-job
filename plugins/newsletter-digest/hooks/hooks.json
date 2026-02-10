@@ -1,0 +1,16 @@
+{
+  "description": "SessionStart hook - checks gog CLI availability",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/session-start.sh",
+            "statusMessage": "Checking gog CLI..."
+          }
+        ]
+      }
+    ]
+  }
+}

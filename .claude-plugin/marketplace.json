@@ -125,6 +125,19 @@
       "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/project-bootstrap",
       "version": "1.2.0",
       "strict": true
+    },
+    {
+      "name": "newsletter-digest",
+      "source": "./plugins/newsletter-digest",
+      "description": "One-at-a-time product/AI newsletter review: auto-fetch from Gmail, categorize, save to Obsidian or archive",
+      "author": {
+        "name": "Drew Burchfield",
+        "url": "https://github.com/drewburchfield"
+      },
+      "category": "productivity",
+      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/newsletter-digest",
+      "version": "1.0.0",
+      "strict": true
     }
   ]
 }
