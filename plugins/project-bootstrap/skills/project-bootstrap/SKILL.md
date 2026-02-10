@@ -62,7 +62,41 @@ The hook is pre-configured in this plugin's `hooks/` directory. It reads `.claud
 
 **Trust boundary note:** The stop hook runs commands from `.claude/project-meta.json` via `eval`. This file is written by the bootstrap skill and should be treated as trusted project configuration. Users should review `project-meta.json` if they clone an unfamiliar repository that already contains one.
 
-### Phase 4: Plugin Picker
+### Phase 4: Issue Tracker Configuration
+
+Ask the user which issue tracker they use (if any) for quality-gate integration:
+
+```
+Which issue tracker do you use?
+1. Linear (Recommended)
+2. Jira
+3. GitHub Issues
+4. None (standalone mode only)
+```
+
+Based on selection, configure:
+
+**Linear:**
+- Issue pattern: `^(NAS|LIN)-\d+$` (ask user for their workspace prefix)
+- MCP server: `plugin:linear:linear`
+- CLI: `linear` (optional)
+- URL template: `https://linear.app/{workspace}/issue/{issue_id}` (ask for workspace name)
+
+**Jira:**
+- Issue pattern: `^[A-Z]+-\d+$`
+- URL template: `https://{domain}.atlassian.net/browse/{issue_id}` (ask for domain)
+
+**GitHub Issues:**
+- Issue pattern: `^#\d+$`
+- CLI: `gh issue`
+
+**None:**
+- Skip issue tracking setup
+- quality-gate will only work with `--no-issue` or `--local` flags
+
+Store the configuration for Phase 5 (project-meta.json) and Phase 6 (CLAUDE.md).
+
+### Phase 5: Plugin Picker
 
 Present the user with a list of currently installed/available plugins. Use AskUserQuestion with multiSelect to let them choose which plugins to enable for this project.
 
@@ -73,7 +107,7 @@ Steps:
 
 If the project uses MCP servers (check for `.mcp.json` or `mcp` key in settings), also suggest setting `ENABLE_TOOL_SEARCH` in the project environment.
 
-### Phase 5: Write Project Meta
+### Phase 6: Write Project Meta
 
 Write `.claude/project-meta.json` with the detected configuration:
 
@@ -84,6 +118,12 @@ Write `.claude/project-meta.json` with the detected configuration:
     "typeCheck": "<type check command>",
     "lint": "<lint command>",
     "format": "<format check command>"
+  },
+  "issueTracker": {
+    "type": "<linear|jira|github|standalone>",
+    "pattern": "<issue regex pattern>",
+    "workspace": "<workspace/domain if applicable>",
+    "urlTemplate": "<url template with {issue_id}>"
   },
   "bootstrapVersion": "<version from plugin.json>",
   "bootstrappedAt": "<current date YYYY-MM-DD>"
@@ -109,9 +149,9 @@ Go:
 
 Run `date +%Y-%m-%d` to get the current date for `bootstrappedAt`. Read the plugin's `.claude-plugin/plugin.json` to get the current version for `bootstrapVersion`.
 
-### Phase 6: Project CLAUDE.md
+### Phase 7: Project CLAUDE.md
 
-Generate or append to the project's `CLAUDE.md` file with a quality gates section. Use the commands from the `project-meta.json` written in Phase 5:
+Generate or append to the project's `CLAUDE.md` file with quality gates and issue tracker configuration. Use the info from `project-meta.json` written in Phase 6:
 
 ```markdown
 ## Quality Gates
@@ -123,9 +163,18 @@ This project uses automated quality gates. The following checks run on every Cla
 - **Format check**: `<format command from meta>`
 
 Fix all quality gate errors before considering work complete.
+
+## Issue Tracking
+
+**Tracker:** <type from meta>
+**Pattern:** `<pattern from meta>`
+**Workspace:** <workspace from meta>
+
+The `/quality-gate` skill auto-detects issues from branch names matching this pattern.
+Use `/quality-gate --no-issue` for work without issue tracking.
 ```
 
-If `CLAUDE.md` already exists, append the quality gates section. Do not overwrite existing content.
+If `CLAUDE.md` already exists, append these sections. Do not overwrite existing content.
 
 ## Completion
 

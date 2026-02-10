@@ -118,6 +118,23 @@ Review locally WITHOUT creating PR or pushing.
 1. **Iterate**: `/quality-gate --local` (fast feedback, local only)
 2. **Ship**: `/quality-gate` (full PR cycle with Devin + agents)
 
+## Configuration
+
+Quality gate reads issue tracker configuration from `.claude/project-meta.json` (created by `/bootstrap`):
+
+```json
+{
+  "issueTracker": {
+    "type": "linear",
+    "pattern": "^(NAS|LIN)-\\d+$",
+    "workspace": "nashburch",
+    "urlTemplate": "https://linear.app/{workspace}/issue/{issue_id}"
+  }
+}
+```
+
+If `project-meta.json` doesn't exist or has no `issueTracker` config, quality-gate runs in **standalone mode** (no issue integration).
+
 ## Workflow
 
 Quality gate has two distinct workflows depending on mode:
@@ -126,9 +143,9 @@ Quality gate has two distinct workflows depending on mode:
 
 1. **Local Review First** (pre-flight)
 2. Create PR
-3. Agent reviews on PR
-4. First remediation
-5. Wait 60s for Devin
+3. Wait 60s for external tools (Devin/CodeRabbit)
+4. Agent reviews on PR
+5. First remediation
 6. Second remediation
 7. Merge
 
@@ -142,6 +159,14 @@ Quality gate has two distinct workflows depending on mode:
 
 ### Step 1: Validate Prerequisites and Detect Issue
 
+**Read issue tracker config:**
+```bash
+cat .claude/project-meta.json | jq -r '.issueTracker.type'
+# Returns: linear, jira, github, standalone, or null
+```
+
+If no config found, run in standalone mode (skip issue detection).
+
 Before starting the quality gate cycle, verify prerequisites and detect or validate the Linear issue.
 
 **Git Status:**
@@ -151,20 +176,22 @@ Before starting the quality gate cycle, verify prerequisites and detect or valid
 
 **Issue Detection** (if not provided):
 
-If no issue number provided, attempt auto-detection:
+If no issue number provided and issueTracker is configured, attempt auto-detection:
 
-1. **From branch name**: Extract issue from branch name patterns:
+1. **From branch name**: Extract issue using pattern from config:
    ```bash
    # Get current branch
    BRANCH=$(git branch --show-current)
 
-   # Extract issue from common patterns:
+   # Get pattern from config
+   PATTERN=$(cat .claude/project-meta.json | jq -r '.issueTracker.pattern')
+
+   # Extract issue from branch name
+   # Examples for Linear pattern ^(NAS|LIN)-\d+$:
    # - feature/nas-577-description → NAS-577
    # - drewburchfield/nas-577-description → NAS-577
    # - nas-577-description → NAS-577
    # - fix/NAS-577 → NAS-577
-
-   # Case-insensitive regex: nas-?(\d+)
    ```
 
 2. **From recent commits**: If branch name has no issue, check recent commits for "Fixes NAS-XXX" or "Closes #XXX":
