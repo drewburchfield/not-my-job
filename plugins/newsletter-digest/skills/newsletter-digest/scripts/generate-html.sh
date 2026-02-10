@@ -41,20 +41,18 @@ NEWSLETTERS_JS=$(jq -c '[.[] | {
     overlap: []
 }]' "$INPUT")
 
-# Replace placeholders in template
+# Replace placeholders in template and inject JSON
+# Use a more reliable method: write JSON to temp file, then load it
+TEMP_JSON="/tmp/newsletters-$$.json"
+echo "$NEWSLETTERS_JS" > "$TEMP_JSON"
+
+# Replace placeholders and inject JSON atomically
 sed -e "s|{{DATE}}|$DATE|g" \
     -e "s|{{TOTAL_COUNT}}|$TOTAL_COUNT|g" \
-    "$TEMPLATE" > "$OUTPUT.tmp"
+    "$TEMPLATE" | \
+perl -pe 'BEGIN{open(F,"<",shift);$j=<F>;close(F)} s/const NL = \[\];/const NL = $j;/' "$TEMP_JSON" > "$OUTPUT"
 
-# Inject newsletters array using awk (safer than sed for JSON)
-awk -v json="$NEWSLETTERS_JS" '
-    /const NL = \[\];/ {
-        print "const NL = " json ";"
-        next
-    }
-    { print }
-' "$OUTPUT.tmp" > "$OUTPUT"
-rm "$OUTPUT.tmp"
+rm -f "$TEMP_JSON"
 
 echo "✓ Generated: $OUTPUT ($TOTAL_COUNT newsletters)" >&2
 echo "" >&2
