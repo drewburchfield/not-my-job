@@ -150,8 +150,10 @@ One-time setup for consistent quality gates across your projects.
 
 - Auto-detects language (TypeScript, Python, Go)
 - Installs and configures linting, formatting, and type checking
+- Configures issue tracker integration (Linear, Jira, GitHub Issues, or standalone)
 - Stop hook enforces quality gates on every Claude session
 - `/quality-gate` runs comprehensive PR review cycle with agent reviews, Devin.ai integration, and merge workflow
+  - Reads issue tracker config from `project-meta.json`
   - Use `--local` flag for local-only pre-flight checks without creating PR
 
 **Languages:** TypeScript (ESLint + Prettier) · Python (ruff + pyright) · Go (built-in tooling)

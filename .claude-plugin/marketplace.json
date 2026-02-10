@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Personal productivity plugins for Claude Code",
-    "version": "1.1.0"
+    "version": "1.2.0"
   },
   "plugins": [
     {
@@ -123,7 +123,7 @@
       },
       "category": "development",
       "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/project-bootstrap",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "strict": true
     }
   ]
