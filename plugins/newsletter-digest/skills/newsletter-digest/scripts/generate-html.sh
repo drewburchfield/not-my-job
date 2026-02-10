@@ -26,16 +26,15 @@ DATE=$(date "+%B %d, %Y")
 TOTAL_COUNT=$(jq 'length' "$INPUT")
 
 # Simplify newsletters for HTML (keep only essential fields)
-# Extract threadId from different possible locations in the JSON
 NEWSLETTERS_JS=$(jq -c '[.[] | {
-    id: (.id // .threadId),
-    threadId: (.id // .threadId),
+    id: .id,
+    threadId: .id,
     topic: .topic,
-    title: (.messages[0].subject // .subject // "Untitled"),
-    source: ((.messages[0].from // .from // "Unknown") | gsub("\""; "") | gsub("<.*>"; "") | gsub("\\s+$"; "") | gsub("^\\s+"; "")),
-    date: ((.messages[0].date // .date // "") | split(" ")[0:2] | join(" ")),
+    title: (.subject // "Untitled"),
+    source: ((.from // "Unknown") | gsub("\""; "") | gsub("<.*>"; "") | gsub("\\s+$"; "") | gsub("^\\s+"; "")),
+    date: ((.date // "") | split(" ")[0:2] | join(" ")),
     isNew: false,
-    tldr: ((.messages[0].snippet // .snippet // "") | gsub("\\n"; " ") | .[0:200]),
+    tldr: "",
     insights: [],
     quote: null,
     links: [],
@@ -47,12 +46,14 @@ sed -e "s|{{DATE}}|$DATE|g" \
     -e "s|{{TOTAL_COUNT}}|$TOTAL_COUNT|g" \
     "$TEMPLATE" > "$OUTPUT.tmp"
 
-# Inject newsletters array (escape for sed)
-ESCAPED_JS=$(echo "$NEWSLETTERS_JS" | sed 's/[\&/]/\\&/g' | sed 's/$/\\/')
-ESCAPED_JS=${ESCAPED_JS%\\}  # Remove trailing backslash
-
-# Replace the placeholder line
-sed "s|const NL = \[\];|const NL = $ESCAPED_JS;|" "$OUTPUT.tmp" > "$OUTPUT"
+# Inject newsletters array using awk (safer than sed for JSON)
+awk -v json="$NEWSLETTERS_JS" '
+    /const NL = \[\];/ {
+        print "const NL = " json ";"
+        next
+    }
+    { print }
+' "$OUTPUT.tmp" > "$OUTPUT"
 rm "$OUTPUT.tmp"
 
 echo "✓ Generated: $OUTPUT ($TOTAL_COUNT newsletters)" >&2

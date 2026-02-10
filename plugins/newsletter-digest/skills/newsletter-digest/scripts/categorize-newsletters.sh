@@ -20,8 +20,8 @@ fi
 # Extract threads and categorize each one
 jq -r '.threads[] | @json' "$INPUT" | while read -r newsletter; do
     threadId=$(echo "$newsletter" | jq -r '.id')
-    from=$(echo "$newsletter" | jq -r '.messages[0].from // .from // ""' | tr '[:upper:]' '[:lower:]')
-    subject=$(echo "$newsletter" | jq -r '.messages[0].subject // .subject // ""')
+    from=$(echo "$newsletter" | jq -r '.from // ""' | tr '[:upper:]' '[:lower:]')
+    subject=$(echo "$newsletter" | jq -r '.subject // ""')
 
     category="Uncategorized"
 
