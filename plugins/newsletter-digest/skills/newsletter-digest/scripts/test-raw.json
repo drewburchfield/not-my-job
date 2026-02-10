@@ -1,0 +1,101 @@
+{
+  "nextPageToken": "",
+  "threads": [
+    {
+      "id": "19c4814ca0febdd1",
+      "date": "2026-02-10 08:03",
+      "from": "\"Nate from Nate’s Substack\" <natesnewsletter@substack.com>",
+      "subject": "200 lines of markdown just triggered a $285 billion sell-off — here's what actually broke + what it means for your…",
+      "labels": [
+        "[Superhuman]/AI/News",
+        "[Superhuman]/AI/AI_Newsletters_and_Content",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ],
+      "messageCount": 1
+    },
+    {
+      "id": "19c47f966b26c28b",
+      "date": "2026-02-10 08:31",
+      "from": "\"Lenny's Newsletter\" <lenny@substack.com>",
+      "subject": "Building AI product sense, part 2",
+      "labels": [
+        "[Superhuman]/AI/News",
+        "IMPORTANT",
+        "[Superhuman]/AI/AI_Newsletters_and_Content",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ],
+      "messageCount": 1
+    },
+    {
+      "id": "19c476cc26de3c3c",
+      "date": "2026-02-10 06:00",
+      "from": "Product Tapas <producttapas-newsletter@mail.beehiiv.com>",
+      "subject": "🎙️ Pod Shots #123 - Netflix's Culture",
+      "labels": [
+        "UNREAD",
+        "[Superhuman]/AI/News",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ],
+      "messageCount": 1
+    },
+    {
+      "id": "19c46bdae8fbc882",
+      "date": "2026-02-10 02:49",
+      "from": "Sid <japm@mail.beehiiv.com>",
+      "subject": "\"Product Strategy\" Has Changed And PMs Are Caught Off Guard",
+      "labels": [
+        "UNREAD",
+        "[Superhuman]/AI/News",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ],
+      "messageCount": 1
+    },
+    {
+      "id": "19c4328e0b2ff1cb",
+      "date": "2026-02-09 10:02",
+      "from": "\"Lenny's Newsletter\" <lenny+how-i-ai@substack.com>",
+      "subject": "🎙️ This week on How I AI: How to build your own AI developer tools with Claude Code",
+      "labels": [
+        "UNREAD",
+        "IMPORTANT",
+        "[Superhuman]/AI/AI_Newsletters_and_Content",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ],
+      "messageCount": 1
+    },
+    {
+      "id": "19c42ef6d7b724b4",
+      "date": "2026-02-09 08:02",
+      "from": "\"Nate from Nate’s Substack\" <natesnewsletter@substack.com>",
+      "subject": "Why \"I'll get to AI eventually\" is now the most expensive career decision you can make + the kit to start",
+      "labels": [
+        "UNREAD",
+        "[Superhuman]/AI/News",
+        "[Superhuman]/AI/AI_Newsletters_and_Content",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ],
+      "messageCount": 1
+    },
+    {
+      "id": "19c3d73e9865f81e",
+      "date": "2026-02-08 07:31",
+      "from": "\"Lenny's Newsletter\" <lenny@substack.com>",
+      "subject": "Getting paid to vibe code: Inside the new AI-era job | Lazar Jovanovic (Professional Vibe Coder)",
+      "labels": [
+        "[Superhuman]/AI/News",
+        "YELLOW_STAR",
+        "STARRED",
+        "[Superhuman]/AI/AI_Newsletters_and_Content",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ],
+      "messageCount": 1
+    }
+  ]
+}

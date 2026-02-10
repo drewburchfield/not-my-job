@@ -34,7 +34,7 @@ NEWSLETTERS_JS=$(jq -c '[.[] | {
     source: ((.from // "Unknown") | gsub("\""; "") | gsub("<.*>"; "") | gsub("\\s+$"; "") | gsub("^\\s+"; "")),
     date: ((.date // "") | split(" ")[0:2] | join(" ")),
     isNew: false,
-    tldr: "",
+    tldr: (.preview // ""),
     insights: [],
     quote: null,
     links: [],
