@@ -283,6 +283,7 @@ function persistDecisions(){
     md+='## Save to Obsidian ('+saved.size+')\n\n';
     saved.forEach(function(id){
       const n=NL.find(function(x){return x.id===id;});
+      if(!n)return; // Skip if newsletter not found (stale localStorage)
       md+='- **'+n.title+'** ('+n.source+', '+n.date+')\n';
       md+='  - threadId: `'+n.threadId+'`\n';
       md+='  - topic: '+n.topic+'\n\n';
@@ -293,6 +294,7 @@ function persistDecisions(){
     md+='## Archive from Inbox ('+archived.size+')\n\n';
     archived.forEach(function(id){
       const n=NL.find(function(x){return x.id===id;});
+      if(!n)return; // Skip if newsletter not found (stale localStorage)
       md+='- **'+n.title+'** ('+n.source+', '+n.date+')\n';
       md+='  - `gog gmail thread modify '+n.threadId+' --remove INBOX --force`\n\n';
     });
@@ -302,6 +304,7 @@ function persistDecisions(){
     md+='## Skipped ('+skipped.size+')\n\n';
     skipped.forEach(function(id){
       const n=NL.find(function(x){return x.id===id;});
+      if(!n)return; // Skip if newsletter not found (stale localStorage)
       md+='- **'+n.title+'** ('+n.source+', '+n.date+')\n\n';
     });
   }
