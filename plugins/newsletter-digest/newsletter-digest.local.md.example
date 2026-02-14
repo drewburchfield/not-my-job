@@ -1,0 +1,70 @@
+---
+# Newsletter Digest Configuration
+# Copy this to newsletter-digest.local.md and customize
+
+# Obsidian Integration (optional)
+obsidian_enabled: false
+obsidian_type: "none"  # Options: "none", "mcp", "filesystem"
+obsidian_mcp_server: ""  # If using MCP: server name (e.g., "obsidian")
+obsidian_vault_path: ""  # If using filesystem: path to vault (e.g., "~/Documents/Vault/Inbox")
+
+# Gmail Search Configuration
+search_timeframe: "7d"  # Options: 7d, 14d, 30d
+search_query: |
+  in:inbox (
+    from:substack.com OR
+    from:lennysnewsletter.com OR
+    from:beehiiv.com OR
+    from:producttapas OR
+    from:natesnewsletter OR
+    label:[Superhuman]/AI/AI_Newsletters_and_Content
+  ) newer_than:{timeframe}
+
+# Output Preferences
+create_markdown_notes: true  # Always create markdown files (even without Obsidian)
+markdown_output_dir: "./newsletter-notes"  # Where to save markdown files
+---
+
+# Newsletter Digest Settings
+
+This file configures the newsletter-digest plugin for your specific setup.
+
+## Obsidian Integration Options
+
+### Option 1: No Obsidian (Default)
+```yaml
+obsidian_enabled: false
+obsidian_type: "none"
+create_markdown_notes: true
+markdown_output_dir: "./newsletter-notes"
+```
+Markdown files saved to local directory only.
+
+### Option 2: Obsidian MCP Server
+```yaml
+obsidian_enabled: true
+obsidian_type: "mcp"
+obsidian_mcp_server: "obsidian"  # Your MCP server name
+```
+Creates notes via MCP server tools.
+
+### Option 3: Filesystem Vault
+```yaml
+obsidian_enabled: true
+obsidian_type: "filesystem"
+obsidian_vault_path: "~/Documents/MyVault/Inbox"
+```
+Writes markdown files directly to vault folder.
+
+## Customizing Newsletter Sources
+
+Edit `search_query` to match your newsletter sources:
+- Add `from:sender@example.com` for specific senders
+- Add `label:YourLabel` for labeled newsletters
+- Adjust timeframe: 7d, 14d, 30d
+
+## First Time Setup
+
+1. Copy this file: `cp newsletter-digest.local.md.example newsletter-digest.local.md`
+2. Edit `newsletter-digest.local.md` with your preferences
+3. Run `/newsletter-digest`
