@@ -1,0 +1,16 @@
+{
+  "description": "SessionStart hook - checks for HAPPENSTANCE_API_KEY and dependencies (curl, jq, bc)",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/session-start.sh",
+            "statusMessage": "Checking Happenstance API key..."
+          }
+        ]
+      }
+    ]
+  }
+}

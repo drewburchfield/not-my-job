@@ -138,6 +138,19 @@
       "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/newsletter-digest",
       "version": "1.0.0",
       "strict": true
+    },
+    {
+      "name": "happenstance",
+      "source": "./plugins/happenstance",
+      "description": "Network intelligence: research people, search professional networks, and run compound workflows (deep search, warm intros, meeting prep, network scanning, batch prospecting). Bundles Happenstance MCP server.",
+      "author": {
+        "name": "Drew Burchfield",
+        "url": "https://github.com/drewburchfield"
+      },
+      "category": "research",
+      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/happenstance",
+      "version": "2.0.0",
+      "strict": true
     }
   ]
 }

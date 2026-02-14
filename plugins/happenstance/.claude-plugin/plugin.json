@@ -1,0 +1,26 @@
+{
+  "name": "happenstance",
+  "version": "2.0.0",
+  "description": "Network intelligence plugin for Happenstance. Research people, search professional networks, and run compound workflows: deep search, warm intro finding, meeting prep, network scanning, and batch prospecting. Integrates via MCP (HTTP transport) with shell script fallback.",
+  "author": {
+    "name": "Drew Burchfield",
+    "url": "https://github.com/drewburchfield"
+  },
+  "homepage": "https://github.com/drewburchfield/not-my-job",
+  "repository": "https://github.com/drewburchfield/not-my-job",
+  "license": "MIT",
+  "keywords": [
+    "happenstance",
+    "people",
+    "research",
+    "network",
+    "search",
+    "contacts",
+    "professional",
+    "linkedin",
+    "mcp",
+    "warm-intro",
+    "meeting-prep",
+    "prospecting"
+  ]
+}

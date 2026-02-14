@@ -38,3 +38,9 @@ extracted_merchants.json
 
 # Claude Code local overrides (project settings are tracked)
 .claude/settings.local.json
+
+# Dev-only MCP config (plugins bundle their own .mcp.json)
+/.mcp.json
+
+# Plugin runtime output (results, caches, logs)
+plugins/*/results/
