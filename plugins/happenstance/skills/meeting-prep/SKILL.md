@@ -60,9 +60,9 @@ RESEARCH_ID=$(echo "$RESULT" | jq -r '.id')
 ### STEP 4: Search for Mutual Connections
 
 While research is processing, start the mutual connection search. Call `mcp__happenstance__search-network` with:
-- `text`: person's name + company (e.g., "Garry Tan Y Combinator")
-- `include_friends_connections`: true
-- `include_my_connections`: true
+- `query`: person's name + company (e.g., "Garry Tan Y Combinator")
+- `includeFriends`: true
+- `includeConnections`: true
 
 This finds the person in your network and surfaces mutual connections.
 

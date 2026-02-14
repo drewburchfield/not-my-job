@@ -11,6 +11,8 @@ All requests require a Bearer token:
 Authorization: Bearer YOUR_API_KEY
 ```
 
+**Note:** This reference documents the REST API field names (snake_case). The MCP tools use camelCase parameter names (e.g., `query` instead of `text`, `includeFriends` instead of `include_friends_connections`). See `mcp-tools.md` for MCP-specific parameter names.
+
 ## Endpoints
 
 ### Research

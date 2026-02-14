@@ -49,10 +49,10 @@ If insufficient credits, inform the user and stop.
 ### STEP 3: Search Network
 
 Call `mcp__happenstance__search-network` with:
-- `text`: the search query
-- `include_friends_connections`: true (unless user specified otherwise)
-- `include_my_connections`: true (unless user specified otherwise)
-- `group_ids`: if user specified groups
+- `query`: the search query
+- `includeFriends`: true (unless user specified otherwise)
+- `includeConnections`: true (unless user specified otherwise)
+- `groups`: if user specified groups
 
 **Fallback:**
 ```bash
@@ -99,7 +99,7 @@ For each selected person, call `mcp__happenstance__research-person` with their d
 **Fallback:**
 ```bash
 source "${CLAUDE_PLUGIN_ROOT}/skills/happenstance/scripts/lib.sh"
-RESULT=$(./happenstance-api.sh research "Name, Title at Company")
+RESULT=$("$API_SCRIPT" research "Name, Title at Company")
 RESEARCH_ID=$(echo "$RESULT" | jq -r '.id')
 ```
 

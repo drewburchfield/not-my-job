@@ -29,12 +29,22 @@ The `.mcp.json` uses bare HTTP transport (no static auth headers). The REST API 
 
 ```json
 {
-  "text": "Software engineers in San Francisco",
-  "include_friends_connections": true,
-  "include_my_connections": true,
-  "group_ids": ["optional_group_id"]
+  "query": "Software engineers in San Francisco",
+  "includeFriends": true,
+  "includeConnections": true,
+  "includeGroups": true,
+  "groups": ["optional_group_id"]
 }
 ```
+
+**Parameter mapping (MCP vs REST API):**
+| MCP Parameter | REST API Field | Notes |
+|---|---|---|
+| `query` | `text` | Required. Natural language search query |
+| `includeFriends` | `include_friends_connections` | Include friends' connections |
+| `includeConnections` | `include_my_connections` | Include your direct connections |
+| `includeGroups` | N/A | Include group connections (default true) |
+| `groups` | `group_ids` | Optional array of group IDs |
 
 Returns `{ "id": "search_id", "status": "RUNNING" }`.
 
@@ -42,8 +52,8 @@ Returns `{ "id": "search_id", "status": "RUNNING" }`.
 
 ```json
 {
-  "search_id": "the_search_id",
-  "page_id": "optional_page_id"
+  "searchId": "the_search_id",
+  "pageId": "optional_page_id"
 }
 ```
 
@@ -56,7 +66,7 @@ Returns search results when status is `COMPLETED`. Key fields:
 
 ```json
 {
-  "search_id": "the_search_id"
+  "searchId": "the_search_id"
 }
 ```
 
@@ -76,7 +86,7 @@ Returns `{ "id": "research_id", "status": "RUNNING" }`.
 
 ```json
 {
-  "research_id": "the_research_id"
+  "researchId": "the_research_id"
 }
 ```
 
@@ -122,4 +132,4 @@ For batch operations or use outside Claude, the same operations are available vi
 ${CLAUDE_PLUGIN_ROOT}/skills/happenstance/scripts/happenstance-api.sh <command> [args]
 ```
 
-See `happenstance-api.sh --help` for commands. The `lib.sh` helper provides shared polling and credit-check functions.
+See `happenstance-api.sh help` for commands. The `lib.sh` helper provides shared polling and credit-check functions.

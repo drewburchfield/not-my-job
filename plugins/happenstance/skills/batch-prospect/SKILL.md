@@ -57,10 +57,10 @@ I'll confirm with you after each find-more round. Proceed with the initial searc
 ### STEP 3: Initial Search
 
 Call `mcp__happenstance__search-network` with:
-- `text`: the search query
-- `include_friends_connections`: true (unless specified)
-- `include_my_connections`: true (unless specified)
-- `group_ids`: if specified
+- `query`: the search query
+- `includeFriends`: true (unless specified)
+- `includeConnections`: true (unless specified)
+- `groups`: if specified
 
 ### STEP 4: Poll Initial Results
 
@@ -92,7 +92,7 @@ If user confirms:
 **Fallback:**
 ```bash
 source "${CLAUDE_PLUGIN_ROOT}/skills/happenstance/scripts/lib.sh"
-FIND_MORE_RESULT=$(./happenstance-api.sh find-more "$SEARCH_ID")
+FIND_MORE_RESULT=$("$API_SCRIPT" find-more "$SEARCH_ID")
 PAGE_ID=$(echo "$FIND_MORE_RESULT" | jq -r '.page_id')
 poll_search "$SEARCH_ID" "$PAGE_ID"
 ```

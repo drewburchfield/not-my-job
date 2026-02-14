@@ -143,7 +143,7 @@ echo "Research ID: $RESEARCH_ID"
 
 ### PHASE 3B: Search Your Network
 
-**MCP:** Call `mcp__happenstance__search-network` with text, include_friends_connections, include_my_connections, and optional group_ids. Poll `mcp__happenstance__get-search-results` until complete.
+**MCP:** Call `mcp__happenstance__search-network` with query, includeFriends, includeConnections, and optional groups array. (See `references/mcp-tools.md` for the full MCP-to-REST parameter mapping.) Poll `mcp__happenstance__get-search-results` until complete.
 
 **Fallback:**
 ```bash

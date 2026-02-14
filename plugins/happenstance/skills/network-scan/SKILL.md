@@ -60,10 +60,10 @@ You currently have [balance] credits. Proceed?
 ### STEP 4: Search Each Group
 
 For each selected group, call `mcp__happenstance__search-network` with:
-- `text`: the search query
-- `include_friends_connections`: false (search within group only)
-- `include_my_connections`: false
-- `group_ids`: [current_group_id]
+- `query`: the search query
+- `includeFriends`: false (search within group only)
+- `includeConnections`: false
+- `groups`: [current_group_id]
 
 Launch all searches before polling (they run concurrently on the server).
 

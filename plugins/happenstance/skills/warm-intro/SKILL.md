@@ -44,10 +44,10 @@ You currently have [balance] credits. Proceed?
 ### STEP 3: Search Network with Mutual Focus
 
 Call `mcp__happenstance__search-network` with:
-- `text`: the target criteria
-- `include_friends_connections`: true
-- `include_my_connections`: true
-- `group_ids`: if user specified
+- `query`: the target criteria
+- `includeFriends`: true
+- `includeConnections`: true
+- `groups`: if user specified
 
 The key data is in the `mutuals` array within each search result.
 
