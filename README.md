@@ -22,6 +22,7 @@
 | 🔐 | [**1password-management**](#1password-management) | Proper syntax for 1Password CLI |
 | 📝 | [**readme-craft**](#readme-craft) | Write clean, human-sounding README files |
 | 🎫 | [**helpscout-navigator**](#helpscout-navigator) | HelpScout search guidance with bundled MCP server |
+| 🤝 | [**happenstance**](#happenstance) | Network intelligence: research people and search your professional network |
 | 🏗 | [**project-bootstrap**](#project-bootstrap) | Auto-detect language, set up quality tooling, run quality gate PR reviews |
 
 <br>
@@ -144,6 +145,28 @@ Guidance for correctly using HelpScout MCP tools. Bundles the MCP server — aut
 
 <p align="center">―</p>
 
+### 🤝 happenstance
+
+Research people and search your professional network using the [Happenstance](https://happenstance.ai) API. Bundles the MCP server — auto-starts when plugin is enabled.
+
+| Command | What it does | Credits |
+|---------|-------------|---------|
+| `/happenstance` | Research a person or search your network | 1-2 |
+| `/deep-search` | Search + auto-research top matches | 2+N |
+| `/warm-intro` | Find who can introduce you to people at a target company | 2+ |
+| `/meeting-prep` | Pre-meeting briefing: background + mutual connections + talking points | 3 |
+| `/network-scan` | Compare the same search across multiple groups | 2×G |
+| `/batch-prospect` | Exhaustive search with pagination and CSV/markdown export | 2+ |
+
+- MCP server (OAuth via Clerk, no API key needed) with 7 tools for search, research, and polling
+- Shell script fallback for batch/automated operations
+- Credit-aware workflows with balance checks and cost estimates
+- Async polling with timeout protection
+
+**Requires:** Happenstance account. `HAPPENSTANCE_API_KEY` for shell fallback only.
+
+<p align="center">―</p>
+
 ### 🏗 project-bootstrap
 
 One-time setup for consistent quality gates across your projects.
@@ -168,7 +191,8 @@ One-time setup for consistent quality gates across your projects.
 {
   "enabledPlugins": {
     "subscription-cleanse@not-my-job": true,
-    "braintrust@not-my-job": true
+    "braintrust@not-my-job": true,
+    "happenstance@not-my-job": true
   }
 }
 ```
