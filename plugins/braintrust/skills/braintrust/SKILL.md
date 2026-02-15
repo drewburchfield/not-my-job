@@ -181,7 +181,7 @@ Gemini 3 Pro shows strong performance on frontend challenges. It thinks in desig
 gemini -p "@src/components/ Review the design consistency. Are we following a coherent design system? Check spacing, typography scale, color usage." -m gemini-3-pro-preview -o json 2>/dev/null | perl -0777 -pe 's/^[^{]*//' | jq -r '.response'
 
 # Generate component from sketch (drag image into terminal)
-gemini -p "@sketch.png Generate a React component with Tailwind CSS that matches this design exactly" -m gemini-3-pro-preview -o json
+gemini -p "@sketch.png Generate a React component with Tailwind CSS that matches this design exactly" -m gemini-3-pro-preview -o json 2>/dev/null | perl -0777 -pe 's/^[^{]*//' | jq -r '.response'
 
 # Extract design system from existing code
 gemini -p "@src/styles/ @src/components/ Extract the implicit design system: color palette, spacing scale, typography, component patterns" -m gemini-3-pro-preview -o json 2>/dev/null | perl -0777 -pe 's/^[^{]*//' | jq -r '.response'
@@ -196,16 +196,16 @@ Gemini has 1M token native context, ideal for whole-codebase work. Testing shows
 
 ```bash
 # Analyze entire codebase
-gemini -p "@src/ @lib/ What architectural patterns are used?" -m gemini-3-pro-preview -o json
+gemini -p "@src/ @lib/ What architectural patterns are used?" -m gemini-3-pro-preview -o json 2>/dev/null | perl -0777 -pe 's/^[^{]*//' | jq -r '.response'
 
 # Find patterns across files
-gemini -p "@./ How is error handling implemented across the codebase?" -m gemini-3-pro-preview -o json
+gemini -p "@./ How is error handling implemented across the codebase?" -m gemini-3-pro-preview -o json 2>/dev/null | perl -0777 -pe 's/^[^{]*//' | jq -r '.response'
 
 # Compare implementations
-gemini -p "@src/auth/ @src/api/ Are these using consistent patterns?" -m gemini-3-pro-preview -o json
+gemini -p "@src/auth/ @src/api/ Are these using consistent patterns?" -m gemini-3-pro-preview -o json 2>/dev/null | perl -0777 -pe 's/^[^{]*//' | jq -r '.response'
 
 # Holistic refactoring suggestions
-gemini -p "@src/ Suggest refactoring improvements that require understanding of the full system, not just individual files" -m gemini-3-pro-preview -o json
+gemini -p "@src/ Suggest refactoring improvements that require understanding of the full system, not just individual files" -m gemini-3-pro-preview -o json 2>/dev/null | perl -0777 -pe 's/^[^{]*//' | jq -r '.response'
 ```
 
 ### Maximum Reasoning (Hard Problems)
@@ -218,7 +218,7 @@ For the hardest problems, use flagship models:
 claude -p "[HARD PROBLEM]" --model opus --output-format json
 
 # Gemini 2.5 Pro (already the default, 1M context)
-gemini -p "[HARD PROBLEM]" -m gemini-3-pro-preview -o json
+gemini -p "[HARD PROBLEM]" -m gemini-3-pro-preview -o json 2>/dev/null | perl -0777 -pe 's/^[^{]*//' | jq -r '.response'
 ```
 
 ### Fast Consultations
@@ -231,7 +231,7 @@ When speed matters more than depth:
 claude -p "[QUERY]" --model haiku --output-format json
 
 # Gemini Flash
-gemini -p "[QUERY]" -m gemini-3-flash-preview -o json
+gemini -p "[QUERY]" -m gemini-3-flash-preview -o json 2>/dev/null | perl -0777 -pe 's/^[^{]*//' | jq -r '.response'
 ```
 
 ### Parallel Research (from Claude Code)
@@ -301,7 +301,7 @@ gemini -p "Review this function for bugs: async function fetchUser(id) {
   const response = await fetch('/api/users/' + id);
   const data = response.json();
   return data;
-}" -m gemini-3-flash-preview -o json
+}" -m gemini-3-flash-preview -o json 2>/dev/null | perl -0777 -pe 's/^[^{]*//' | jq -r '.response'
 
 # With self-critique (finds 4 bugs)
 gemini -p "Review this function for bugs: async function fetchUser(id) {
@@ -310,7 +310,7 @@ gemini -p "Review this function for bugs: async function fetchUser(id) {
   return data;
 }
 
-IMPORTANT: After your analysis, include a 'Self-Critique' section with 2-3 bullets identifying limitations or uncertainties in your review." -m gemini-3-flash-preview -o json
+IMPORTANT: After your analysis, include a 'Self-Critique' section with 2-3 bullets identifying limitations or uncertainties in your review." -m gemini-3-flash-preview -o json 2>/dev/null | perl -0777 -pe 's/^[^{]*//' | jq -r '.response'
 ```
 
 ## Model Reference
