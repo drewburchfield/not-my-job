@@ -7,6 +7,7 @@
 *Someone has to audit your subscriptions, tell you when you're wrong, and deal with LinkedIn. It's not going to be you!*
 
 ![License](https://img.shields.io/badge/license-MIT-blue)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/drewburchfield/not-my-job)
 
 </div>
 
