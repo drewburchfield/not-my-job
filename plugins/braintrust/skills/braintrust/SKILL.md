@@ -24,7 +24,7 @@ This is not optional. The entire value of the braintrust is multi-model coverage
    ```
 3. **Codex**: Use the Bash tool with `run_in_background: true`:
    ```bash
-   codex exec --full-auto --json "$QUERY" 2>/dev/null > /tmp/codex.json
+   codex exec --json "$QUERY" 2>/dev/null > /tmp/codex.json
    ```
 
 Then read the Gemini/Codex results from the output files and collect the Claude result from the Task tool output.
@@ -102,7 +102,7 @@ When running from Claude Code, Claude itself is always available via the Task to
 | **Claude** (from Claude Code) | Task tool with `subagent_type: "general-purpose"` | Task tool with `model: "haiku"` |
 | **Claude** (from other CLIs) | `claude -p "query" --model sonnet --output-format json` | `--model haiku` |
 | **Gemini** | `gemini -p "query" -m gemini-3-pro-preview -o json` | `-m gemini-3-flash-preview` |
-| **Codex** | `codex exec --full-auto --json "query"` | N/A |
+| **Codex** | `codex exec --json "query"` | N/A |
 
 ### Model Fallback Chains
 
@@ -111,7 +111,7 @@ If a model returns an error (404, quota, etc.), fall back to the next model in t
 | CLI | Primary | Fallback 1 | Fallback 2 |
 |-----|---------|------------|------------|
 | **Claude** | `opus` | `sonnet` | `haiku` |
-| **Gemini** | `gemini-3-pro-preview` | `gemini-2.5-pro` | `gemini-3-flash-preview` |
+| **Gemini** | `gemini-3-pro-preview` | `gemini-2.5-pro` | `gemini-2.5-flash` |
 | **Codex** | (default) | N/A | N/A |
 
 Preview models (e.g., `gemini-3-*-preview`) are the latest and most capable but may have availability issues. Stable models (e.g., `gemini-2.5-*`) are reliable fallbacks.
@@ -159,7 +159,7 @@ Get a second opinion from the braintrust:
 gemini -p "Review this implementation approach: [CONTEXT]" -m gemini-3-pro-preview -o json 2>/dev/null | perl -0777 -pe 's/^[^{]*//' | jq -r '.response'
 
 # Consult Codex (via Bash tool)
-codex exec --full-auto --json "Review this implementation approach: [CONTEXT]" 2>/dev/null | jq -rs 'map(select(.item.type? == "agent_message")) | last | .item.text'
+codex exec --json "Review this implementation approach: [CONTEXT]" 2>/dev/null | jq -rs 'map(select(.item.type? == "agent_message")) | last | .item.text'
 
 # Consult Claude (via Task tool, NOT bash)
 # Use Task tool with subagent_type: "general-purpose" and the query as the prompt
@@ -217,7 +217,7 @@ For the hardest problems, use flagship models:
 # Or from other CLIs:
 claude -p "[HARD PROBLEM]" --model opus --output-format json
 
-# Gemini 2.5 Pro (already the default, 1M context)
+# Gemini 3 Pro Preview (default, 1M context)
 gemini -p "[HARD PROBLEM]" -m gemini-3-pro-preview -o json 2>/dev/null | perl -0777 -pe 's/^[^{]*//' | jq -r '.response'
 ```
 
@@ -252,7 +252,7 @@ gemini -p "Research: $TOPIC" -m gemini-3-pro-preview -o json 2>/dev/null > /tmp/
 
 **Tool call 3** - Bash tool (run_in_background: true):
 ```bash
-codex exec --full-auto --json "Research: $TOPIC" 2>/dev/null > /tmp/codex.json
+codex exec --json "Research: $TOPIC" 2>/dev/null > /tmp/codex.json
 ```
 
 Then read the results:
@@ -380,7 +380,7 @@ Parse with: `jq -rs 'map(select(.item.type? == "agent_message")) | last | .item.
 
 **Alternative:** Use `--output-schema` for structured responses or `-o path` to write the final message to a file:
 ```bash
-codex exec --full-auto --json "query" -o /tmp/codex-result.txt
+codex exec --json "query" -o /tmp/codex-result.txt
 ```
 
 ## Common Use Cases
@@ -455,7 +455,7 @@ AUDIT_PROMPT="Review this codebase for security vulnerabilities:
 4. CSRF protection
 5. Secrets in code
 6. Rate limiting gaps"
-codex exec --full-auto --json "$AUDIT_PROMPT" 2>/dev/null > /tmp/codex-security.json
+codex exec --json "$AUDIT_PROMPT" 2>/dev/null > /tmp/codex-security.json
 ```
 
 Then collect and compare findings from all three.
@@ -505,7 +505,7 @@ gemini -p "Research: best practices for implementing rate limiting in Node.js AP
 
 **Tool call 3** - Bash tool (run_in_background: true):
 ```bash
-codex exec --full-auto --json "Research: best practices for implementing rate limiting in Node.js APIs" 2>/dev/null > /tmp/codex.json
+codex exec --json "Research: best practices for implementing rate limiting in Node.js APIs" 2>/dev/null > /tmp/codex.json
 ```
 
 Then synthesize findings from all three sources.
