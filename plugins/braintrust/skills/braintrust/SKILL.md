@@ -27,7 +27,7 @@ This is not optional. The entire value of the braintrust is multi-model coverage
    codex exec --json "$QUERY" 2>/dev/null > /tmp/codex.json
    ```
 
-Then read the Gemini/Codex results from the output files and collect the Claude result from the Task tool output.
+Present each model's findings to the user as they arrive. After all three respond, synthesize the findings and save a session file.
 
 **Only skip a model if:**
 - The user explicitly asks for a specific model (e.g., "ask Gemini about...")
@@ -311,6 +311,58 @@ gemini -p "Review this function for bugs: async function fetchUser(id) {
 }
 
 IMPORTANT: After your analysis, include a 'Self-Critique' section with 2-3 bullets identifying limitations or uncertainties in your review." -m gemini-3-flash-preview -o json 2>/dev/null | perl -0777 -pe 's/^[^{]*//' | jq -r '.response'
+```
+
+## Context Packaging: Project-Aware Queries
+
+**Include project context in every outbound query.** Gemini and Codex start from zero. Fill in what you already know from the session:
+
+```
+## Project Context
+- Stack: [languages, frameworks, key libraries]
+- Structure: [key directories and what they contain]
+- Build/Test: [how to build and test, if known]
+
+## Task Context
+- What we're working on and why
+- Relevant files already examined
+
+## Question
+[The actual consultation query]
+
+## Constraints
+[API compatibility, performance requirements, style conventions, etc.]
+
+IMPORTANT: After your analysis, include a 'Self-Critique' section with 2-3 bullets identifying limitations or uncertainties in your review.
+```
+
+**Note:** The self-critique suffix is baked into the template. Don't add it separately - it's already included above.
+
+## Saving Consultation Sessions
+
+After synthesizing, save a session file to `.braintrust/sessions/` for future reference. Create the directory if it doesn't exist (`mkdir -p .braintrust/sessions`).
+
+Filename: `YYYY-MM-DD-HMMam-slug.md` (e.g., `2026-02-16-230pm-rate-limiting-review.md`). 12-hour time, no leading zero on hour, lowercase am/pm.
+
+Use this format to document the full consultation for future reference:
+
+```markdown
+# [Short Topic Description]
+
+## Query
+[The context-packaged prompt sent to all models]
+
+## Gemini
+[Parsed response, or "Model unavailable" / "Model skipped"]
+
+## Codex
+[Parsed response, or "Model unavailable" / "Model skipped"]
+
+## Claude
+[Subagent response, or "Model unavailable" / "Model skipped"]
+
+## Synthesis
+[Consensus, divergence, and actionable recommendations]
 ```
 
 ## Model Reference
