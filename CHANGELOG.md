@@ -6,6 +6,14 @@ All notable changes to plugins in this repository.
 
 ## braintrust
 
+### 1.3.0 (2026-02-16)
+- Add context packaging template for project-aware outbound queries
+- Add session persistence: save consultation results to `.braintrust/sessions/`
+
+### 1.2.0 (2026-02-16)
+- Add MCP noise parsing to all Gemini examples
+- Address cross-model review findings
+
 ### 1.1.7 (2025-01-24)
 - Add self-critique prompt pattern for improved consultation quality
   - Validated via A/B testing: 100% compliance, +40% issue discovery
