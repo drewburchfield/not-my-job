@@ -100,12 +100,12 @@
       "strict": true
     },
     {
-      "name": "happenstance",
-      "source": {"source": "github", "repo": "drewburchfield/happenstance"},
+      "name": "happenstance-navigator",
+      "source": {"source": "github", "repo": "drewburchfield/happenstance-navigator"},
       "description": "Network intelligence: research people, search professional networks, and run compound workflows (deep search, warm intros, meeting prep, network scanning, batch prospecting). Bundles Happenstance MCP server.",
       "author": {"name": "Drew Burchfield", "url": "https://github.com/drewburchfield"},
       "category": "research",
-      "homepage": "https://github.com/drewburchfield/happenstance",
+      "homepage": "https://github.com/drewburchfield/happenstance-navigator",
       "version": "1.0.0",
       "strict": true
     }

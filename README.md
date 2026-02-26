@@ -23,7 +23,7 @@
 | 🔐 | [**1password-management**](https://github.com/drewburchfield/1password-management) | Proper syntax for 1Password CLI |
 | 📝 | [**readme-craft**](https://github.com/drewburchfield/readme-craft) | Write clean, human-sounding README files |
 | 🎫 | [**helpscout-navigator**](https://github.com/drewburchfield/helpscout-navigator) | HelpScout search guidance with bundled MCP server |
-| 🤝 | [**happenstance**](https://github.com/drewburchfield/happenstance) | Network intelligence: research people and search your professional network |
+| 🤝 | [**happenstance-navigator**](https://github.com/drewburchfield/happenstance-navigator) | Network intelligence: research people and search your professional network |
 | 🏗 | [**project-bootstrap**](https://github.com/drewburchfield/project-bootstrap) | Auto-detect language, set up quality tooling, run quality gate PR reviews |
 
 <br>
