@@ -4,6 +4,20 @@ All notable changes to plugins in this repository.
 
 ---
 
+## [2.0.0] - 2026-02-26
+
+### Changed
+- Transformed from monorepo to marketplace registry
+- Each plugin now lives in its own GitHub repo
+- marketplace.json uses external GitHub refs instead of bundled source
+- Submodules added for local development workflow
+
+### Removed
+- newsletter-digest plugin
+- Bundled plugin source code (replaced by submodules)
+
+---
+
 ## braintrust
 
 ### 1.3.0 (2026-02-16)

@@ -6,149 +6,106 @@
   },
   "metadata": {
     "description": "Personal productivity plugins for Claude Code",
-    "version": "1.4.0"
+    "version": "2.0.0"
   },
   "plugins": [
     {
       "name": "subscription-cleanse",
-      "source": "./plugins/subscription-cleanse",
+      "source": {"source": "github", "repo": "drewburchfield/subscription-cleanse"},
       "description": "Comprehensive subscription audit with bank CSV analysis and email reconnaissance",
-      "author": {
-        "name": "Drew Burchfield",
-        "url": "https://github.com/drewburchfield"
-      },
+      "author": {"name": "Drew Burchfield", "url": "https://github.com/drewburchfield"},
       "category": "productivity",
-      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/subscription-cleanse",
+      "homepage": "https://github.com/drewburchfield/subscription-cleanse",
       "version": "1.0.6",
       "strict": true
     },
     {
       "name": "braintrust",
-      "source": "./plugins/braintrust",
+      "source": {"source": "github", "repo": "drewburchfield/braintrust"},
       "description": "Orchestrate other AI CLIs (Gemini, Codex, Claude Code) for second opinions, research, and codebase analysis",
-      "author": {
-        "name": "Drew Burchfield",
-        "url": "https://github.com/drewburchfield"
-      },
+      "author": {"name": "Drew Burchfield", "url": "https://github.com/drewburchfield"},
       "category": "development",
-      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/braintrust",
+      "homepage": "https://github.com/drewburchfield/braintrust",
       "version": "1.3.0",
       "strict": true
     },
     {
       "name": "linkedin-message-triage",
-      "source": "./plugins/linkedin-message-triage",
+      "source": {"source": "github", "repo": "drewburchfield/linkedin-message-triage"},
       "description": "Systematic LinkedIn inbox review - filter solicitations, identify messages needing responses, draft replies",
-      "author": {
-        "name": "Drew Burchfield",
-        "url": "https://github.com/drewburchfield"
-      },
+      "author": {"name": "Drew Burchfield", "url": "https://github.com/drewburchfield"},
       "category": "productivity",
-      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/linkedin-message-triage",
+      "homepage": "https://github.com/drewburchfield/linkedin-message-triage",
       "version": "1.0.7",
       "strict": true
     },
     {
       "name": "markdown-to-confluence",
-      "source": "./plugins/markdown-to-confluence",
+      "source": {"source": "github", "repo": "drewburchfield/markdown-to-confluence"},
       "description": "Convert Markdown documents to Confluence Storage Format (XHTML-based XML)",
-      "author": {
-        "name": "Drew Burchfield",
-        "url": "https://github.com/drewburchfield"
-      },
+      "author": {"name": "Drew Burchfield", "url": "https://github.com/drewburchfield"},
       "category": "documentation",
-      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/markdown-to-confluence",
+      "homepage": "https://github.com/drewburchfield/markdown-to-confluence",
       "version": "1.0.6",
       "strict": true
     },
     {
       "name": "cre-property-research",
-      "source": "./plugins/cre-property-research",
+      "source": {"source": "github", "repo": "drewburchfield/cre-property-research"},
       "description": "Comprehensive commercial real estate property research and market analysis",
-      "author": {
-        "name": "Drew Burchfield",
-        "url": "https://github.com/drewburchfield"
-      },
+      "author": {"name": "Drew Burchfield", "url": "https://github.com/drewburchfield"},
       "category": "research",
-      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/cre-property-research",
+      "homepage": "https://github.com/drewburchfield/cre-property-research",
       "version": "1.0.6",
       "strict": true
     },
     {
       "name": "1password-management",
-      "source": "./plugins/1password-management",
+      "source": {"source": "github", "repo": "drewburchfield/1password-management"},
       "description": "Proper syntax, field types, and best practices for managing credentials with 1Password CLI (op)",
-      "author": {
-        "name": "Drew Burchfield",
-        "url": "https://github.com/drewburchfield"
-      },
+      "author": {"name": "Drew Burchfield", "url": "https://github.com/drewburchfield"},
       "category": "security",
-      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/1password-management",
+      "homepage": "https://github.com/drewburchfield/1password-management",
       "version": "1.0.5",
       "strict": true
     },
     {
       "name": "readme-craft",
-      "source": "./plugins/readme-craft",
+      "source": {"source": "github", "repo": "drewburchfield/readme-craft"},
       "description": "Write clean, human-sounding README files for personal and open source projects",
-      "author": {
-        "name": "Drew Burchfield",
-        "url": "https://github.com/drewburchfield"
-      },
+      "author": {"name": "Drew Burchfield", "url": "https://github.com/drewburchfield"},
       "category": "documentation",
-      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/readme-craft",
+      "homepage": "https://github.com/drewburchfield/readme-craft",
       "version": "1.0.5",
       "strict": true
     },
     {
       "name": "helpscout-navigator",
-      "source": "./plugins/helpscout-navigator",
+      "source": {"source": "github", "repo": "drewburchfield/helpscout-navigator"},
       "description": "HelpScout support ticket search with guidance for correct tool usage. Bundles HelpScout MCP server - auto-starts when plugin is enabled.",
-      "author": {
-        "name": "Drew Burchfield",
-        "url": "https://github.com/drewburchfield"
-      },
+      "author": {"name": "Drew Burchfield", "url": "https://github.com/drewburchfield"},
       "category": "productivity",
-      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/helpscout-navigator",
+      "homepage": "https://github.com/drewburchfield/helpscout-navigator",
       "version": "1.0.8",
       "strict": true
     },
     {
       "name": "project-bootstrap",
-      "source": "./plugins/project-bootstrap",
+      "source": {"source": "github", "repo": "drewburchfield/project-bootstrap"},
       "description": "Auto-detect project language, set up quality tooling and stop hooks, run compound PR review cycles with agent reviews and Devin.ai integration",
-      "author": {
-        "name": "Drew Burchfield",
-        "url": "https://github.com/drewburchfield"
-      },
+      "author": {"name": "Drew Burchfield", "url": "https://github.com/drewburchfield"},
       "category": "development",
-      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/project-bootstrap",
+      "homepage": "https://github.com/drewburchfield/project-bootstrap",
       "version": "1.2.0",
       "strict": true
     },
     {
-      "name": "newsletter-digest",
-      "source": "./plugins/newsletter-digest",
-      "description": "One-at-a-time product/AI newsletter review: auto-fetch from Gmail, categorize, save to Obsidian or archive",
-      "author": {
-        "name": "Drew Burchfield",
-        "url": "https://github.com/drewburchfield"
-      },
-      "category": "productivity",
-      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/newsletter-digest",
-      "version": "1.0.0",
-      "strict": true
-    },
-    {
       "name": "happenstance",
-      "source": "./plugins/happenstance",
+      "source": {"source": "github", "repo": "drewburchfield/happenstance"},
       "description": "Network intelligence: research people, search professional networks, and run compound workflows (deep search, warm intros, meeting prep, network scanning, batch prospecting). Bundles Happenstance MCP server.",
-      "author": {
-        "name": "Drew Burchfield",
-        "url": "https://github.com/drewburchfield"
-      },
+      "author": {"name": "Drew Burchfield", "url": "https://github.com/drewburchfield"},
       "category": "research",
-      "homepage": "https://github.com/drewburchfield/not-my-job/tree/master/plugins/happenstance",
+      "homepage": "https://github.com/drewburchfield/happenstance",
       "version": "1.0.0",
       "strict": true
     }
