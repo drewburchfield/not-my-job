@@ -25,6 +25,6 @@
 [submodule "plugins/braintrust"]
 	path = plugins/braintrust
 	url = https://github.com/drewburchfield/braintrust.git
-[submodule "plugins/happenstance"]
-	path = plugins/happenstance
+[submodule "plugins/happenstance-navigator"]
+	path = plugins/happenstance-navigator
 	url = https://github.com/drewburchfield/happenstance-navigator.git
