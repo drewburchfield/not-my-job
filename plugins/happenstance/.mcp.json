@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "happenstance": {
-      "type": "http",
-      "url": "https://happenstance.ai/mcp"
-    }
-  }
-}

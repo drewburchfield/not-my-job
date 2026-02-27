@@ -15,16 +15,16 @@
 
 | | Plugin | What it does |
 |:--:|--------|--------------|
-| 💸 | [**subscription-cleanse**](#subscription-cleanse) | Find forgotten subscriptions bleeding your bank account |
-| 🧠 | [**braintrust**](#braintrust) | Delegate work to other AI CLIs and get second opinions |
-| 💼 | [**linkedin-message-triage**](#linkedin-message-triage) | Systematic inbox review and response drafting |
-| 📄 | [**markdown-to-confluence**](#markdown-to-confluence) | Convert Markdown to Confluence Storage Format |
-| 🏢 | [**cre-property-research**](#cre-property-research) | Commercial real estate research and market analysis |
-| 🔐 | [**1password-management**](#1password-management) | Proper syntax for 1Password CLI |
-| 📝 | [**readme-craft**](#readme-craft) | Write clean, human-sounding README files |
-| 🎫 | [**helpscout-navigator**](#helpscout-navigator) | HelpScout search guidance with bundled MCP server |
-| 🤝 | [**happenstance**](#happenstance) | Network intelligence: research people and search your professional network |
-| 🏗 | [**project-bootstrap**](#project-bootstrap) | Auto-detect language, set up quality tooling, run quality gate PR reviews |
+| 💸 | [**subscription-cleanse**](https://github.com/drewburchfield/subscription-cleanse) | Find forgotten subscriptions bleeding your bank account |
+| 🧠 | [**braintrust**](https://github.com/drewburchfield/braintrust) | Delegate work to other AI CLIs and get second opinions |
+| 💼 | [**linkedin-message-triage**](https://github.com/drewburchfield/linkedin-message-triage) | Systematic inbox review and response drafting |
+| 📄 | [**markdown-to-confluence**](https://github.com/drewburchfield/markdown-to-confluence) | Convert Markdown to Confluence Storage Format |
+| 🏢 | [**cre-property-research**](https://github.com/drewburchfield/cre-property-research) | Commercial real estate research and market analysis |
+| 🔐 | [**1password-management**](https://github.com/drewburchfield/1password-management) | Proper syntax for 1Password CLI |
+| 📝 | [**readme-craft**](https://github.com/drewburchfield/readme-craft) | Write clean, human-sounding README files |
+| 🎫 | [**helpscout-navigator**](https://github.com/drewburchfield/helpscout-navigator) | HelpScout search guidance with bundled MCP server |
+| 🤝 | [**happenstance-navigator**](https://github.com/drewburchfield/happenstance-navigator) | Network intelligence: research people, search your professional network |
+| 🏗 | [**project-bootstrap**](https://github.com/drewburchfield/project-bootstrap) | Auto-detect language, set up quality tooling, run quality gate PR reviews |
 
 <br>
 
@@ -39,166 +39,7 @@ claude plugins install subscription-cleanse@not-my-job
 claude plugins install braintrust@not-my-job
 ```
 
-<br>
-
-<p align="center">· · ·</p>
-
-## Plugins
-
-### 💸 subscription-cleanse
-
-Comprehensive subscription audit using bank CSV analysis and email reconnaissance.
-
-| Feature | Description |
-|---------|-------------|
-| Bank CSV parsing | Apple Card, Chase, Mint, Capital One, etc. |
-| Transaction decoding | Privacy.com, PayPal, Square, Google, Apple |
-| Email recon | Gmail MCP integration |
-| Output | Interactive HTML audit report |
-
-<p align="center">―</p>
-
-### 🧠 braintrust
-
-Inspired by [this Reddit post](https://www.reddit.com/r/ChatGPTCoding/comments/1lm3fxq/gemini_cli_is_awesome_but_only_when_you_make/) and expanded with community learnings and real-world usage to work from any harness.
-
-| Use Case | Why |
-|----------|-----|
-| Offload grunt work | Have Gemini chew through your entire codebase (1M context) while you stay focused |
-| Second opinions | Models are blind to their own bugs; fresh weights spot issues instantly |
-| Design review | Gemini 3 dominates WebDev Arena — let it critique your UI before you ship |
-| Validate direction | Sanity check architecture decisions before you're 2000 lines deep |
-| Parallel research | Query all three simultaneously, synthesize the best answer |
-
-**Requires:** Claude Code CLI, Gemini CLI, Codex CLI
-
-<p align="center">―</p>
-
-### 💼 linkedin-message-triage
-
-Systematic LinkedIn inbox review and response drafting.
-
-- Filter real connections from solicitations
-- Identify messages needing responses
-- Draft personalized replies with career context
-- Handle delayed response acknowledgments
-
-**Requires:** Playwright MCP
-
-<p align="center">―</p>
-
-### 📄 markdown-to-confluence
-
-Convert Markdown documents to Confluence Storage Format (XHTML-based XML).
-
-- Standard markdown syntax
-- Code blocks with syntax highlighting
-- Tables, lists, links, images
-- Bundled Python conversion script
-
-<p align="center">―</p>
-
-### 🏢 cre-property-research
-
-Institutional-grade commercial real estate research and market analysis.
-
-- Multi-phase research framework
-- Market rate comparisons with source citations
-- Tenant prospecting strategies by property type
-- Competitive intelligence gathering
-
-**Property types:** Industrial · Flex · Office · Retail · Multifamily
-
-<p align="center">―</p>
-
-### 🔐 1password-management
-
-Proper syntax and best practices for 1Password CLI (`op`).
-
-- Correct `op item create` syntax
-- Complete field type reference
-- Category selection guide
-- Security best practices
-
-<p align="center">―</p>
-
-### 📝 readme-craft
-
-Write READMEs that are visually pleasing, appropriately scoped, and sound like a human wrote them.
-
-- Structure templates (minimal, standard, collection)
-- Visual polish techniques without overkill
-- Voice and tone guidance to avoid AI-generated vibes
-- Badge best practices
-
-<p align="center">―</p>
-
-### 🎫 helpscout-navigator
-
-Guidance for correctly using HelpScout MCP tools. Bundles the MCP server — auto-starts when plugin is enabled.
-
-- Decision tree for choosing the right search tool
-- Correct sequencing (always lookup inbox IDs first)
-- Prevents the "active-only" search trap
-- Complete parameter reference for all 9 tools
-
-**Requires:** `HELPSCOUT_APP_ID` and `HELPSCOUT_APP_SECRET` environment variables
-
-<p align="center">―</p>
-
-### 🤝 happenstance
-
-Research people and search your professional network using the [Happenstance](https://happenstance.ai) API. Bundles the MCP server — auto-starts when plugin is enabled.
-
-| Command | What it does | Credits |
-|---------|-------------|---------|
-| `/happenstance` | Research a person or search your network | 1-2 |
-| `/deep-search` | Search + auto-research top matches | 2+N |
-| `/warm-intro` | Find who can introduce you to people at a target company | 2+ |
-| `/meeting-prep` | Pre-meeting briefing: background + mutual connections + talking points | 3 |
-| `/network-scan` | Compare the same search across multiple groups | 2×G |
-| `/batch-prospect` | Exhaustive search with pagination and CSV/markdown export | 2+ |
-
-- MCP server (OAuth via Clerk, no API key needed) with 7 tools for search, research, and polling
-- Shell script fallback for batch/automated operations
-- Credit-aware workflows with balance checks and cost estimates
-- Async polling with timeout protection
-
-**Requires:** Happenstance account. `HAPPENSTANCE_API_KEY` for shell fallback only.
-
-<p align="center">―</p>
-
-### 🏗 project-bootstrap
-
-One-time setup for consistent quality gates across your projects.
-
-- Auto-detects language (TypeScript, Python, Go)
-- Installs and configures linting, formatting, and type checking
-- Configures issue tracker integration (Linear, Jira, GitHub Issues, or standalone)
-- Stop hook enforces quality gates on every Claude session
-- `/quality-gate` runs comprehensive PR review cycle with agent reviews, Devin.ai integration, and merge workflow
-  - Reads issue tracker config from `project-meta.json`
-  - Use `--local` flag for local-only pre-flight checks without creating PR
-
-**Languages:** TypeScript (ESLint + Prettier) · Python (ruff + pyright) · Go (built-in tooling)
-
-<br>
-
-<p align="center">· · ·</p>
-
-## Configuration
-
-```json
-{
-  "enabledPlugins": {
-    "subscription-cleanse@not-my-job": true,
-    "braintrust@not-my-job": true,
-    "happenstance@not-my-job": true
-  }
-}
-```
-
-<sup>`.claude/settings.json`</sup>
+Each plugin is independently maintained in its own repository. See individual plugin READMEs for detailed documentation.
 
 <br>
 

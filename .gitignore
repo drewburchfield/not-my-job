@@ -42,5 +42,8 @@ extracted_merchants.json
 # Dev-only MCP config (plugins bundle their own .mcp.json)
 /.mcp.json
 
-# Plugin runtime output (results, caches, logs)
-plugins/*/results/
+# Braintrust session output
+.braintrust/
+
+# Plugin repos (cloned locally for development, not part of marketplace)
+plugins/
