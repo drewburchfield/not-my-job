@@ -45,5 +45,8 @@ extracted_merchants.json
 # Braintrust session output
 .braintrust/
 
+# Local docs, plans, and previews
+docs/
+
 # Plugin repos (cloned locally for development, not part of marketplace)
 plugins/
