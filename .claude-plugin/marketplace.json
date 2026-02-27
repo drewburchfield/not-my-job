@@ -12,7 +12,7 @@
       "name": "subscription-cleanse",
       "source": {"source": "url", "url": "https://github.com/drewburchfield/subscription-cleanse.git"},
       "description": "Comprehensive subscription audit with bank CSV analysis and email reconnaissance",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "author": {"name": "Drew Burchfield"},
       "category": "productivity",
       "homepage": "https://github.com/drewburchfield/subscription-cleanse"
@@ -21,7 +21,7 @@
       "name": "braintrust",
       "source": {"source": "url", "url": "https://github.com/drewburchfield/braintrust.git"},
       "description": "Orchestrate other AI CLIs (Gemini, Codex, Claude Code) for second opinions, research, and codebase analysis",
-      "version": "1.3.0",
+      "version": "1.3.1",
       "author": {"name": "Drew Burchfield"},
       "category": "development",
       "homepage": "https://github.com/drewburchfield/braintrust"
@@ -30,7 +30,7 @@
       "name": "linkedin-message-triage",
       "source": {"source": "url", "url": "https://github.com/drewburchfield/linkedin-message-triage.git"},
       "description": "Systematic LinkedIn inbox review - filter solicitations, identify messages needing responses, draft replies",
-      "version": "1.0.7",
+      "version": "1.0.8",
       "author": {"name": "Drew Burchfield"},
       "category": "productivity",
       "homepage": "https://github.com/drewburchfield/linkedin-message-triage"
@@ -39,7 +39,7 @@
       "name": "markdown-to-confluence",
       "source": {"source": "url", "url": "https://github.com/drewburchfield/markdown-to-confluence.git"},
       "description": "Convert Markdown documents to Confluence Storage Format (XHTML-based XML)",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "author": {"name": "Drew Burchfield"},
       "category": "documentation",
       "homepage": "https://github.com/drewburchfield/markdown-to-confluence"
@@ -48,7 +48,7 @@
       "name": "cre-property-research",
       "source": {"source": "url", "url": "https://github.com/drewburchfield/cre-property-research.git"},
       "description": "Comprehensive commercial real estate property research and market analysis",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "author": {"name": "Drew Burchfield"},
       "category": "research",
       "homepage": "https://github.com/drewburchfield/cre-property-research"
@@ -57,7 +57,7 @@
       "name": "1password-management",
       "source": {"source": "url", "url": "https://github.com/drewburchfield/1password-management.git"},
       "description": "Proper syntax, field types, and best practices for managing credentials with 1Password CLI (op)",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "author": {"name": "Drew Burchfield"},
       "category": "security",
       "homepage": "https://github.com/drewburchfield/1password-management"
@@ -66,7 +66,7 @@
       "name": "readme-craft",
       "source": {"source": "url", "url": "https://github.com/drewburchfield/readme-craft.git"},
       "description": "Write clean, human-sounding README files for personal and open source projects",
-      "version": "1.0.5",
+      "version": "1.0.6",
       "author": {"name": "Drew Burchfield"},
       "category": "documentation",
       "homepage": "https://github.com/drewburchfield/readme-craft"
@@ -75,7 +75,7 @@
       "name": "helpscout-navigator",
       "source": {"source": "url", "url": "https://github.com/drewburchfield/helpscout-navigator.git"},
       "description": "HelpScout support ticket search with guidance for correct tool usage. Bundles HelpScout MCP server - auto-starts when plugin is enabled.",
-      "version": "1.0.8",
+      "version": "1.0.9",
       "author": {"name": "Drew Burchfield"},
       "category": "productivity",
       "homepage": "https://github.com/drewburchfield/helpscout-navigator"
@@ -84,7 +84,7 @@
       "name": "project-bootstrap",
       "source": {"source": "url", "url": "https://github.com/drewburchfield/project-bootstrap.git"},
       "description": "Auto-detect project language, set up quality tooling and stop hooks, run compound PR review cycles with agent reviews and Devin.ai integration",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "author": {"name": "Drew Burchfield"},
       "category": "development",
       "homepage": "https://github.com/drewburchfield/project-bootstrap"
@@ -93,7 +93,7 @@
       "name": "happenstance-navigator",
       "source": {"source": "url", "url": "https://github.com/drewburchfield/happenstance-navigator.git"},
       "description": "Network intelligence: research people, search professional networks, and run compound workflows (deep search, warm intros, meeting prep, network scanning, batch prospecting). Bundles Happenstance MCP server.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {"name": "Drew Burchfield"},
       "category": "research",
       "homepage": "https://github.com/drewburchfield/happenstance-navigator"
