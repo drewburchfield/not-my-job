@@ -43,16 +43,6 @@ Each plugin is independently maintained in its own repository. See individual pl
 
 <br>
 
-## Development
-
-This repo uses git submodules. After cloning:
-
-```bash
-git submodule update --init --recursive
-```
-
-<br>
-
 ## License
 
 MIT
