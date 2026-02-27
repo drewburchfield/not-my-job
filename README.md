@@ -2,18 +2,12 @@
 
 <img src="https://ghrb.waren.build/banner?header=not-my-job&subheader=Plugins%20for%20tasks%20you%27d%20rather%20not%20do%20yourself&bg=0a1628&secondaryBg=1e3a5f&color=e8f0fe&subheaderColor=7eb8da&headerFont=Inter&subheaderFont=Inter&support=false" alt="not-my-job" width="100%">
 
-<br><br>
-
-**Agentic coding tool plugins for tasks you'd rather not do yourself.**
-
 *Someone has to review your PRs, tell you when you're wrong, and deal with the tedious stuff. It's not going to be you!*
 
 ![License](https://img.shields.io/badge/license-MIT-blue)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/drewburchfield/not-my-job)
 
 </div>
-
-<br>
 
 | | Plugin | What it does |
 |:--:|--------|--------------|
@@ -42,8 +36,6 @@ claude plugins install project-bootstrap@not-my-job
 ```
 
 Each plugin is independently maintained in its own repository. See individual plugin READMEs for detailed documentation.
-
-<br>
 
 ## License
 
