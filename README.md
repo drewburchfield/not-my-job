@@ -13,6 +13,7 @@
 |:--:|--------|--------------|
 | 🧠 | [**braintrust**](https://github.com/drewburchfield/braintrust) | Orchestrate AI CLIs for second opinions and research |
 | 🏗️ | [**project-bootstrap**](https://github.com/drewburchfield/project-bootstrap) | Quality tooling and PR gates in one command |
+| 🔒 | [**openclaw-1password**](https://github.com/drewburchfield/openclaw-1password) | Zero plaintext secrets in OpenClaw with 1Password |
 | 🤝 | [**happenstance-navigator**](https://github.com/drewburchfield/happenstance-navigator) | Network intelligence with bundled MCP server |
 | 🎫 | [**helpscout-navigator**](https://github.com/drewburchfield/helpscout-navigator) | HelpScout ticket search with bundled MCP server |
 | 💸 | [**subscription-cleanse**](https://github.com/drewburchfield/subscription-cleanse) | Find forgotten subscriptions bleeding your bank account |

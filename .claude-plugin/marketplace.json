@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Personal productivity plugins for Claude Code",
-    "version": "2.0.0"
+    "version": "2.1.0"
   },
   "plugins": [
     {
@@ -97,6 +97,15 @@
       "author": {"name": "Drew Burchfield"},
       "category": "research",
       "homepage": "https://github.com/drewburchfield/happenstance-navigator"
+    },
+    {
+      "name": "openclaw-1password",
+      "source": {"source": "url", "url": "https://github.com/drewburchfield/openclaw-1password.git"},
+      "description": "Secure OpenClaw with 1Password service accounts using SecretRef exec providers. Includes setup automation, environment diagnosis, and repair tools.",
+      "version": "1.0.0",
+      "author": {"name": "Drew Burchfield"},
+      "category": "security",
+      "homepage": "https://github.com/drewburchfield/openclaw-1password"
     }
   ]
 }
