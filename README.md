@@ -2,7 +2,7 @@
 
 <img src="https://ghrb.waren.build/banner?header=not-my-job&subheader=Plugins%20for%20tasks%20you%27d%20rather%20not%20do%20yourself&bg=0a1628&secondaryBg=1e3a5f&color=e8f0fe&subheaderColor=7eb8da&headerFont=Inter&subheaderFont=Inter&support=false" alt="not-my-job" width="100%">
 
-*Someone has to review your PRs, tell you when you're wrong, and deal with the tedious stuff. It's not going to be you!*
+*Someone has to secure your secrets, sort your inbox, and tell you when you're wrong. It's not going to be you.*
 
 ![License](https://img.shields.io/badge/license-MIT-blue)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/drewburchfield/not-my-job)
@@ -13,15 +13,15 @@
 |:--:|--------|--------------|
 | 🧠 | [**braintrust**](https://github.com/drewburchfield/braintrust) | Orchestrate AI CLIs for second opinions and research |
 | 🏗️ | [**project-bootstrap**](https://github.com/drewburchfield/project-bootstrap) | Quality tooling and PR gates in one command |
-| 🔒 | [**openclaw-1password**](https://github.com/drewburchfield/openclaw-1password) | Zero plaintext secrets in OpenClaw with 1Password |
+| 🦞 | [**openclaw-1password**](https://github.com/drewburchfield/openclaw-1password) | Zero plaintext secrets in OpenClaw with 1Password |
 | 🤝 | [**happenstance-navigator**](https://github.com/drewburchfield/happenstance-navigator) | Network intelligence with bundled MCP server |
-| 🎫 | [**helpscout-navigator**](https://github.com/drewburchfield/helpscout-navigator) | HelpScout ticket search with bundled MCP server |
+| <img src="https://cdn.simpleicons.org/helpscout" width="22" height="22"> | [**helpscout-navigator**](https://github.com/drewburchfield/helpscout-navigator) | HelpScout ticket search with bundled MCP server |
 | 💸 | [**subscription-cleanse**](https://github.com/drewburchfield/subscription-cleanse) | Find forgotten subscriptions bleeding your bank account |
-| 💼 | [**linkedin-message-triage**](https://github.com/drewburchfield/linkedin-message-triage) | Sort your LinkedIn inbox and draft real replies |
+| <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linkedin.svg" width="22" height="22"> | [**linkedin-message-triage**](https://github.com/drewburchfield/linkedin-message-triage) | Sort your LinkedIn inbox and draft real replies |
 | 🏢 | [**cre-property-research**](https://github.com/drewburchfield/cre-property-research) | Commercial real estate research and market analysis |
 | 📝 | [**readme-craft**](https://github.com/drewburchfield/readme-craft) | Write READMEs that don't sound like a robot wrote them |
-| 📄 | [**markdown-to-confluence**](https://github.com/drewburchfield/markdown-to-confluence) | Markdown to Confluence without the pain |
-| 🔐 | [**1password-management**](https://github.com/drewburchfield/1password-management) | 1Password CLI syntax done right |
+| <img src="https://cdn.simpleicons.org/confluence" width="22" height="22"> | [**markdown-to-confluence**](https://github.com/drewburchfield/markdown-to-confluence) | Markdown to Confluence without the pain |
+| <img src="https://cdn.simpleicons.org/1password" width="22" height="22"> | [**1password-management**](https://github.com/drewburchfield/1password-management) | 1Password CLI syntax done right |
 
 <br>
 

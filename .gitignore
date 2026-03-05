@@ -36,8 +36,9 @@ __pycache__/
 *.json.tmp
 extracted_merchants.json
 
-# Claude Code local overrides (project settings are tracked)
-.claude/settings.local.json
+# Claude Code local config (dev-only, not part of marketplace)
+.claude/
+CLAUDE.md
 
 # Dev-only MCP config (plugins bundle their own .mcp.json)
 /.mcp.json

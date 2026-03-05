@@ -4,7 +4,7 @@
     "name": "Drew Burchfield"
   },
   "metadata": {
-    "description": "Personal productivity plugins for Claude Code",
+    "description": "Workflow plugins for Claude Code and other AI coding assistants",
     "version": "2.1.0"
   },
   "plugins": [
