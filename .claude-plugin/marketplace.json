@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Workflow plugins for Claude Code and other AI coding assistants",
-    "version": "2.1.0"
+    "version": "2.1.1"
   },
   "plugins": [
     {
@@ -21,7 +21,7 @@
       "name": "braintrust",
       "source": {"source": "url", "url": "https://github.com/drewburchfield/braintrust.git"},
       "description": "Orchestrate other AI CLIs (Gemini, Codex, Claude Code) for second opinions, research, and codebase analysis",
-      "version": "1.5.0",
+      "version": "1.5.1",
       "author": {"name": "Drew Burchfield"},
       "category": "development",
       "homepage": "https://github.com/drewburchfield/braintrust"
