@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Workflow plugins for Claude Code and other AI coding assistants",
-    "version": "2.1.1"
+    "version": "2.1.2"
   },
   "plugins": [
     {
@@ -83,8 +83,8 @@
     {
       "name": "project-bootstrap",
       "source": {"source": "url", "url": "https://github.com/drewburchfield/project-bootstrap.git"},
-      "description": "Auto-detect project language, set up quality tooling and stop hooks, run compound PR review cycles with agent reviews and Devin.ai integration",
-      "version": "1.2.1",
+      "description": "Auto-detect project language, set up quality tooling and stop hooks, run compound PR review cycles, ship PRs, and supervise developer handoffs",
+      "version": "1.3.0",
       "author": {"name": "Drew Burchfield"},
       "category": "development",
       "homepage": "https://github.com/drewburchfield/project-bootstrap"
