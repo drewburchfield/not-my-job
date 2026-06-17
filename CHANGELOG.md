@@ -4,6 +4,24 @@ All notable changes to the not-my-job marketplace.
 
 ---
 
+## [2.3.0] - 2026-06-17
+
+### Changed
+- Bumped marketplace metadata to 2.3.0
+- Updated braintrust plugin reference to 1.8.0 (grounded protocol, Goal Cards with session scoping, etc.)
+
+### braintrust
+#### 1.8.0
+- Integrate Skeptical Colleague / grounded protocol (6-step: goal restatement, assumptions audit, evidence mandate, fidelity check, honesty review, explicit GROUNDED/NOT GROUNDED verdict)
+- Add Goal Cards with `session_anchor` for thread/session scoping; default history search limited to same session (per preference)
+- Goal Cards stored at `.braintrust/goal-cards/` (standard location next to sessions)
+- Active context curation in orchestrator; replaces variable host-agent context packaging
+- Grok leg prefers `/grounded-colleague` routing when available
+- Updated all invocation strategies, protocol docs, templates, examples, and saving format
+- Minor version bump
+
+---
+
 ## [2.0.0] - 2026-02-26
 
 ### Changed
