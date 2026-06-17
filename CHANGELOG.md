@@ -20,6 +20,15 @@ History from when plugins were bundled in this repo. Future changes are tracked 
 
 ### braintrust
 
+#### 1.8.0
+- Integrate Skeptical Colleague / grounded protocol (6-step: goal restatement, assumptions audit, evidence mandate, fidelity check, honesty review, explicit GROUNDED/NOT GROUNDED verdict)
+- Add Goal Cards with `session_anchor` for thread/session scoping; default history search limited to same session (per preference)
+- Goal Cards stored at `.braintrust/goal-cards/` (standard location next to sessions)
+- Active context curation in orchestrator; replaces variable host-agent context packaging
+- Grok leg prefers `/grounded-colleague` routing when available
+- Updated all invocation strategies, protocol docs, templates, examples, and saving format
+- Minor version bump
+
 #### 1.3.0 (2026-02-16)
 - Add context packaging template for project-aware outbound queries
 - Add session persistence: save consultation results to `.braintrust/sessions/`
