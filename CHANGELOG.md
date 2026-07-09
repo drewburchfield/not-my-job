@@ -4,6 +4,24 @@ All notable changes to the not-my-job marketplace.
 
 ---
 
+## [2.4.0] - 2026-07-09
+
+### Changed
+- Bumped marketplace metadata to 2.4.0
+- Updated braintrust plugin reference to 1.9.0 (multi-harness hybrid skill, no Gemini CLI, OpenCode, durable evals)
+
+### braintrust
+#### 1.9.0
+- Hybrid always-on skill (eval-backed); deep docs in references/ on demand
+- Remove Gemini CLI; Google path is agy only
+- Add OpenCode with user-default model discovery (no hardcoded vendor id)
+- Grok default model grok-4.5; Codex clean CODEX_HOME + --ignore-user-config
+- Multi-host matrix: Claude Code, Codex, Grok, OpenCode, agy
+- Probe/PTY scripts as real assets; durable matrix evals under evals/
+- Minor version bump
+
+---
+
 ## [2.3.0] - 2026-06-17
 
 ### Changed
