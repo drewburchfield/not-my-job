@@ -4,6 +4,23 @@ All notable changes to the not-my-job marketplace.
 
 ---
 
+## [2.5.0] - 2026-07-09
+
+### Changed
+- Bumped marketplace metadata to 2.5.0
+- Archived three plugins from the installable catalog (repos remain live and independently maintained):
+  - `linkedin-message-triage` (1.0.8)
+  - `markdown-to-confluence` (1.0.7)
+  - `cre-property-research` (1.0.7)
+- Recorded them under `metadata.archived` in marketplace.json (not installable; for bookkeeping)
+- README: active plugin table reflects catalog; archived section documents repos + reason
+- pre-commit: skip version sync for plugins listed in `metadata.archived`
+
+### Active catalog (8)
+- braintrust, project-bootstrap, openclaw-1password, happenstance-navigator, helpscout-navigator, subscription-cleanse, readme-craft, 1password-management
+
+---
+
 ## [2.4.0] - 2026-07-09
 
 ### Changed

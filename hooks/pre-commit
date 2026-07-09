@@ -41,7 +41,9 @@ if git diff --cached --name-only | grep -E 'package\.json|package-lock\.json' 2>
     fi
 fi
 
-# Check plugin.json versions match marketplace.json
+# Check plugin.json versions match marketplace.json (active catalog only)
+# Plugins listed under metadata.archived may remain as local clones without
+# appearing in the installable plugins array.
 MARKETPLACE=".claude-plugin/marketplace.json"
 if [ -f "$MARKETPLACE" ]; then
     MISMATCH=""
@@ -52,13 +54,20 @@ if [ -f "$MARKETPLACE" ]; then
         mver=$(python3 -c "
 import json
 d = json.load(open('$MARKETPLACE'))
-for p in d['plugins']:
-    if p['name'] == '$name':
-        print(p['version'])
-        break
+archived = {a.get('name') for a in d.get('metadata', {}).get('archived', []) if a.get('name')}
+if '$name' in archived:
+    print('ARCHIVED')
 else:
-    print('MISSING')
+    for p in d.get('plugins', []):
+        if p.get('name') == '$name':
+            print(p.get('version', ''))
+            break
+    else:
+        print('MISSING')
 " 2>/dev/null)
+        if [ "$mver" = "ARCHIVED" ]; then
+            continue
+        fi
         if [ -n "$pver" ] && [ -n "$mver" ] && [ "$pver" != "$mver" ]; then
             MISMATCH="${MISMATCH}\n   $name: plugin.json=$pver  marketplace.json=$mver"
         fi
@@ -69,6 +78,7 @@ else:
         echo -e "$MISMATCH"
         echo ""
         echo "   Update both files to use the same version before committing."
+        echo "   Or list the plugin under metadata.archived if it left the active catalog."
         exit 1
     fi
 fi

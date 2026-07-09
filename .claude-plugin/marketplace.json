@@ -5,7 +5,27 @@
   },
   "metadata": {
     "description": "Workflow plugins for Claude Code and other AI coding assistants",
-    "version": "2.4.0"
+    "version": "2.5.0",
+    "archived": [
+      {
+        "name": "linkedin-message-triage",
+        "version": "1.0.8",
+        "homepage": "https://github.com/drewburchfield/linkedin-message-triage",
+        "reason": "LinkedIn triage lives elsewhere; marketplace entry was stale"
+      },
+      {
+        "name": "markdown-to-confluence",
+        "version": "1.0.7",
+        "homepage": "https://github.com/drewburchfield/markdown-to-confluence",
+        "reason": "Niche Confluence converter; not day-to-day"
+      },
+      {
+        "name": "cre-property-research",
+        "version": "1.0.7",
+        "homepage": "https://github.com/drewburchfield/cre-property-research",
+        "reason": "CRE research playbook; park until actively used"
+      }
+    ]
   },
   "plugins": [
     {
@@ -35,48 +55,6 @@
       },
       "category": "development",
       "homepage": "https://github.com/drewburchfield/braintrust"
-    },
-    {
-      "name": "linkedin-message-triage",
-      "source": {
-        "source": "url",
-        "url": "https://github.com/drewburchfield/linkedin-message-triage.git"
-      },
-      "description": "Systematic LinkedIn inbox review - filter solicitations, identify messages needing responses, draft replies",
-      "version": "1.0.8",
-      "author": {
-        "name": "Drew Burchfield"
-      },
-      "category": "productivity",
-      "homepage": "https://github.com/drewburchfield/linkedin-message-triage"
-    },
-    {
-      "name": "markdown-to-confluence",
-      "source": {
-        "source": "url",
-        "url": "https://github.com/drewburchfield/markdown-to-confluence.git"
-      },
-      "description": "Convert Markdown documents to Confluence Storage Format (XHTML-based XML)",
-      "version": "1.0.7",
-      "author": {
-        "name": "Drew Burchfield"
-      },
-      "category": "documentation",
-      "homepage": "https://github.com/drewburchfield/markdown-to-confluence"
-    },
-    {
-      "name": "cre-property-research",
-      "source": {
-        "source": "url",
-        "url": "https://github.com/drewburchfield/cre-property-research.git"
-      },
-      "description": "Comprehensive commercial real estate property research and market analysis",
-      "version": "1.0.7",
-      "author": {
-        "name": "Drew Burchfield"
-      },
-      "category": "research",
-      "homepage": "https://github.com/drewburchfield/cre-property-research"
     },
     {
       "name": "1password-management",

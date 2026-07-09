@@ -17,10 +17,7 @@
 | 🤝 | [**happenstance-navigator**](https://github.com/drewburchfield/happenstance-navigator) | Network intelligence with bundled MCP server |
 | <img src="https://cdn.simpleicons.org/helpscout" width="22" height="22"> | [**helpscout-navigator**](https://github.com/drewburchfield/helpscout-navigator) | HelpScout ticket search with bundled MCP server |
 | 💸 | [**subscription-cleanse**](https://github.com/drewburchfield/subscription-cleanse) | Find forgotten subscriptions bleeding your bank account |
-| <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linkedin.svg" width="22" height="22"> | [**linkedin-message-triage**](https://github.com/drewburchfield/linkedin-message-triage) | Sort your LinkedIn inbox and draft real replies |
-| 🏢 | [**cre-property-research**](https://github.com/drewburchfield/cre-property-research) | Commercial real estate research and market analysis |
 | 📝 | [**readme-craft**](https://github.com/drewburchfield/readme-craft) | Write READMEs that don't sound like a robot wrote them |
-| <img src="https://cdn.simpleicons.org/confluence" width="22" height="22"> | [**markdown-to-confluence**](https://github.com/drewburchfield/markdown-to-confluence) | Markdown to Confluence without the pain |
 | <img src="https://cdn.simpleicons.org/1password" width="22" height="22"> | [**1password-management**](https://github.com/drewburchfield/1password-management) | 1Password CLI syntax done right |
 
 <br>
@@ -37,6 +34,16 @@ claude plugins install project-bootstrap@not-my-job
 ```
 
 Each plugin is independently maintained in its own repository. See individual plugin READMEs for detailed documentation.
+
+## Archived (repos live, not in marketplace)
+
+These plugins are no longer listed for install via this marketplace. The repositories stay available if you want them by URL or local clone.
+
+| Plugin | Repo | Why archived |
+|--------|------|--------------|
+| linkedin-message-triage | [drewburchfield/linkedin-message-triage](https://github.com/drewburchfield/linkedin-message-triage) | LinkedIn triage lives elsewhere (e.g. comms-loop); marketplace entry was stale |
+| markdown-to-confluence | [drewburchfield/markdown-to-confluence](https://github.com/drewburchfield/markdown-to-confluence) | Niche Confluence converter; not day-to-day |
+| cre-property-research | [drewburchfield/cre-property-research](https://github.com/drewburchfield/cre-property-research) | CRE research playbook; park until actively used |
 
 ## License
 
