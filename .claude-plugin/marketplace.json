@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Workflow plugins for Claude Code and other AI coding assistants",
-    "version": "2.6.2",
+    "version": "2.7.0",
     "archived": [
       {
         "name": "linkedin-message-triage",
@@ -63,7 +63,7 @@
         "url": "https://github.com/drewburchfield/1password-management.git"
       },
       "description": "1Password CLI (op) for agents: auth, item CRUD, secret references, op run/inject/read, service accounts",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "author": {
         "name": "Drew Burchfield"
       },
@@ -133,7 +133,7 @@
         "url": "https://github.com/drewburchfield/openclaw-1password.git"
       },
       "description": "Secure OpenClaw with 1Password service accounts using SecretRef exec providers. Includes setup automation, environment diagnosis, and repair tools.",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "author": {
         "name": "Drew Burchfield"
       },
