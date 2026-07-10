@@ -12,7 +12,7 @@
 | | Plugin | What it does |
 |:--:|--------|--------------|
 | 🧠 | [**braintrust**](https://github.com/drewburchfield/braintrust) | Orchestrate AI CLIs for second opinions and research |
-| 🏗️ | [**project-bootstrap**](https://github.com/drewburchfield/project-bootstrap) | Quality tooling and PR gates in one command |
+| 🏗️ | [**project-bootstrap**](https://github.com/drewburchfield/project-bootstrap) | Quality tooling, multi-harness Review Suite gates, ship/supervision loops |
 | 🦞 | [**openclaw-1password**](https://github.com/drewburchfield/openclaw-1password) | Zero plaintext secrets in OpenClaw with 1Password |
 | 🤝 | [**happenstance-navigator**](https://github.com/drewburchfield/happenstance-navigator) | Network intelligence with bundled MCP server |
 | <img src="https://cdn.simpleicons.org/helpscout" width="22" height="22"> | [**helpscout-navigator**](https://github.com/drewburchfield/helpscout-navigator) | HelpScout ticket search with bundled MCP server |
