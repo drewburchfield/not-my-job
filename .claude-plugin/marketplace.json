@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Workflow plugins for Claude Code and other AI coding assistants",
-    "version": "2.6.1",
+    "version": "2.6.2",
     "archived": [
       {
         "name": "linkedin-message-triage",
@@ -62,8 +62,8 @@
         "source": "url",
         "url": "https://github.com/drewburchfield/1password-management.git"
       },
-      "description": "1Password CLI (op) for agents: auth, item CRUD, secret references, op run/inject/read",
-      "version": "1.1.0",
+      "description": "1Password CLI (op) for agents: auth, item CRUD, secret references, op run/inject/read, service accounts",
+      "version": "1.2.0",
       "author": {
         "name": "Drew Burchfield"
       },

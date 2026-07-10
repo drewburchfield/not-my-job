@@ -4,6 +4,20 @@ All notable changes to the not-my-job marketplace.
 
 ---
 
+## [2.6.2] - 2026-07-10
+
+### Changed
+- Bumped marketplace metadata to 2.6.2
+- Updated 1password-management to 1.2.0
+
+### 1password-management
+#### 1.2.0
+- Hybrid skill: auth, agent hygiene, item create, secrets runtime
+- Service accounts, multi-account, vaults/documents, shell plugins
+- op run / inject / read first-class
+
+---
+
 ## [2.6.1] - 2026-07-10
 
 ### Changed
