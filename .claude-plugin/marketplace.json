@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Workflow plugins for Claude Code and other AI coding assistants",
-    "version": "2.5.0",
+    "version": "2.6.0",
     "archived": [
       {
         "name": "linkedin-message-triage",
@@ -104,8 +104,8 @@
         "source": "url",
         "url": "https://github.com/drewburchfield/project-bootstrap.git"
       },
-      "description": "Auto-detect project language, set up quality tooling and stop hooks, run compound PR review cycles, ship PRs, detect docs drift, and supervise developer handoffs",
-      "version": "1.4.0",
+      "description": "Auto-detect project language, set up quality tooling and stop hooks, multi-harness Review Suite quality-gate/ship-loop/supervision-loop, docs drift",
+      "version": "1.5.0",
       "author": {
         "name": "Drew Burchfield"
       },

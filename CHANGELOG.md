@@ -4,6 +4,21 @@ All notable changes to the not-my-job marketplace.
 
 ---
 
+## [2.6.0] - 2026-07-10
+
+### Changed
+- Bumped marketplace metadata to 2.6.0
+- Updated project-bootstrap plugin reference to 1.5.0 (multi-harness Review Suite)
+
+### project-bootstrap
+#### 1.5.0
+- Portable Review Suite (SPEC, six lenses, host adapters for Claude/Codex/Grok/OpenCode/agy)
+- quality-gate hybrid rewrite: capability probe, tier honesty, no unconditional Devin sleep
+- ship-loop and supervision-loop wire to same suite; supervision genericized (operator)
+- Deterministic evals with v1.4.0 A/B baselines (77 checks green)
+
+---
+
 ## [2.5.0] - 2026-07-09
 
 ### Changed
