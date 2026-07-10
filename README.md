@@ -18,7 +18,7 @@
 | <img src="https://cdn.simpleicons.org/helpscout" width="22" height="22"> | [**helpscout-navigator**](https://github.com/drewburchfield/helpscout-navigator) | HelpScout ticket search with bundled MCP server |
 | 💸 | [**subscription-cleanse**](https://github.com/drewburchfield/subscription-cleanse) | Find forgotten subscriptions bleeding your bank account |
 | 📝 | [**readme-craft**](https://github.com/drewburchfield/readme-craft) | Write READMEs that don't sound like a robot wrote them |
-| <img src="https://cdn.simpleicons.org/1password" width="22" height="22"> | [**1password-management**](https://github.com/drewburchfield/1password-management) | 1Password CLI syntax done right |
+| <img src="https://cdn.simpleicons.org/1password" width="22" height="22"> | [**1password-management**](https://github.com/drewburchfield/1password-management) | 1Password CLI for agents: auth, CRUD, run/inject/read |
 
 <br>
 

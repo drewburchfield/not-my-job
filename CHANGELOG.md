@@ -4,6 +4,21 @@ All notable changes to the not-my-job marketplace.
 
 ---
 
+## [2.6.1] - 2026-07-10
+
+### Changed
+- Bumped marketplace metadata to 2.6.1
+- Updated 1password-management plugin reference to 1.1.0 (agent auth, run/inject/read, item create)
+
+### 1password-management
+#### 1.1.0
+- Hybrid skill: auth ladder, service accounts, agent hygiene
+- `op run` / `op inject` / `op read` and secret references first-class
+- Item create recipes in references/item-create.md
+- OpenClaw remains openclaw-1password plugin
+
+---
+
 ## [2.6.0] - 2026-07-10
 
 ### Changed
