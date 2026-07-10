@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Workflow plugins for Claude Code and other AI coding assistants",
-    "version": "2.7.0",
+    "version": "2.6.3",
     "archived": [
       {
         "name": "linkedin-message-triage",
