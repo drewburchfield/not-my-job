@@ -62,8 +62,8 @@
         "source": "url",
         "url": "https://github.com/drewburchfield/1password-management.git"
       },
-      "description": "1Password CLI (op) for agents: auth, item CRUD, secret references, op run/inject/read, service accounts",
-      "version": "1.2.1",
+      "description": "1Password CLI (op) for agents: auth, item CRUD, secret references, op run/inject/read, service accounts, Environments, SSH & Git signing",
+      "version": "1.3.0",
       "author": {
         "name": "Drew Burchfield"
       },
