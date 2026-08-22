@@ -4,6 +4,20 @@ All notable changes to the not-my-job marketplace.
 
 ---
 
+## [2.6.6] - 2026-08-22
+
+### Changed
+- Bumped marketplace metadata to 2.6.6
+- Updated braintrust plugin reference to 1.11.0
+
+### braintrust
+#### 1.11.0
+- Claude consult default `opus`; agy pin `gemini-3.7-flash-high` with JSON print output
+- Grok default `grok-4.6`; OpenCode `--variant max` when the resolved model contains `glm-5.3`
+- Codex remains `gpt-5.6-sol`; harness invocation refresh (agy JSON, Grok `--no-auto-update`, Codex `error`/`turn.failed`)
+
+---
+
 ## [2.6.2] - 2026-07-10
 
 ### Changed
