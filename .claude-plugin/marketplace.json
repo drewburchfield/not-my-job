@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Workflow plugins for Claude Code and other AI coding assistants",
-    "version": "2.7.0",
+    "version": "2.8.0",
     "archived": [
       {
         "name": "linkedin-message-triage",
@@ -48,8 +48,8 @@
         "source": "url",
         "url": "https://github.com/drewburchfield/braintrust.git"
       },
-      "description": "Orchestrate other AI CLIs (Antigravity/agy, Codex, Grok, OpenCode, Claude Code) for second opinions, research, and codebase analysis. No Gemini CLI. Hybrid always-on skill (eval-backed). Identity-isolated peers (no ambient hooks/MCP).",
-      "version": "1.12.0",
+      "description": "Orchestrate other AI CLIs (Antigravity/agy, Codex, Cursor or Grok, OpenCode, Claude Code) for second opinions, research, and codebase analysis. No Gemini CLI. Hybrid always-on skill (eval-backed). Identity-isolated peers (no ambient hooks/MCP).",
+      "version": "1.13.0",
       "author": {
         "name": "Drew Burchfield"
       },
